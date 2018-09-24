@@ -4,6 +4,7 @@
  \setlength{\textheight}{9in}
  \setlength{\oddsidemargin}{.125in}
  \setlength{\textwidth}{6.25in}
+ \usepackage[table,xcdraw]{xcolor}
 \begin{document}
  
 \tableofcontents{}
@@ -276,6 +277,26 @@ Organisatsiooni välised pädevusalad.
 	\item Raamatupidaja
 \end{itemize}
  
+Tabel 2 esitab sisulised funktsionaalsed allsüsteemid ja nende teenidatavad registrid (seotud organisatsiooni põhitegevusega). %TODO: Improve formatting
+ \\
+ \par
+\textbf{Tabel 2 Sisulised allsüsteemid.} 
+\begin{table}[] %TODO: Correct table positioning
+	\begin{tabular}{|l|l|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Funktsionaalne allsüsteem}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Register, mida see funktsionaalne \\ allsüsteem teenindab\end{tabular}}} \\ \hline
+		Klientide funktsionaalne allsüsteem                                              & Klientide register                                                                                                                                      \\ \hline
+		Autode funktsionaalne allsüsteem                                                 & Autode register                                                                                                                                         \\ \hline
+		Hinnakirja funktsionaalne allsüsteem                                             & Hinnakirja register                                                                                                                                     \\ \hline
+		Lisavarustuse funktsionaalne allsüsteem                                          & Lisavarustuse register                                                                                                                                  \\ \hline
+		Rentimise funktsionaalne allsüsteem                                              & Rentimiste register                                                                                                                                     \\ \hline
+		Soodustuste funktsionaalne allsüsteem                                            & Soodustuste register                                                                                                                                    \\ \hline
+		Kahjunõuete funktsionaalne allsüsteem                                            & Kahjunõuete register                                                                                                                                    \\ \hline
+		Rikete funktsionaalne allsüsteem                                                 & Rikete register                                                                                                                                         \\ \hline
+		Tagasiside funktsionaalne allsüsteem                                             & Tagasiside register                                                                                                                                     \\ \hline
+	\end{tabular}
+\end{table}
 
  
 
