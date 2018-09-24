@@ -27,36 +27,292 @@ Järgnevalt esitatakse ülevaade autorendi ettevõtte infosüsteemi toimimisest.
  
 \subsection{Infosüsteemi eesmärgid}
 \begin{itemize}
- \item Saada ülevaade organisatsiooniga seotud isikutest
- \item Saada ülevaade organisatsiooni töötajatest
- \item Saada ülevaade organisatsiooni klientidest
- \item Saada ülevaade organisatsiooni sõlmitud lepingutest
- \item Võimaldada klassifikaatorite abil andmete liigitamist ja seostamist seostamiseks väljaspool organisatsiooni vastutusala oleva informatsiooniga
- \item Saada ülevaade autodest, millega tehingute (transaktsioonide) tegemine on üks organisatsiooni põhieesmärk
- \item Saada ülevaade organisatsiooni käsutuses olevatest varadest
- \item Võimaldada organisatsioonil luua vara tarnetellimusi
- \item Saada ülevaade organisatsiooni töötajate töögraafikust
- \item Saada ülevaade vabadest autodest
- \item Saada ülevaade kasutusel olevatest autodest
- \item Saada ülevaade organisatsiooniga seotud lepingupartneritest
- \item Võimaldada hallata hinnakirja
- \item Saada ülevaade autode rikete ajaloo kohta
- \item Võimaldada autosid rutiinselt hooldusse saata
- \item Saada ülevaade autode kindlustuslepingutest
- \item Saada ülevaade autode tehnilise ülevaatusese seisundist
- \item Võimaldada klientidel autosid rentida
- \item Võimaldada rentimist tühistada
- \item Võimaldada jälgida autode tagastamisi
- \item Võimaldada pakkuda kliendile sobivat lisavarustust
- \item Saada ülevaade kliendi minevikust
- \item Võimaldada esitada kahjunõudeid
- \item Võimaldada esitada arveid
- \item Võimaldada kliendil jätta tagasiside oma rendikogemuse kohta
- \item Võimaldada klientidele pakkuda soodustusi
- \item Saada ülevaade organisatsioonile tehtud ettekirjutustest
+	\item Saada ülevaade organisatsiooniga seotud isikutest
+	\item Saada ülevaade organisatsiooni töötajatest
+	\item Saada ülevaade organisatsiooni klientidest
+	\item Saada ülevaade organisatsiooni sõlmitud lepingutest
+	\item Võimaldada klassifikaatorite abil andmete liigitamist ja seostamist seostamiseks väljaspool organisatsiooni vastutusala oleva informatsiooniga
+	\item Saada ülevaade autodest, millega tehingute (transaktsioonide) tegemine on üks organisatsiooni põhieesmärk
+	\item Saada ülevaade organisatsiooni käsutuses olevatest varadest
+	\item Võimaldada organisatsioonil luua vara tarnetellimusi
+	\item Saada ülevaade organisatsiooni töötajate töögraafikust
+	\item Saada ülevaade vabadest autodest
+	\item Saada ülevaade kasutusel olevatest autodest
+	\item Saada ülevaade organisatsiooniga seotud lepingupartneritest
+	\item Võimaldada hallata hinnakirja
+	\item Saada ülevaade autode rikete ajaloo kohta
+	\item Võimaldada autosid rutiinselt hooldusse saata
+	\item Saada ülevaade autode kindlustuslepingutest
+	\item Saada ülevaade autode tehnilise ülevaatusese seisundist
+	\item Võimaldada klientidel autosid rentida
+	\item Võimaldada rentimist tühistada
+	\item Võimaldada jälgida autode tagastamisi
+	\item Võimaldada pakkuda kliendile sobivat lisavarustust
+	\item Saada ülevaade kliendi minevikust
+	\item Võimaldada esitada kahjunõudeid
+	\item Võimaldada esitada arveid
+	\item Võimaldada kliendil jätta tagasiside oma rendikogemuse kohta
+	\item Võimaldada klientidele pakkuda soodustusi
+	\item Saada ülevaade organisatsioonile tehtud ettekirjutustest
+\end{itemize}
+
+\subsection{Lausendid}
+\begin{itemize}
+	\item Isikul on hetkeseisund
+	\item Isiku seisundi liik on klassifikaator
+	\item Töötaja on isik
+	\item Töötajal on hetkeseisund
+	\item Töötaja seisundi liik on klassifikaator
+	\item Töötaja töötab ametis
+	\item Amet on klassifikaator
+	\item Juhataja on töötaja
+	\item Autode haldur on töötaja
+	\item Klient on isik
+	\item Kliendil on hetkeseisund
+	\item Uudistaja on süsteemi tuvastamata kasutaja
+	\item Kliendi seisundi liik on klassifikaator
+	\item Juhataja on organisatsiooni omanik
+	\item Autode haldur haldab autosid
+	\item Klassifikaatorite haldur haldab klassifikaatoreid
+	\item Klienditeenindaja on töötaja
+	\item Autojuht on töötaja
+	\item Raamatupidaja on lepingupartner
+	\item Klient sõlmib lepingu
+	\item Lepingul on hetkeseisund
+	\item Lepingu seisundi liik on klassifikaator
+	\item Töötaja registreerib auto
+	\item Autot iseloomustab null või rohkem kategooriat
+	\item Auto kategooria on klassifikaator
+	\item Autol on hetkeseisund
+	\item Auto seisundi liik on klassifikaator
+	\item Organisatsioonil on hetke seisund
+	\item Organisatsiooni seisundi liik on klassifikaator
+	\item Organisatsioon võib olla klient
+	\item Töötajal on töögraafik
+	\item Töögraafikul on hetkeseisund
+	\item Töögraafiku hetkeseisund on klassifikaator
+	\item Auto on hinnastatud hinnakirja alusel
+	\item Hinnakirjal on hetkeseisund
+	\item Hinnakirja seisundi liik on klassifikaator
+	\item Lisavarustusel on hetkeseisund
+	\item Lisavarustuse seisundi liik on klassifikaator
+	\item Rentimisel on hetkeseisund
+	\item Rentimise seisundi liik on klassifikaator
+	\item Soodustusel on hetkeseisund
+	\item Soodustuse seisundi liik on klassifikaator
+	\item Kindlustusleping on iga auto kohta eraldi
+	\item Kindlustuslepingul on hetkeseisund
+	\item Kindlustuslepingu seisundi liik on klassifikaator
+	\item Ülevaatus on iga auto kohta eraldi
+	\item Ülevaatusel on hetkeseisund
+	\item Ülevaatuse seisundi liik on klassifikaator
+	\item Arvel on hetkeseisund
+	\item Arve seisundi liik on klassifikaator
+	\item Kahjunõudel on hetkeseisund
+	\item Kahjunõude seisundi liik on klassifikaator
+	\item Inventuuril on hetkeseisund
+	\item Inventuuri seisundi liik on klassifikaator
+	\item Rikkel on hetkeseisund
+	\item Rikke seisundi liik on klassifikaator
+	\item Hooldusel on hetkeseisund
+	\item Hoolduse seisundi liik on klassifikaator
+	\item Vara tarnetellimusel on hetkeseisund
+	\item Vara tarnetellimuse seisundi liik on klassifikaator
+	\item Lepingupartner on teine organisatsioon
+	\item Lepingupartneril on hetkeseisund
+	\item Lepingupartneri seisundi liik on klassifikaator
+	\item Lepingupartner sõlmib lepingu
+	\item Tagasisidel on hetkeseisund
+	\item Tagasiside seisundi liik on klassifikaator
+	\item Organisatsioonile tehakse ettekirjutus 
+	\item Ettekirjutusel on hetkeseisund
+	\item Ettekirjutuse seisundi liik on klassifikaator
+	\item Ettekirjutuse koostab andmekaitse inspektsioon
+\end{itemize}
+ 
+\subsection{Põhiobjektid}
+\begin{itemize}
+ 	\item Isik
+ 	\item Organisatsioon
+ 	\item Töötaja
+ 	\item Klient
+ 	\item Klassifikaator
+ 	\item Töögraafik
+ 	\item Leping
+ 	\item Auto
+ 	\item Hinnakiri
+ 	\item Lisavarustus
+ 	\item Rentimine
+ 	\item Soodustus
+ 	\item Kindlustusleping
+ 	\item Ülevaatus
+ 	\item Arve
+ 	\item Kahjunõue
+ 	\item Inventuur
+ 	\item Rike
+ 	\item Hooldus
+ 	\item Vara tarnetellimus
+ 	\item Lepingupartner
+ 	\item Tagasiside
+ 	\item Ettekirjutus
+\end{itemize}
+
+\subsection{Põhiprotsessid}
+\begin{itemize}
+	\item Isiku registreerimine
+	\item Isiku surnuks märkimine
+	\item Töötaja tööle võtmine
+	\item Töötaja ametikoha muutmine
+	\item Töötaja ajutiselt töölt vabastamine
+	\item Töötaja puhkusele siirdumine
+	\item Klassifikaatori väärtuse lisamine
+	\item Klassifikaatori väärtuse muutmine
+	\item Lepingu sõlmimine
+	\item Lepingu peatamine
+	\item Lepingu ühepoolne katkestamine
+	\item Lepingu pikendamine
+	\item Auto registreerimine
+	\item Auto unustamine
+	\item Auto aktiveerimine
+	\item Auto ajutiselt kasutusest eemaldamine (mitteaktiivseks muutmine)
+	\item Auto lõplikult kasutusest eemaldamine (lõpetamine)
+	\item Töögraafiku määramine töötajale
+	\item Hinnakirjas muudatuste tegemine
+	\item Lisavarustuse pakkumine 
+	\item Sõiduki rentimine kliendile
+	\item Soodustuse pakkumine kliendile
+	\item Auto kindlustuslepingu olemasolu kontrollimine
+	\item Auto ülevaatuse olemasolu kontrollimine
+	\item Arve esitamine rentimise eest
+	\item Arve makseseisundi kontrollimine
+	\item Kahjunõude esitamine
+	\item Inventuuri tegemine
+	\item Rikke talletamine auto ajalukku
+	\item Auto hooldusele saatmine
+	\item Auto tehnilise ülevaatuse seisundi uuendamine
+	\item Auto tehnilisse ülevaatusse saatmine
+	\item Uue lepingupartneriga lepingu sõlmimine
+	\item Tagasiside saamine
+	\item Tagasiside põhjal otsuste langetamine
+	\item Ettekirjutuse saamine
+\end{itemize}
+ 
+ \subsection{Põhilised sündmused}
+ \begin{itemize}
+ 	\item Organisatsiooni vaatevälja satub uus isik, kellega organisatsioon soovib  astuda mingil viisil lepingulistesse suhetesse
+ 	\item Isik sureb
+ 	\item Organisatsiooni tuleb tööle uus töötaja
+ 	\item Töötaja liigub karjääriredelil
+ 	\item Töötajat hakatakse kahtlustama organisatsiooni huve kahjustavas teos
+ 	\item Töötaja võtab välja kasutamata puhkuse
+ 	\item Tekib vajadus uue klassifikaatori väärtuse lisamiseks (nt tänu sellele, et täienes rahvusvaheline standard või tänu sellele, et ettevõtte äriprotsesse otsustati muuta)
+ 	\item Selgus, et klassifikaatori väärtuse registreerimisel oli tehtud viga
+ 	\item Huvitatud osapool (isik või organisatsioon) soovib astuda organisatsiooniga vastastikku kasulikesse lepingulistesse suhetesse
+ 	\item Vähemalt üks lepingu osapooltest teatab, et ta pole ajutiselt võimeline lepingus toodud tingimusi täitma
+ 	\item Vähemalt üks lepingu osapooltest teatab, et ta pole püsivalt võimeline lepingus toodud tingimusi täitma
+ 	\item Lepingu osapooled on oma lepingulise suhtega rahul ja soovivad selle pikendamist
+ 	\item Organisatsiooni jõuab teave uue auto kohta
+ 	\item Selgus, et organisatsiooni jõudnud teave auto kohta on enneaegne ning sellisel kujul autot ei ole vaja registreerida
+ 	\item On vaja muuta võimalikuks auto kasutamine tehingutes
+ 	\item Auto kasutamine tehingutes on vaja ajutiselt peatada, kuna seoses autoga on ilmnenud ajutise iseloomuga probleemid
+ 	\item Auto kasutamine tehingutes on vaja lõpetada, kuna seoses autoga on ilmnenud püsiva iseloomuga probleemid või kuna auto on oma aja lihtsalt ära elanud
+ 	\item Töötajatele on tarvis luua järgneva kuu töögraafik
+ 	\item Turul on konkurentsitingimused muutunud ja vaja hinnakirja kaasajastada
+ 	\item Klient soovib autoga kaasa saada lisavarustust
+ 	\item Auto antakse üle kliendi käsutusse 
+ 	\item Kliendile pakutakse auto rentimist soodustingimuste alusel
+ 	\item Veendumaks, et sõidukitel on kehtiv liikluskindlustus tehakse regulaarset kontrolli kindlustuse seisundi üle
+ 	\item Veendumaks, et sõidukitel on kehtiv ülevaatus tehakse regulaarset kontrolli ülevaatuse seisundi üle
+ 	\item Rendilepingu sõlmimise järel kliendiga esitatakse kliendile arve müüdavate teenuste eest
+ 	\item Enne kliendile auto üle andmist on vaja veenduda, et klient on rentimise eest arve tasunud
+ 	\item Klient on rikkunud ettevõttele kuuluvat vara ning peab hüvitama tekitatud kahjud
+ 	\item Organisatsiooni varade üle arve pidamiseks on tarvis regulaarselt inventuuri teostada
+ 	\item Autoga juhtus õnnetus ning rike on vaja talletada auto ajalukku
+ 	\item Hoidmaks ettevõtte pakutavate teenuste kvaliteeti kõrgel tuleb rutiinselt autosid hooldada
+ 	\item Auto on läbinud tehnilise ülevaatuse ning tohib taas teedel sõita
+ 	\item Auto tehniline ülevaatus on aegumas ning sõidukiga tehingute jätkamiseks tuleb autol sooritada tehniline ülevaatus
+ 	\item Ettevõtte on tellinud uue sõiduki, millega tehinguid teha, ning andmed sõiduki ostu kohta tuleb talletada süsteemi
+ 	\item Ettevõte on alustanud koostööd uue organisatsiooniga ning andmed partnerluse kohta tuleb talletada süsteemi
+ 	\item Rentnik annab kasutatud teenuste kohta tagasisidet ning seda tuleb süsteemis hoida edasiselt paremate otsuste langetamiseks
+ 	\item Süsteemi on talletatud tagasiside ning selle põhjal tehakse otsus tulevikus parema teenuse osutamiseks
+ 	\item Andmekaitse inspektsioon teeb ettevõttele ettekirjutuse ning sellele on vaja reageerida
+ \end{itemize}
+ 
+ \subsection{Tegutsejad}
+ \begin{itemize}
+ 	\item Juhataja (ka omanik)
+ 	\item Autode haldur
+ 	\item Klassifikaatorite haldur
+ 	\item Klient
+ 	\item Uudistaja
+ 	\item Autojuht
+ 	\item Klienditeenindaja
+ 	\item Raamatupidaja
+ \end{itemize}
+ 
+  \subsection{Asukohad}
+ \begin{itemize}
+ 	\item Kliendid (on süsteemis registreeritud) ja uudistajad (veebikülalised; tuvastamata kasutajad) kasutavad veebirakendust, mille poole pöördumiseks on vaja arvutit, veebilehitsejat ja veebiühendust.
+ 	\item Töötajad töötavad neile spetsiaalselt ettenähtud ruumides. Igale töötajale on ettenähtud oma arvuti. 
+ \end{itemize}
+ 
+  \subsection{Terviksüsteemi tükeldus allsüsteemideks}
+  Järgnevalt esitatakse infosüsteemi jaotus kolme erinevat liiki allsüsteemideks.
+  \\
+  \par
+  Organisatsiooni sisesed pädevusalad.
+ \begin{itemize}
+ 	\item Juhataja
+ 	\item Autode haldur
+ 	\item Klassifikaatorite haldur
+ 	\item Autojuht
+ 	\item Klienditeenindaja
+ \end{itemize}
+
+Organisatsiooni välised pädevusalad.
+ \begin{itemize}
+	\item Juhataja
+	\item Uudistaja
+	\item Raamatupidaja
 \end{itemize}
  
 
  
+
  
+ \section{Autode funktsionaalse allsüsteemi eskiismudelid}
+Järgnevalt esitatakse eskiismudelid, mida detailanalüüsi käigus täpsustatakse ja täiendatakse.
+ 
+ \subsection{TODO}
+ \begin{itemize}
+ 	\item 
+ \end{itemize}
+ 
+   \subsection{TODO}
+ \begin{itemize}
+ 	\item 
+ \end{itemize}
+ 
+ \subsection{TODO}
+ \begin{itemize}
+ 	\item 
+ \end{itemize}
+
+ \subsection{TODO}
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\subsection{TODO}
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\subsection{TODO}
+\begin{itemize}
+	\item 
+\end{itemize}
+
+
+
 \end{document}
