@@ -5,6 +5,9 @@
  \setlength{\oddsidemargin}{.125in}
  \setlength{\textwidth}{6.25in}
  \usepackage[table,xcdraw]{xcolor}
+ \usepackage{float}
+ \usepackage{caption}
+ \captionsetup[table]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
 \begin{document}
  
 \tableofcontents{}
@@ -277,11 +280,10 @@ Organisatsiooni välised pädevusalad.
 	\item Raamatupidaja
 \end{itemize}
  
-Tabel 2 esitab sisulised funktsionaalsed allsüsteemid ja nende teenidatavad registrid (seotud organisatsiooni põhitegevusega). %TODO: Improve formatting
- \\
- \par
-\textbf{Tabel 2 Sisulised allsüsteemid.} 
-\begin{table}[] %TODO: Correct table positioning
+\textbf{Tabel 2} esitab sisulised funktsionaalsed allsüsteemid ja nende teenidatavad registrid (seotud organisatsiooni põhitegevusega). %TODO: Improve formatting
+ 
+\begin{table}[H] % [H] prevents table from floating around
+	\caption{\textbf{Tabel 2 Sisulised allsüsteemid.}}
 	\begin{tabular}{|l|l|}
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
@@ -298,28 +300,51 @@ Tabel 2 esitab sisulised funktsionaalsed allsüsteemid ja nende teenidatavad reg
 	\end{tabular}
 \end{table}
 
+\textbf{Tabel 3} esitab administratiivsed funktsionaalsed allsüsteemid ja nende teenidatavad registrid (võivad olla kasutusel paljudes erinevate eesmärkide ja tegevusaladega organisatsioonides).
  
+\begin{table}[H]
+	\caption{\textbf{Tabel 3 Administratiivsed allsüsteemid.}}
+	\begin{tabular}{|l|l|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Funktsionaalne allsüsteem}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Register, mida see funktsionaalne \\ allsüsteem teenindab\end{tabular}}} \\ \hline
+		Isikute funktsionaalne allsüsteem                                                & Isikute register                                                                                                                                        \\ \hline
+		Töötajate funktsionaalne allsüsteem                                              & Töötajate register                                                                                                                                      \\ \hline
+		Klassifikaatorite funktsionaalne allsüsteem                                      & Klassifikaatorite register                                                                                                                              \\ \hline
+		Lepingute funktsionaalne allsüsteem                                              & Lepingute register                                                                                                                                      \\ \hline
+		Organisatsioonide funktsionaalne allsüsteem                                      & Organisatsioonide register                                                                                                                              \\ \hline
+		Töögraafiku funktsionaalne allsüsteem                                            & Töögraafiku register                                                                                                                                    \\ \hline
+		Kindlustuste funktsionaalne allsüsteem                                           & Kindlustuste register                                                                                                                                   \\ \hline
+		Ülevaatuste funktsionaalne allsüsteem                                            & Ülevaatuste register                                                                                                                                    \\ \hline
+		Inventuuri funktsionaalne allsüsteem                                             & Inventuuri register                                                                                                                                     \\ \hline
+		Hoolduse funktsionaalne allsüsteem                                               & Hoolduste register                                                                                                                                      \\ \hline
+		Vara tarnetellimuste funktsionaalne allsüsteem                                   & Vara tarnetellimuste register                                                                                                                           \\ \hline
+		Lepingupartnerite funktsionaalne allsüsteem                                      & Lepingupartnerite register                                                                                                                              \\ \hline
+		Arvete funktsionaalne allsüsteem                                                 & Arvete register                                                                                                                                         \\ \hline
+		Ettekirjutuste funktsionaalne allsüsteem                                         & Ettekirjutuste register                                                                                                                                 \\ \hline
+	\end{tabular}
+\end{table}
 
- 
- \section{Autode funktsionaalse allsüsteemi eskiismudelid}
+\newpage
+\section{Autode funktsionaalse allsüsteemi eskiismudelid}
 Järgnevalt esitatakse eskiismudelid, mida detailanalüüsi käigus täpsustatakse ja täiendatakse.
  
- \subsection{TODO}
- \begin{itemize}
- 	\item 
- \end{itemize}
+\subsection{TODO}
+\begin{itemize}
+	\item 
+\end{itemize}
  
-   \subsection{TODO}
- \begin{itemize}
- 	\item 
- \end{itemize}
- 
- \subsection{TODO}
- \begin{itemize}
- 	\item 
- \end{itemize}
+\subsection{TODO}
+\begin{itemize}
+	\item 
+\end{itemize}
 
- \subsection{TODO}
+\subsection{TODO}
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\subsection{TODO}
 \begin{itemize}
 	\item 
 \end{itemize}

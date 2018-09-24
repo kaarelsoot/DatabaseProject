@@ -1,5 +1,8 @@
 .DS_Store
-
-
+Document/*.pdf
+Document/*.aux
+Document/*.log
+Document/*.synctex.gz
+Document/*.toc
 
 
