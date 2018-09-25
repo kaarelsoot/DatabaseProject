@@ -8,6 +8,9 @@
  \usepackage{float}
  \usepackage{caption}
  \captionsetup[table]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
+ \usepackage{graphicx}
+ \graphicspath{ {./images/} }
+ \captionsetup[figure]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
 \begin{document}
  
 \tableofcontents{}
@@ -329,22 +332,52 @@ Organisatsiooni välised pädevusalad.
 \section{Autode funktsionaalse allsüsteemi eskiismudelid}
 Järgnevalt esitatakse eskiismudelid, mida detailanalüüsi käigus täpsustatakse ja täiendatakse.
  
-\subsection{TODO}
+\subsection{Eesmärgid}
 \begin{itemize}
-	\item 
+	\item Muuta võimalikuks auto kasutamine erinevates tehingutes (transaktsioonides), mille läbiviimist infosüsteem toetab
+	\item Võimaldada auto elektrooniliselt registreerida
+	\item Võimaldada määrata auto hetkeseisundit vastavalt elutsüklile
+	\item Võimaldada muuta süsteemile teadaolevaid andmeid auto kohta
+	\item Võimalik auto andmed kustutada e infosüsteemi mõttes unustada, kuid teha seda ainult siis, kui auto pole veel kordagi aktiivsesse kasutusse läinud
+	\item Võimaldada vastata fikseeritud päringutele auto kohta
+	\item Võimaldada vaadata määratud elutsüklis olevate autode andmeid
+	\item Võimaldada auto kategoriseerimist klassifikaatorite abiga
+	\item Võimaldada saada ülevaade kogu autopargi kohta
 \end{itemize}
  
-\subsection{TODO}
+\subsection{Allsüsteemi kasutavad pädevusalad}
 \begin{itemize}
-	\item 
+	\item Juhataja
+	\item Autode Haldur
+	\item Uudistaja
+	\item Klient
+	\item Klassifikaatorite haldur
+	\item Autojuht
+	\item Klienditeenindaja
 \end{itemize}
 
-\subsection{TODO}
+\subsection{Allsüsteemi poolt vajatavad registrid}
+Allsüsteem teenindab autode registrit.
+\\
+\par
+Allsüsteem loeb.
 \begin{itemize}
-	\item 
+	\item Isikute register
+	\item Töötajate register
+	\item Klassifikaatorite register
+	\item Klientide register
 \end{itemize}
 
-\subsection{TODO}
+\subsection{Allsüsteemi ühe põhiprotsessi tegevusdiag}
+
+Joonis 1 esitab auto lõpetamise protsessi kirjelduse tegevusdiagrammina. 
+\begin{figure}[H]
+	\includegraphics[scale=0.6]{joonis1}
+	\caption{Joonis 1 Auto lõpetamise tegevusdiagramm.}
+\end{figure}
+
+
+
 \begin{itemize}
 	\item 
 \end{itemize}
