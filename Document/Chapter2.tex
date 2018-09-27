@@ -1,0 +1,25 @@
+% Reduce default margins
+\setlength{\topmargin}{-.5in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{.125in}
+\setlength{\textwidth}{6.25in}
+\captionsetup[table]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
+\colorlet{shadecolor}{blue!20}
+\graphicspath{ {./images/} }
+\captionsetup[figure]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
+
+\chapter{Detailanalüüs}
+Selles peatükis kirjeldatakse detailselt ja mittetehniliselt funktsionaalse allsüsteemi/registri paari, mille eskiismudelid esitati strateegilise analüüsi dokumendis.
+
+\section{Autode funktsionaalse allsüsteemi detailanalüüs}
+Järgnevalt kirjeldatakse detailselt ja mittetehniliselt autode funktsionaalse allsüsteemi toimimist.
+
+\subsection{Kasutusjuhtude mudel}
+Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspace{\pVert} \\ \hfill
+\textcolor{red}{Punasega} viidatakse andmebaasioperatsioonidele, mis seisnevad ainult andmete lugemises. \textcolor{blue}{Sinisega} viidatakse andmebaasioperatsioonidele, mis tegelevad andmebaasis andmete muutmisega.
+
+\begin{shaded}
+	\subsubsection{\colorbox{lightgray}{\underline{Kasutusjuht: Tuvasta kasutaja}}}
+	\textbf{Primaarne tegutseja:} Autode haldur, Juhataja, Klienditeenindaja, Klient – (edaspidi Subjekt). \\
+	\textbf{Osapooled ja nende huvid:} Autode haldur, Juhataja, Klienditeenindaja, Klient: Soovivad siseneda süsteemi ja teha tegevusi neile antud volituste piires. \\
+\end{shaded}
