@@ -7,6 +7,7 @@
 \colorlet{shadecolor}{blue!20}
 \graphicspath{ {./images/} }
 \captionsetup[figure]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
+\newcommand{\useDash}{\renewcommand{\labelitemi}{\textendash}}
 
 \chapter{Detailanalüüs}
 Selles peatükis kirjeldatakse detailselt ja mittetehniliselt funktsionaalse allsüsteemi/registri paari, mille eskiismudelid esitati strateegilise analüüsi dokumendis.
@@ -19,7 +20,55 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 \textcolor{red}{Punasega} viidatakse andmebaasioperatsioonidele, mis seisnevad ainult andmete lugemises. \textcolor{blue}{Sinisega} viidatakse andmebaasioperatsioonidele, mis tegelevad andmebaasis andmete muutmisega.
 
 \begin{shaded}
-	\subsubsection{\colorbox{lightgray}{\underline{Kasutusjuht: Tuvasta kasutaja}}}
-	\textbf{Primaarne tegutseja:} Autode haldur, Juhataja, Klienditeenindaja, Klient – (edaspidi Subjekt). \\
-	\textbf{Osapooled ja nende huvid:} Autode haldur, Juhataja, Klienditeenindaja, Klient: Soovivad siseneda süsteemi ja teha tegevusi neile antud volituste piires. \\
+	\subsubsection{\underline{Kasutusjuht: Tuvasta kasutaja}}
+	\textbf{Primaarne tegutseja}: Autode haldur, Juhataja, Klienditeenindaja, Klient – (edaspidi Subjekt). \\
+	\textbf{Osapooled ja nende huvid}:
+	\useDash
+	\begin{itemize}
+		\item \underline{Autode haldur, Juhataja, Klienditeenindaja, Klient}: Soovivad siseneda süsteemi ja teha tegevusi neile antud volituste piires.
+	\end{itemize}
+	\textbf{Käivitav sündmus}: Subjekt soovib süsteemi siseneda. \\
+	\textbf{Eeltingimused}: Subjekt on süsteemis kasutajaks registreeritud ning ta on sobivas rollis ja seisundis. \\
+	\textbf{Järeltingimused}: On tehtud kindlaks, kas subjektil on õigus süsteemi siseneda või mitte. Subjekt on autenditud ja talle on antud võimalus kasutada süsteemi talle antud volituste piires (subjekt on autoriseeritud). \\
+	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
+	\begin{enumerate}
+		\item \underline{Subjekt} soovib siseneda süsteemi.
+		\item \textbf{Süsteem} palub subjektil ennast identifitseerida.
+		\item \underline{Subjekt} identifitseerib ennast (sisestades kasutajanime, parooli).
+		\item \textbf{Süsteem} kontrollib, kas esitatud volitustõendiga (antud juhul parooliga) subjekti andmed on süsteemis olemas või mitte ning milline on tema roll ja seisund süsteemis (\textbf{\textcolor{red}{OP1.1}}).
+		\item \textbf{Süsteem} annab subjektile volituse süsteemi kasutada ja annab talle juurdepääsu infosüsteemi objektidele.
+	\end{enumerate}
+	\textit{Subjekt võib üritada süsteemi siseneda kuni kolm korda.} \\
+	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
+	%Formaat teine kui Erkil
+	Kui süsteem ei leia esitatud volitustõendiga subjekti või pole subjekt sobivas rollis ja seisundis, siis ei saa subjekt õigust süsteemi kasutada. \\
+	\indent 5a. \textbf{Süsteem} kuvab subjektile teate, et sisselogimine ebaõnnestus. Selleks, et süsteemi toimimist võimalikule ründajale mitte reeta, ei ütle süsteem täpset põhjust.
+\end{shaded}
+
+\begin{shaded}
+	\subsubsection{\underline{Kasutusjuht: Registreeri auto}}
+	\textbf{Primaarne tegutseja}: Autode haldur \\
+	\textbf{Osapooled ja nende huvid}: 
+		\useDash
+		\begin{itemize}
+		\item \underline{Autode haldur}: Soovivad siseneda süsteemi ja teha tegevusi neile antud volituste piires.
+		\item \underline{Juhataja}: Soovib, et organisatsiooni kasum ja klientide rahulolu oleks võimalikult suur ja selleks peab juhatajal olema ülevaade kõigist autodest ning uue auto tekkimisel ei tohi selle registreerimisega viivitada.
+		\item \underline{Klient, Uudistaja}: Soovivad võimalikult täpset infot auto kohta, mida organisatsioon pakub, et otsustada, kas siduda ennast selle organisatsiooniga autot kasutava kliendi rollis.
+		\end{itemize}
+	\textbf{Käivitav sündmus}: Organisatsiooni jõuab teave uue auto kohta, millega kliendid saavad hakata tulevikus tehinguid tegema. \\
+	\textbf{Eeltingimused}: Autode haldur on autenditud ja autoriseeritud. \\
+	\textbf{Järeltingimused}: Auto on registreeritud ja auto on seisundis "Ootel". \\
+	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
+	\begin{enumerate}
+		\item \underline{Autode haldur} avaldab soovi uus auto registreerida.
+		\item \textbf{Süsteem} avab vormi, kus saab uue auto registreerida. Seal on muuhulgas võimalik määrata, millistesse kategooriatesse auto kuulub, sest süsteem pakub kategooriate valiku (\textbf{\textcolor{red}{OP2.1}}).
+		\item \underline{Autode haldur} sisestab auto andmed ja valib kategooriad, millesse auto kuulub. Autode haldur ei saa registreerida auto algseisundit, registreerimise aega ning viidet registreerimise läbiviinud töötajale – seda teeb süsteem automaatselt. Ta annab korralduse salvestada.
+		\item \textbf{Süsteem} salvestab auto andmed (\textbf{\textcolor{blue}{OP1}}) ning ükshaaval kõikide kategooriasse kuulumiste andmed (\textbf{\textcolor{blue}{OP7}}).
+	\end{enumerate}
+	\textit{Autode haldur võib samme 1-4 läbida nii mitu korda kui soovib.}
+	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
+	\indent 2a. Kui ühtegi auto kategooriat pole registreeritud, siis kategooriate valikut ei pakuta ning auto kategooriasse kuulumist ei saa registreerida. \\
+	\indent 3a. \underline{Autode haldur} soovib auto mõnest määratud kategooriast kohe eemaldada. \\
+	\indent 3b. \textbf{Süsteem} kuvab nimekirja kategooriatest, kuhu auto juba kuulub. Iga kategooria juures on ka selle kategooria tüübi nimetus. (\textbf{\textcolor{red}{OP2.2}}) \\
+	\indent 3c. \textbf{Süsteem} salvestab kategooriast eemaldamise (\textbf{\textcolor{blue}{OP8}}). \\
 \end{shaded}
