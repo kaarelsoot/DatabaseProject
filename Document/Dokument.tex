@@ -8,10 +8,12 @@
  \usepackage{float}
  \usepackage{caption}
  \captionsetup[table]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
- \usepackage{graphicx}
  \definecolor{light-gray}{gray}{0.90}
+ \usepackage{graphicx, framed}
+ \colorlet{shadecolor}{blue!20}
  \graphicspath{ {./images/} }
  \captionsetup[figure]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
+ \newcommand{\pVert}{3mm}
 \begin{document}
  
 \tableofcontents{}
@@ -395,7 +397,5 @@ Allsüsteem loeb.
 \begin{itemize}
 	\item 
 \end{itemize}
-
-
-
+\input{Chapter2}
 \end{document}
