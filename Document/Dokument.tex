@@ -9,6 +9,7 @@
  \usepackage{caption}
  \captionsetup[table]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
  \usepackage{graphicx}
+ \definecolor{light-gray}{gray}{0.90}
  \graphicspath{ {./images/} }
  \captionsetup[figure]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
 \begin{document}
@@ -370,22 +371,25 @@ Allsüsteem loeb.
 
 \subsection{Allsüsteemi ühe põhiprotsessi tegevusdiag}
 
-Joonis 1 esitab auto lõpetamise protsessi kirjelduse tegevusdiagrammina. 
+\textbf{Joonis 1} esitab auto lõpetamise protsessi kirjelduse tegevusdiagrammina. 
 \begin{figure}[H]
 	\includegraphics[scale=0.6]{joonis1}
-	\caption{Joonis 1 Auto lõpetamise tegevusdiagramm.}
+	\caption{\textbf{Joonis 1 Auto lõpetamise tegevusdiagramm.}}
 \end{figure}
 
-
+\subsection{Allsüsteemi kasutusjuhtude eskiismudel}
+\textbf{Joonis 2} esitatud kasutusjuhtude diagrammil on värvidel järgmine tähendus.
 
 \begin{itemize}
-	\item 
+	\item \colorbox{yellow}{Kollasega} on tähistatud põhikasutusjuhud.
+	\item \textbf{\textcolor{orange}{Oranžiga}} on tähistatud abistavad kasutusjuhud (sisuliselt kasutusjuhu fragmendid), mis on kirja pandud selleks, et mitte kirjeldada mitmekordselt erinevates kasutusjuhtudes esinevat ühesugust funktsionaalsust.
+	\item \textbf{\colorbox{light-gray}{Halliga}} on tähistatudkasutusjuhud, mis esitavad läbivaid huvisid ning on seotud rohkem kui ühe funktsionaalse allsüsteemiga.
 \end{itemize}
 
-\subsection{TODO}
-\begin{itemize}
-	\item 
-\end{itemize}
+\begin{figure}[H]
+	\includegraphics[scale=0.6]{joonis2}
+	\caption{\textbf{Joonis 2 Auto funktsionaalse allsüsteemi kasutusjuhtude diagramm.}}
+\end{figure}
 
 \subsection{TODO}
 \begin{itemize}
