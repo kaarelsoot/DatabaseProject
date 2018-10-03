@@ -4,7 +4,7 @@
 \setlength{\oddsidemargin}{.125in}
 \setlength{\textwidth}{6.25in}
 \captionsetup[table]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
-\colorlet{shadecolor}{blue!20}
+\colorlet{shadecolor}{lightgray!20}
 \graphicspath{ {./images/} }
 \captionsetup[figure]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
 \newcommand{\useDash}{\renewcommand{\labelitemi}{\textendash}}
@@ -65,10 +65,68 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 		\item \underline{Autode haldur} sisestab auto andmed ja valib kategooriad, millesse auto kuulub. Autode haldur ei saa registreerida auto algseisundit, registreerimise aega ning viidet registreerimise läbiviinud töötajale – seda teeb süsteem automaatselt. Ta annab korralduse salvestada.
 		\item \textbf{Süsteem} salvestab auto andmed (\textbf{\textcolor{blue}{OP1}}) ning ükshaaval kõikide kategooriasse kuulumiste andmed (\textbf{\textcolor{blue}{OP7}}).
 	\end{enumerate}
-	\textit{Autode haldur võib samme 1-4 läbida nii mitu korda kui soovib.}
+	\textit{Autode haldur võib samme 1-4 läbida nii mitu korda kui soovib.} \\
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 2a. Kui ühtegi auto kategooriat pole registreeritud, siis kategooriate valikut ei pakuta ning auto kategooriasse kuulumist ei saa registreerida. \\
 	\indent 3a. \underline{Autode haldur} soovib auto mõnest määratud kategooriast kohe eemaldada. \\
 	\indent 3b. \textbf{Süsteem} kuvab nimekirja kategooriatest, kuhu auto juba kuulub. Iga kategooria juures on ka selle kategooria tüübi nimetus. (\textbf{\textcolor{red}{OP2.2}}) \\
 	\indent 3c. \textbf{Süsteem} salvestab kategooriast eemaldamise (\textbf{\textcolor{blue}{OP8}}). \\
+\end{shaded}
+
+\begin{shaded}
+	\subsubsection{\underline{Kasutusjuht: Unusta auto}}
+	\textbf{Primaarne tegutseja}: Autode haldur \\
+	\textbf{Osapooled ja nende huvid}: 
+	\useDash
+	\begin{itemize}
+		\item \underline{Autode haldur}: Soovib, et süsteemis oleks kõikide organisatsioonile teadaolevate autode andmed ja et need andmed oleksid võimalikult täpsed. Kui on selge, et autot sellisel kujul ei teki, siis soovib selle andmed segaduste vältimiseks süsteemist eemaldada.
+		\item \underline{Juhataja}: Soovib, et organisatsiooni kasum ja klientide rahulolu oleks võimalikult suur ja selleks peab juhatajal olema ülevaade kõigist autodest ning uue auto tekkimisel ei tohi selle registreerimisega viivitada. Samas ei soovi ta näha autosid, millest asja ei saa.
+		\item \underline{Klient, Uudistaja}: Soovivad võimalikult täpset infot autode kohta, mida organisatsioon pakub, et otsustada, kas siduda ennast selle organisatsiooniga autot kasutava kliendi rollis.
+	\end{itemize}
+	\textbf{Käivitav sündmus}: Organisatsiooni jõuab teave, et autot sellisel kujul ei realiseeru ning seda ei saa hakata klientidele tehinguteks pakkuma. \\
+	\textbf{Eeltingimused}: Autode haldur on autenditud ja autoriseeritud. Auto on registreeritud ja on seisundis "Ootel". \\
+	\textbf{Järeltingimused}: Auto andmed on süsteemist kustutatud. \\
+	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
+	\begin{enumerate}
+		\item \underline{Autode haldur} avaldab soovi auto unustada, st selle andmed süsteemist kustutada.
+		\item \textbf{Süsteem} kuvab ootel autode nimekirja, kus on auto\_kood, nimetus,  mark, mudel, valjalaske\_aasta, reg\_number, vin\_kood (\textbf{\textcolor{red}{OP3.1}}).
+		\item \underline{Autode haldur} valib nimekirjast auto ja annab korralduse see unustada.
+		\item \textbf{Süsteem} salvestab andmed (\textbf{\textcolor{blue}{OP2}}).
+	\end{enumerate}
+	\textit{Autode haldur võib samme 1-4 läbida nii mitu korda kui soovib.} \\
+	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
+	\indent 3a. \underline{Autode haldur} saab nimekirja kõigi kuvatud väljade järgi sorteerida ja filtreerida. \\
+	\indent 3b. \underline{Autode haldur} ei saa jätkata, kui nimekirjas ei ole ühtegi ootel autot.
+\end{shaded}
+
+\begin{shaded}
+	\subsubsection{\underline{Kasutusjuht: Muuda auto andmeid}}
+	\textbf{Primaarne tegutseja}: Autode haldur \\
+	\textbf{Osapooled ja nende huvid}: 
+	\useDash
+	\begin{itemize}
+		\item \underline{Autode haldur}: Soovib, et süsteemis oleks kõikide organisatsioonile teadaolevate autode andmed ja et need andmed oleksid võimalikult täpsed.
+		\item \underline{Juhataja}: Soovib, et organisatsiooni kasum ja klientide rahulolu oleks võimalikult suur ja selleks peab juhatajal olema täpne ülevaade kõigist autodest. 
+		\item \underline{Klient, Uudistaja}: Soovivad võimalikult täpset infot autode kohta, mida organisatsioon pakub, et otsustada, kas siduda ennast selle organisatsiooniga autot kasutava kliendi rollis.
+	\end{itemize}
+	\textbf{Käivitav sündmus}: Ilmneb, et autode andmete registreerimisel on tehtud viga või 
+	auto atribuutide väärtuste ja seoste hulgas on toimunud muudatus (siia hulka ei kuulu seisundimuudatus, millega tegelemiseks on eraldi kasutusjuhud). \\
+	\textbf{Eeltingimused}: Autode haldur on autenditud ja autoriseeritud. Auto on registreeritud ja on seisundis "Ootel" või "Mitteaktiivne". \\
+	\textbf{Järeltingimused}: Auto andmed on muudetud, kuid auto seisund ning info auto registreerija ning registreerimise aja kohta ei ole muutunud. \\
+	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
+	\begin{enumerate}
+		\item \underline{Autode haldur} soovib muuta auto andmeid.
+		\item \textit{Käivitub kasutusjuht "Vaata kõiki ootel või mitteaktiivseid autosid"}
+		\item \underline{Autode haldur} valib nimekirjast auto ja annab korralduse vaadata selle detailseid andmeid.
+		\item \textbf{Süsteem} kuvab muutmiseks mõeldud väljades auto põhiandmed  (auto\_kood, nimetus, mark, mudel, valjalaske\_aasta, mootori\_maht, auto\_kütuse\_liik, istekohtade\_arv, reg\_number, vin\_kood) (\textbf{\textcolor{red}{OP4.1}}) ning sellega seotud kategooriate ja kategooriate tüüpide nimetused (\textbf{\textcolor{red}{OP2.2}}). Seal on muuhulgas võimalik määrata, millistesse kategooriatesse auto kuulub, sest süsteem pakub kategooriate valiku (\textbf{\textcolor{red}{OP2.1}}).
+		\item \underline{Autode haldur} muudab auto andmeid ja annab korralduse salvestada.
+		\item \textbf{Süsteem} salvestab andmed (\textbf{\textcolor{blue}{OP6}})
+	\end{enumerate}
+	\textit{Autode haldur võib samme 1-6 läbida nii mitu korda kui soovib.} \\
+	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
+	\indent 5a. \underline{Autode haldur} võib lisada auto uude kategooriasse ja anda korralduse salvestada. \\
+	\indent 6a. \textbf{Süsteem} salvestab andmed (\textbf{\textcolor{blue}{OP7}}) \\
+	\indent 5b. \underline{Autode haldur} võib eemaldada auto kategooriast ja anda korralduse salvestada. \\
+	\indent 6b. \textbf{Süsteem} Süsteem salvestab andmed (\textbf{\textcolor{blue}{OP8}})).  \\
+	\indent 5c. Kui ühtegi autode kategooriat pole registreeritud, siis kategooriate valikut ei pakuta ning auto kategooriasse kuulumist ei saa registreerida. \\
 \end{shaded}
