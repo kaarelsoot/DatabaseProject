@@ -373,7 +373,73 @@ Allsüsteem loeb.
 	\caption{\textbf{Joonis 2 Auto funktsionaalse allsüsteemi kasutusjuhtude diagramm.}}
 \end{figure}
 
-\subsection{TODO}
+\begin{flushleft}
+\underline{\textbf{Kasutusjuht}: Tuvasta kasutaja} \\
+\textbf{Tegutsejad}: Autode haldur, Klienditeenindaja, Juhataja, Klient – (edaspidi Subjekt) \\
+\textbf{Kirjeldus}: Subjekt identifitseerib ennast. Selleks sisestab ta kasutajanime, parooli ja oma rolli süsteemis. Süsteem autendib subjekti, st kontrollib subjekti väidetavat identiteeti. Süsteemi sisenemiseks peab subjekt olema ka sobivas seisundis. Kui subjekt on autenditud (isik on tuvastatud ja identiteet kontrollitud), siis lubatakse subjekt süsteemi siseneda, vastasel juhul mitte. Lisaks autoriseeritakse subjekt, andes talle juurdepääsu infosüsteemi objektidele.
+\end{flushleft}
+
+\begin{flushleft}
+\underline{\textbf{Kasutusjuht}: Registreeri auto} \\
+\textbf{Tegutsejad}: Autode haldur \\
+\textbf{Kirjeldus}: Autode haldur registreerib uue auto. 
+\end{flushleft}
+
+\begin{flushleft}
+	\underline{\textbf{Kasutusjuht}: Unusta auto} \\
+	\textbf{Tegutsejad}: Autode haldur \\
+	\textbf{Kirjeldus}: Autode haldur vaatab ootel autode nimekirja, valib sealt auto ja kustutab selle andmebaasist. Subjekt saab nimekirja sorteerida ja filtreerida. 
+\end{flushleft}
+
+\begin{flushleft}
+	\underline{\textbf{Kasutusjuht}: Muuda auto andmeid} \\
+	\textbf{Tegutsejad}: Autode haldur \\
+	\textbf{Kirjeldus}: Autode haldur vaatab ootel  või mitteaktiivsete autode nimekirja, valib sealt auto ja muudab selle andmeid. Ei ole võimalik muuta auto registreerimise aega ja infot selle kohta, kes auto registreeris. Samuti ei kuulu muudatuste hulka auto seisundi muutmine (selleks on eraldi kasutusjuhud). Samas saab muuta auto kategooriatesse kuuluvust. 
+\end{flushleft}
+
+\begin{flushleft}
+	\underline{\textbf{Kasutusjuht}: Aktiveeri auto} \\
+	\textbf{Tegutsejad}: Autode haldur \\
+	\textbf{Kirjeldus}: Autode haldur vaatab ootel või mitteaktiivsete autode nimekirja, valib sealt auto ja muudab selle aktiivseks.  
+\end{flushleft}
+
+\begin{flushleft}
+	\underline{\textbf{Kasutusjuht}: Muuda auto mitteaktiivseks} \\
+	\textbf{Tegutsejad}: Autode haldur \\
+	\textbf{Kirjeldus}: Autode haldur vaatab aktiivsete autode nimekirja, valib sealt auto ja muudab selle mitteaktiivseks. Subjekt saab nimekirja sorteerida ja filtreerida. 
+\end{flushleft}
+
+\begin{flushleft}
+	\underline{\textbf{Kasutusjuht}: Vaata kõiki ootel või mitteaktiivseid autosid} \\
+	\textbf{Tegutsejad}: Autode haldur \\
+	\textbf{Kirjeldus}: Autode haldur saab vaadata nimekirja ootel või mitteaktiivses seisundis olevatest autodest. Subjekt saab nimekirja sorteerida ja filt 
+\end{flushleft}
+
+\begin{flushleft}
+	\underline{\textbf{Kasutusjuht}: Vaata kõiki autosid} \\
+	\textbf{Tegutsejad}: Autode haldur, Juhataja – (edaspidi Subjekt) \\
+	\textbf{Kirjeldus}: Subjekt saab vaadata autode nimekirja. Subjekt saab nimekirja sorteerida ja filtreerida. Samuti saab ta iga auto korral vaadata selle detailseid andmeid. 
+\end{flushleft}
+
+\begin{flushleft}
+	\underline{\textbf{Kasutusjuht}: Lõpeta auto} \\
+	\textbf{Tegutsejad}: Juhataja \\
+	\textbf{Kirjeldus}: Juhataja vaatab aktiivsete või mitteaktiivsete autode nimekirja, valib sealt auto ja lõpetab selle. Subjekt saab nimekirja sorteerida ja filtreerida. 
+\end{flushleft}
+
+\begin{flushleft}
+	\underline{\textbf{Kasutusjuht}: Vaata autode koondaruannet} \\
+	\textbf{Tegutsejad}: Juhataja \\
+	\textbf{Kirjeldus}: Juhata näeb iga auto seisundi kohta selle koodi, nimetust ja selles seisundis olevate autode arvu. Kui seisundiga pole seotud ühtegi autot, siis on see arv 0. 
+\end{flushleft}
+
+\begin{flushleft}
+	\underline{\textbf{Kasutusjuht}: Vaata aktiivseid autosid} \\
+	\textbf{Tegutsejad}: Uudistaja, Klient, Klienditeenindaja – (edaspidi Subjekt) \\
+	\textbf{Kirjeldus}: Subjekt valib kategooria ja näeb kõigi sellesse kuuluvate aktiivses seisundis olevate autode kõiki andmeid, v.a registreerimise aeg ja registreerinud töötaja. 
+\end{flushleft}
+
+\subsection{Mittefunktsionaalsed nõuded}
 \begin{itemize}
 	\item 
 \end{itemize}
