@@ -1,5 +1,7 @@
 \documentclass{report}
  % Reduce default margins
+ \usepackage[T1]{fontenc}
+ \usepackage{newtxmath,newtxtext}
  \setlength{\topmargin}{-.5in}
  \setlength{\textheight}{9in}
  \setlength{\oddsidemargin}{.125in}
@@ -7,6 +9,7 @@
  \usepackage[table,xcdraw]{xcolor}
  \usepackage{float}
  \usepackage{caption}
+ \usepackage{lipsum}
  \captionsetup[table]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
  \definecolor{light-gray}{gray}{0.90}
  \usepackage{graphicx, framed}
@@ -15,8 +18,10 @@
  \captionsetup[figure]{justification=justified,singlelinecheck=false,labelformat=empty,skip=0pt}
  \newcommand{\pVert}{3mm}
  \usepackage{pbox}
- \usepackage{tabularx}
- \usepackage{tabu}
+ \usepackage{textcomp}
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+ \usepackage{longtable,tabu}
+ \usepackage{hyperref}
 
 \begin{document}
  

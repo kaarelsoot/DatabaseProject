@@ -444,55 +444,86 @@ Allsüsteem loeb.
 
 \textbf{Tabel 4} esitab vaadeldava allsüsteemi mittefunktsionaalsed nõuded.
 
-\begin{table}[H]
-	\caption{\textbf{Tabel 4 Allsüsteemi mittefunktsionaalsed nõuded.}}
-	\begin{tabu} to \textwidth {| X[0.2] | X |}
-		\hline 
-		\rowcolor[HTML]{C0C0C0}
-		
-		\textbf{Tüüp}          
-		&  \textbf{Nõude kirjeldus} \\ \hline
-		
-		andmebaasi- süsteem 
-		& Süsteem peab andmete hoidmiseks kasutama SQLandmebaasisüsteemi abil loodud andmebaasi. Tegemist on äritarkvaraga, mis kasutab tööks struktureeritud andmeid ning neid andmeid ei hakka olema väga palju (räägime maksimaalselt mõnest tuhandest reast). Autodega seotud transaktsioonilisi (tehingute) andmeid on rohkem (kümneid kuni sadu tuhandeid kirjeid), kuid ka nende haldamisega tulevad tänapäeva SQL süsteemid toime.
-		\linebreak \par  Seega puudub vajadus mõne NoSQL süsteemi kasutamise järele. Serverite operatsioonisüsteemiks peaks olema Linux, et vähendada süsteemi maksumust. Andmebaasisüsteemina on soovitav kasutada PostgreSQLi, kuna see on avatud lähtekoodiga, seda pakutakse tasuta, see jälgib küllaltki hästi SQL standardit, see pakub häid võimalusi andmebaasi programmeerijale ning sellele on suur kasutajate kogukond (st abi ja tuge pole keeruline leida). \\ \hline
-		
-		arendusvahendid 
-		& Arendusvahendina tuleks kasutada organisatsioonile hangitud CASE tarkvara Rational Rose või Enterprise Architect. Alternatiivina võib kasutada tasuta pakutavat andmete modelleerimise vahendit DB MAIN 
-		(http://www.rever.eu/en/content/db-main-homepage). Prototüübi koostamiseks kasutatakse töölaua andmebaasisüsteemi MS Access või LibreOffice Base, kuhu on integreeritud kasutajaliidese ehitamise vahendid.  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-		TYYP 
-		& TEXT  \\ \hline
-		
-	\end{tabu}
-\end{table}
+%\bgroup  
+%\def\arraystretch{1.5} % Adds extra padding to table cells
+%\begin{longtable}[H]
+
+
+\begin{longtabu} to \textwidth {|X[0.2] | X |}
+	\caption{\textbf{Tabel 4 Allsüsteemi mittefunktsionaalsed nõuded.}} \\
+	% -----------------headings----------------------%
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Tüüp}   &   \textbf{Nõude kirjeldus}  \\
+	\hline
+	\endfirsthead
+	%headings for next page columns
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Tüüp}   &   \textbf{Nõude kirjeldus}  \\
+	\hline
+	\endhead
+	% ---------------headings end--------------------%
+	andmebaasi- süsteem 
+	& Süsteem peab andmete hoidmiseks kasutama SQLandmebaasisüsteemi abil loodud andmebaasi. Tegemist on äritarkvaraga, mis kasutab tööks struktureeritud andmeid ning neid andmeid ei hakka olema väga palju (räägime maksimaalselt mõnest tuhandest reast). Autodega seotud transaktsioonilisi (tehingute) andmeid on rohkem (kümneid kuni sadu tuhandeid kirjeid), kuid ka nende haldamisega tulevad tänapäeva SQL süsteemid toime.
+	\linebreak \par  Seega puudub vajadus mõne NoSQL süsteemi kasutamise järele. Serverite operatsioonisüsteemiks peaks olema Linux, et vähendada süsteemi maksumust. Andmebaasisüsteemina on soovitav kasutada PostgreSQLi, kuna see on avatud lähtekoodiga, seda pakutakse tasuta, see jälgib küllaltki hästi SQL standardit, see pakub häid võimalusi andmebaasi programmeerijale ning sellele on suur kasutajate kogukond (st abi ja tuge pole keeruline leida). \\ \hline
+	
+	arendusvahendid 
+	& Arendusvahendina tuleks kasutada organisatsioonile hangitud CASE tarkvara Rational Rose või Enterprise Architect. Alternatiivina võib kasutada tasuta pakutavat andmete modelleerimise vahendit DB MAIN 
+	(\url{https://www.rever.eu/en/db-main}). Prototüübi koostamiseks kasutatakse töölaua andmebaasisüsteemi MS Access või LibreOffice Base, kuhu on integreeritud kasutajaliidese ehitamise vahendid.  \\ \hline
+	
+	keel 
+	& Süsteemi kasutajaliides ja dokumentatsioon peavad olema eesti keeles. Süsteem tuleks üles ehitada nii, et ei oleks väga raske lisada kasutajaliidesesse uusi keeli (inglise keel).  \\ \hline
+	
+	kasutajaliides 
+	& Töötavas süsteemis peab klientidele ja uudistajatele mõeldud kasutajaliides olema kindlasti veebipõhine. Töötajatele mõeldud rakendus võib olla kahekihiline, kus kasutaja arvutis on rakendus ning see suhtleb üle arvutivõrgu serveril paikneva andmebaasisüsteemiga. Soovi korral on võimalik selle jaoks MS Accessis või LibreOffice Base abil tehtud prototüüpi evolutsioneerida nii, et kasutatakse nendes loodud kasutajaliidest, kuid andmebaas on serveril.  \linebreak \par
+	Nõuded kasutajaliidese ülesehitusele.
+	\begin{itemize}
+		\item Ülesehituse põhimõtteid tuleb järjekindlalt järgida.
+		\item Rakenduses peab olema peavorm või pealehekülg, kust saab töökohaga seotud tegevuste juurde edasi liikuda.
+		\item Välisvõtme väärtuste registreerimiseks tuleb kasutada liitbokse või hüpikaknaid.
+		\item Kohustuslikud sisestusväljad tuleb tähistada (nt lisades lipikule *).
+		\item Andmete lisamiseks ning andmete muutmiseks mõeldud väljad peavad erinevalt välja nägema (nt olema erineva taustavärviga).
+		\item Kuupäevad tuleb esitada formaadis DD.MM.YYYY
+		\item Kellaajad tuleb esitada formaadis HH24:MI
+		\item Ajatemplid tuleb esitada formaadis DD.MM.YYYY HH24:MI
+		\item Tegevused, mida süsteem saab ise teha (nt kindlaks tegema, kes andmed registreeris) peab tegema süsteem ilma kasutajalt tagasiside küsimisega tülitamata.
+		\item Kasutajaliideses ei tohi kuvada surrogaatvõtmete väärtuseid.
+		\item Kõikides olemite nimekirjades tuleb esitada selline hulk andmeid, et nende andmete alusel oleks võimalik olemeid üksteisest üheselt eristada ning et need andmed oleksid konkreetse kasutaja jaoks mõistetavad ja sisukad.
+		\item Mõõtmistulemusi või rahasummasid esitavate atribuutide väärtuste juures tuleb esitada ühik – rahasummade puhul valuuta tähis ning mõõtmistulemuste korral mõõtühik.
+	\end{itemize} \\ \hline
+	
+	töökiirus 
+	& Päringu tegemisel ei tohi vastuse kuvamine võtta aega rohkem kui 5 sekundit. Andmete muudatuse salvestamine süsteemi poolt ei tohi võtta aega rohkem kui 5 sekundit.  \\ \hline
+	
+	töökindlus 
+	& Allsüsteemi tõrgeteta töö on hädavajalik organisatsiooni tõrgeteta töötamiseks. Tõrked tekitaksid suurt praktilist kahju ja ka moraalset kahju. Kuna allsüsteem haldab põhiandmeid, mis loovad konteksti transaktsioonlistele (tehingute) andmetele, siis põhjustaks allsüsteemi töö tõrge ka tõrkeid vastavate transaktsiooniliste andmete kogumisel ja töötlemisel. \linebreak \par
+	Taasteaja siht (recovery time objective)("maksimaalne talutav süsteemi käideldamatuse kestus pärast intsidenti" (AKIT)): Juhul kui tekib veaolukord ja andmebaas või rakendus kahjustub, siis tuleb need taastada viimase tehtud varukoopia põhjal. Seda tuleb teha tunni jooksul peale rikke põhjuse kõrvaldamist ja serveri töökorda saamist. \linebreak \par
+	Taasteseisu siht (recovery point objective)("intsidendijärgsele taastele seatud eesmärk ajahetkena, millele eelnevad andmed peavad olema täielikult taastatud (näiteks eelmine tund, eelmine tööpäev, eelmine nädal)"(AKIT)): Maksimaalselt võivad kaotsi minna viimase 24 tunni andmed, st et sellele eelnevad andmed peavad olema täielikult taastatud.	  \\ \hline
+	
+	
+	varukoopiad 
+	& Kuna hallatavad andmed on organisatsiooni jaoks väga olulised, siis tuleb vähemalt kord päevas teha andmetest varukoopia ja säilitada koopiaid mitmes erinevas asukohas.
+	  \\ \hline
+	
+	turvalisus 
+	& Kui parooli hoitakse andmebaasis, siis ei tohi see olla avatekst, vaid peab olema parooli räsiväärtus, mis on leitud selle parooli jaoks genereeritud soola kasutades. Igal parooli jaoks tuleb genereerida uus sool. Räsiväärtuse leidmiseks ei tohi kasutada MD5 või SHA-1 räsifunktsioone, sest need on juba liiga ebaturvalised ja võimaldavad liiga lihtsalt algset parooli teada saada ning selle kaudu kasutaja identiteet varastada. \linebreak \par
+	Kasutajanimed peavad olema tõstutundetud. Seega, näiteks:
+	\begin{itemize}
+		\item kui süsteemis on registreeritud kasutajanimi Kasutaja1, siis ei saa registreerida kasutajanime kasutaja1,
+		\item kui süsteemis on registreeritud kasutajanimi Kasutaja1, siis kasutaja tuvastamisel loetakse see samaväärseks sisestatud kasutajanimega kasutaja1.
+	\end{itemize}
+	Autode funktsionaalne allsüsteem teenindab auto registrit, mille turvaklass on (\url{https://www.riigiteataja.ee/akt/13125331?leiaKehtiv}): \linebreak
+	K2T1S2 \linebreak \par
+	
+	\textbf{K2} - töökindlus – 99\%  (lubatud summaarne seisak nädalas \textasciitilde2 tundi); lubatav nõutava reaktsiooniaja kasv tippkoormusel – minutid (1/10);
+	\textbf{T1} -  info allikas, selle muutmise ja hävitamise fakt peavad olema tuvastatavad; info õigsuse, täielikkuse ja ajakohasuse kontroll erijuhtudel ja vastavalt vajadusele;
+	\textbf{S2} - salajane info: info kasutamine on lubatud ainult teatud kindlatele kasutajate gruppidele, juurdepääs teabele on lubatav juurdepääsu taotleva isiku õigustatud huvi korral;
+	\\ \hline	
+\end{longtabu}
+
+\section{Autode registri eskiismudelid }
+Järgnevalt esitatakse eskiismudelid, mida detailanalüüsi käigus täpsustatakse ja täiendatakse.
 
 \begin{itemize}
 	\item 
