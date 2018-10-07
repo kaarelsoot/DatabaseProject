@@ -439,7 +439,61 @@ Allsüsteem loeb.
 	\textbf{Kirjeldus}: Subjekt valib kategooria ja näeb kõigi sellesse kuuluvate aktiivses seisundis olevate autode kõiki andmeid, v.a registreerimise aeg ja registreerinud töötaja. 
 \end{flushleft}
 
+
 \subsection{Mittefunktsionaalsed nõuded}
+
+\textbf{Tabel 4} esitab vaadeldava allsüsteemi mittefunktsionaalsed nõuded.
+
+\begin{table}[H]
+	\caption{\textbf{Tabel 4 Allsüsteemi mittefunktsionaalsed nõuded.}}
+	\begin{tabu} to \textwidth {| X[0.2] | X |}
+		\hline 
+		\rowcolor[HTML]{C0C0C0}
+		
+		\textbf{Tüüp}          
+		&  \textbf{Nõude kirjeldus} \\ \hline
+		
+		andmebaasi- süsteem 
+		& Süsteem peab andmete hoidmiseks kasutama SQLandmebaasisüsteemi abil loodud andmebaasi. Tegemist on äritarkvaraga, mis kasutab tööks struktureeritud andmeid ning neid andmeid ei hakka olema väga palju (räägime maksimaalselt mõnest tuhandest reast). Autodega seotud transaktsioonilisi (tehingute) andmeid on rohkem (kümneid kuni sadu tuhandeid kirjeid), kuid ka nende haldamisega tulevad tänapäeva SQL süsteemid toime.
+		\linebreak \par  Seega puudub vajadus mõne NoSQL süsteemi kasutamise järele. Serverite operatsioonisüsteemiks peaks olema Linux, et vähendada süsteemi maksumust. Andmebaasisüsteemina on soovitav kasutada PostgreSQLi, kuna see on avatud lähtekoodiga, seda pakutakse tasuta, see jälgib küllaltki hästi SQL standardit, see pakub häid võimalusi andmebaasi programmeerijale ning sellele on suur kasutajate kogukond (st abi ja tuge pole keeruline leida). \\ \hline
+		
+		arendusvahendid 
+		& Arendusvahendina tuleks kasutada organisatsioonile hangitud CASE tarkvara Rational Rose või Enterprise Architect. Alternatiivina võib kasutada tasuta pakutavat andmete modelleerimise vahendit DB MAIN 
+		(http://www.rever.eu/en/content/db-main-homepage). Prototüübi koostamiseks kasutatakse töölaua andmebaasisüsteemi MS Access või LibreOffice Base, kuhu on integreeritud kasutajaliidese ehitamise vahendid.  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+		TYYP 
+		& TEXT  \\ \hline
+		
+	\end{tabu}
+\end{table}
+
 \begin{itemize}
 	\item 
 \end{itemize}
