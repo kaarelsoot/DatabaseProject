@@ -4,5 +4,8 @@ Document/*.aux
 Document/*.log
 Document/*.synctex.gz
 Document/*.toc
+Autorendiettevotte_autode_arvestus/*.ldb
+Autorendiettevotte_autode_arvestus/*.accdb
+Autorendiettevotte_autode_arvestus/~$kument.docx
 
 
