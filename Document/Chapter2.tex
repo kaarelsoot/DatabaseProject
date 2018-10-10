@@ -24,20 +24,20 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Autode haldur, Juhataja, Klienditeenindaja, Klient – (edaspidi Subjekt). \\
 	\textbf{Osapooled ja nende huvid}:
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur, Juhataja, Klienditeenindaja, Klient}: Soovivad siseneda süsteemi ja teha tegevusi neile antud volituste piires.
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Subjekt soovib süsteemi siseneda. \\
 	\textbf{Eeltingimused}: Subjekt on süsteemis kasutajaks registreeritud ning ta on sobivas rollis ja seisundis. \\
 	\textbf{Järeltingimused}: On tehtud kindlaks, kas subjektil on õigus süsteemi siseneda või mitte. Subjekt on autenditud ja talle on antud võimalus kasutada süsteemi talle antud volituste piires (subjekt on autoriseeritud). \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Subjekt} soovib siseneda süsteemi.
 		\item \textbf{Süsteem} palub subjektil ennast identifitseerida.
 		\item \underline{Subjekt} identifitseerib ennast (sisestades kasutajanime, parooli).
 		\item \textbf{Süsteem} kontrollib, kas esitatud volitustõendiga (antud juhul parooliga) subjekti andmed on süsteemis olemas või mitte ning milline on tema roll ja seisund süsteemis (\textbf{\textcolor{red}{OP1.1}}).
 		\item \textbf{Süsteem} annab subjektile volituse süsteemi kasutada ja annab talle juurdepääsu infosüsteemi objektidele.
-	\end{enumerate}
+	\end{myenumerate}
 	\textit{Subjekt võib üritada süsteemi siseneda kuni kolm korda.} \\
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	%Formaat teine kui Erkil
@@ -50,21 +50,21 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Autode haldur \\
 	\textbf{Osapooled ja nende huvid}: 
 		\useDash
-		\begin{itemize}
+		\begin{myitemize}
 		\item \underline{Autode haldur}: Soovivad siseneda süsteemi ja teha tegevusi neile antud volituste piires.
 		\item \underline{Juhataja}: Soovib, et organisatsiooni kasum ja klientide rahulolu oleks võimalikult suur ja selleks peab juhatajal olema ülevaade kõigist autodest ning uue auto tekkimisel ei tohi selle registreerimisega viivitada.
 		\item \underline{Klient, Uudistaja}: Soovivad võimalikult täpset infot auto kohta, mida organisatsioon pakub, et otsustada, kas siduda ennast selle organisatsiooniga autot kasutava kliendi rollis.
-		\end{itemize}
+		\end{myitemize}
 	\textbf{Käivitav sündmus}: Organisatsiooni jõuab teave uue auto kohta, millega kliendid saavad hakata tulevikus tehinguid tegema. \\
 	\textbf{Eeltingimused}: Autode haldur on autenditud ja autoriseeritud. \\
 	\textbf{Järeltingimused}: Auto on registreeritud ja auto on seisundis "Ootel". \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Autode haldur} avaldab soovi uus auto registreerida.
 		\item \textbf{Süsteem} avab vormi, kus saab uue auto registreerida. Seal on muuhulgas võimalik määrata, millistesse kategooriatesse auto kuulub, sest süsteem pakub kategooriate valiku (\textbf{\textcolor{red}{OP2.1}}).
 		\item \underline{Autode haldur} sisestab auto andmed ja valib kategooriad, millesse auto kuulub. Autode haldur ei saa registreerida auto algseisundit, registreerimise aega ning viidet registreerimise läbiviinud töötajale – seda teeb süsteem automaatselt. Ta annab korralduse salvestada.
 		\item \textbf{Süsteem} salvestab auto andmed (\textbf{\textcolor{blue}{OP1}}) ning ükshaaval kõikide kategooriasse kuulumiste andmed (\textbf{\textcolor{blue}{OP7}}).
-	\end{enumerate}
+	\end{myenumerate}
 	\textit{Autode haldur võib samme 1-4 läbida nii mitu korda kui soovib.} \\
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 2a. Kui ühtegi auto kategooriat pole registreeritud, siis kategooriate valikut ei pakuta ning auto kategooriasse kuulumist ei saa registreerida. \\
@@ -78,21 +78,21 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Autode haldur \\
 	\textbf{Osapooled ja nende huvid}: 
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur}: Soovib, et süsteemis oleks kõikide organisatsioonile teadaolevate autode andmed ja et need andmed oleksid võimalikult täpsed. Kui on selge, et autot sellisel kujul ei teki, siis soovib selle andmed segaduste vältimiseks süsteemist eemaldada.
 		\item \underline{Juhataja}: Soovib, et organisatsiooni kasum ja klientide rahulolu oleks võimalikult suur ja selleks peab juhatajal olema ülevaade kõigist autodest ning uue auto tekkimisel ei tohi selle registreerimisega viivitada. Samas ei soovi ta näha autosid, millest asja ei saa.
 		\item \underline{Klient, Uudistaja}: Soovivad võimalikult täpset infot autode kohta, mida organisatsioon pakub, et otsustada, kas siduda ennast selle organisatsiooniga autot kasutava kliendi rollis.
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Organisatsiooni jõuab teave, et autot sellisel kujul ei realiseeru ning seda ei saa hakata klientidele tehinguteks pakkuma. \\
 	\textbf{Eeltingimused}: Autode haldur on autenditud ja autoriseeritud. Auto on registreeritud ja on seisundis "Ootel". \\
 	\textbf{Järeltingimused}: Auto andmed on süsteemist kustutatud. \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Autode haldur} avaldab soovi auto unustada, st selle andmed süsteemist kustutada.
 		\item \textbf{Süsteem} kuvab ootel autode nimekirja, kus on auto\_kood, nimetus,  mark, mudel, valjalaske\_aasta, reg\_number, vin\_kood (\textbf{\textcolor{red}{OP3.1}}).
 		\item \underline{Autode haldur} valib nimekirjast auto ja annab korralduse see unustada.
 		\item \textbf{Süsteem} salvestab andmed (\textbf{\textcolor{blue}{OP2}}).
-	\end{enumerate}
+	\end{myenumerate}
 	\textit{Autode haldur võib samme 1-4 läbida nii mitu korda kui soovib.} \\
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 3a. \underline{Autode haldur} saab nimekirja kõigi kuvatud väljade järgi sorteerida ja filtreerida. \\
@@ -104,24 +104,24 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Autode haldur \\
 	\textbf{Osapooled ja nende huvid}: 
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur}: Soovib, et süsteemis oleks kõikide organisatsioonile teadaolevate autode andmed ja et need andmed oleksid võimalikult täpsed.
 		\item \underline{Juhataja}: Soovib, et organisatsiooni kasum ja klientide rahulolu oleks võimalikult suur ja selleks peab juhatajal olema täpne ülevaade kõigist autodest. 
 		\item \underline{Klient, Uudistaja}: Soovivad võimalikult täpset infot autode kohta, mida organisatsioon pakub, et otsustada, kas siduda ennast selle organisatsiooniga autot kasutava kliendi rollis.
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Ilmneb, et autode andmete registreerimisel on tehtud viga või 
 	auto atribuutide väärtuste ja seoste hulgas on toimunud muudatus (siia hulka ei kuulu seisundimuudatus, millega tegelemiseks on eraldi kasutusjuhud). \\
 	\textbf{Eeltingimused}: Autode haldur on autenditud ja autoriseeritud. Auto on registreeritud ja on seisundis "Ootel" või "Mitteaktiivne". \\
 	\textbf{Järeltingimused}: Auto andmed on muudetud, kuid auto seisund ning info auto registreerija ning registreerimise aja kohta ei ole muutunud. \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Autode haldur} soovib muuta auto andmeid.
 		\item \textit{Käivitub kasutusjuht "Vaata kõiki ootel või mitteaktiivseid autosid"}
 		\item \underline{Autode haldur} valib nimekirjast auto ja annab korralduse vaadata selle detailseid andmeid.
 		\item \textbf{Süsteem} kuvab muutmiseks mõeldud väljades auto põhiandmed  (auto\_kood, nimetus, mark, mudel, valjalaske\_aasta, mootori\_maht, auto\_kütuse\_liik, istekohtade\_arv, reg\_number, vin\_kood) (\textbf{\textcolor{red}{OP4.1}}) ning sellega seotud kategooriate ja kategooriate tüüpide nimetused (\textbf{\textcolor{red}{OP2.2}}). Seal on muuhulgas võimalik määrata, millistesse kategooriatesse auto kuulub, sest süsteem pakub kategooriate valiku (\textbf{\textcolor{red}{OP2.1}}).
 		\item \underline{Autode haldur} muudab auto andmeid ja annab korralduse salvestada.
 		\item \textbf{Süsteem} salvestab andmed (\textbf{\textcolor{blue}{OP6}})
-	\end{enumerate}
+	\end{myenumerate}
 	\textit{Autode haldur võib samme 1-6 läbida nii mitu korda kui soovib.} \\
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 5a. \underline{Autode haldur} võib lisada auto uude kategooriasse ja anda korralduse salvestada. \\
@@ -136,21 +136,21 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Autode haldur \\
 	\textbf{Osapooled ja nende huvid}: 
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur, Juhataja}: Soovib, et iga auto kohta oleks teada tema koht üldises auto elutsüklis, mis ühtlasi määrab tegevused, mida selle autoga saab teha.
 		\item \underline{Autode haldur}: Soovib, et autot saaks kasutada uutes tehingutes.
 		\item \underline{Klient, Uudistaja}: Soovivad näha kõiki aktiivseid autosid, et otsustada, kas siduda ennast selle organisatsiooniga autot kasutava kliendi rollis.
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Auto ooteperiood või autoga seoses tekkinud ajutised probleemid on lahenenud ning auto põhjal saab uuesti tehinguid teha. \\
 	\textbf{Eeltingimused}:Autode haldur on autenditud ja autoriseeritud. Auto on registreeritud ja on seisundis "Ootel" või "Mitteaktiivne". Auto on määratud vähemalt ühte auto kategooriasse.\\
 	\textbf{Järeltingimused}: Auto on seisundis "Aktiivne". \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Autode haldur} soovib aktiveerida auto.
 		\item\textit{ Käivitub kasutusjuht "Vaata kõiki ootel või mitteaktiivseid autosid"}
 		\item \underline{Autode haldur} valib nimekirjast auto ja annab korralduse see aktiivseks muuta.
 		\item \textbf{Süsteem} salvestab andmed (\textbf{\textcolor{blue}{OP3}}).
-	\end{enumerate}
+	\end{myenumerate}
 	\textit{Autode haldur võib samme 1-4 läbida nii mitu korda kui soovib.} \\
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 3a. Kui nimekirjas ei ole ühtegi ootel või mitteaktiivset autot, siis ei saa autode haldur jätkata. \\
@@ -162,21 +162,21 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Autode haldur \\
 	\textbf{Osapooled ja nende huvid}: 
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur, Juhataja}: Soovib, et iga auto kohta oleks teada tema koht üldises auto elutsüklis, mis ühtlasi määrab tegevused, mida selle autoga saab teha.
 		\item \underline{Autode haldur}: Soovib auto andmeid muuta või tegeleda sellega tekkinud ajutiste probleemidega, olles samal ajal veendunud, et keegi ei saa sellega algatada uusi tehinguid.
 		\item \underline{Klient, Uudistaja}: Soovivad näha kõiki aktiivseid autosid, et otsustada, kas siduda ennast selle organisatsiooniga autot kasutava kliendi rollis (kui huvi pakkuv auto ei ole selles nimekirjas, siis see on talle samuti oluline informatsioon).
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Auto kasutamine tehingutes on vaja ajutiselt peatada kuna seoses selle autoga on ilmnenud ajutise iseloomuga probleemid. \\
 	\textbf{Eeltingimused}:Autode haldur on autenditud ja autoriseeritud. Auto on registreeritud ja on seisundis "Aktiivne".\\
 	\textbf{Järeltingimused}: Auto on seisundis "Mitteaktiivne". \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Autode haldur} avaldab soovi auto mitteaktiivseks muuta.
 		\item\textit \textbf{Süsteem} kuvab aktiivsete autode nimekirja, kus on auto\_kood, nimetus,  mark, mudel, valjalaske\_aasta, reg\_number, vin\_kood (\textbf{\textcolor{red}{OP6.1}}).
 		\item \underline{Autode haldur} valib nimekirjast auto ja annab korralduse see mitteaktiivseks muuta.
 		\item \textbf{Süsteem} salvestab andmed (\textbf{\textcolor{blue}{OP4}}).
-	\end{enumerate}
+	\end{myenumerate}
 	\textit{Autode haldur võib samme 1-4 läbida nii mitu korda kui soovib.} \\
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 3a. Autode haldur saab nimekirja kõigi kuvatud väljade järgi sorteerida ja filtreerida. \\
@@ -188,17 +188,17 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Autode haldur \\
 	\textbf{Osapooled ja nende huvid}: 
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur}: Soovib sisendit juhtimisotsuste tegemiseks.
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Subjekt soovib muuta auto andmeid, sh auto seisundit. \\
 	\textbf{Eeltingimused}: Subjekt on autenditud ja autoriseeritud. \\
 	\textbf{Järeltingimused}: On leitud seisundis "Ootel" või "Mitteaktiivne" olevate autode nimekiri. \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Subjekt} soovib vaadata ootel või mitteaktiivsete autode nimekirja.
 		\item\textit \textbf{Süsteem} kuvab ootel või mitteaktiivses seisundis autode nimekirja, kus on kood, nimetus, hetkeseisundi nimetus, mark, mudel, valjalaske\_aasta, reg\_number, vin\_kood (\textbf{\textcolor{red}{OP7.1}}).
-	\end{enumerate}
+	\end{myenumerate}
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 2a. Autode haldur saab nimekirja kõigi kuvatud väljade järgi sorteerida ja filtreerida. \\
 \end{shaded}
@@ -208,19 +208,19 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Autode haldur, Juhataja – (edaspidi Subjekt) \\
 	\textbf{Osapooled ja nende huvid}: 
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur, Juhataja}: Soovib sisendit juhtimisotsuste tegemiseks.
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Subjekt tahab mingil põhjusel vaadata autode detailseid andmeid (sealhulgas juba lõpetatud autode andmeid). Näiteks soovib subjekt näha, milliseid autosid on organisatsioon kunagi pakkunud või milliseid see praegu pakub. \\
 	\textbf{Eeltingimused}:Subjekt on autenditud ja autoriseeritud.\\
 	\textbf{Järeltingimused}: On leitud kõikide autode detailsed andmed. \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Subjekt} soovib vaadata kõikide autode andmeid.
 		\item\textit \textbf{Süsteem} kuvab kõigi autode nimekirja, kus on kood, nimetus, hetkeseisundi nimetus, mark, mudel, valjalaske\_aasta, reg\_number, vin\_kood (\textbf{\textcolor{red}{OP8.1}}).
 		\item \underline{Subjekt} valib auto, mida ta soovib detailsemalt vaadata.
 		\item \textbf{Süsteem} kuvab vaatamiseks mõeldud väljades auto põhiandmed andmed (auto\_kood, nimetus, mark, mudel, valjalaske\_aasta, mootori\_maht, auto\_kütuse\_liik, istekohtade\_arv, reg\_number, vin\_kood, registreerimise aeg, registreerinud töötaja eesnimi, perenimi ja e-meili aadress) (\textbf{\textcolor{red}{OP8.2}}) ning sellega seotud kategooriate ja kategooriate tüüpide nimetused (\textbf{\textcolor{red}{OP2.2}}).
-	\end{enumerate}
+	\end{myenumerate}
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 3a. Subjekt saab nimekirja kõigi kuvatud väljade järgi sorteerida ja filtreerida. \\
 	\indent 3b. Kui nimekirjas ei ole ühtegi autot, siis ei saa subjekt jätkata.
@@ -231,21 +231,21 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Juhataja \\
 	\textbf{Osapooled ja nende huvid}: 
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur, Juhataja}: Soovib, et iga auto kohta oleks teada tema koht üldises auto elutsüklis, mis ühtlasi määrab tegevused, mida selle autoga saab teha.
 		\item \underline{Juhataja}: Soovib anda kõigile huvitatud osapooltele teada, et autoga enam tehinguid ei tehta (kuid kõik käimasolevad tehingud tuleb vastavalt kehtivale korrale lõpetada). Samas soovib ta auto andmete süsteemis säilimist, et ei läheks kaotsi info auto ja sellega seotud tehingute kohta.
 		\item \underline{Klient, Uudistaja}: Soovivad näha kõiki aktiivseid autosid, et otsustada, kas siduda ennast selle organisatsiooniga autot kasutava kliendi rollis (kui huvi pakkuv auto ei ole selles nimekirjas, siis see on talle samuti oluline informatsioon).
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Auto kasutamine tehingutes on vaja püsivalt lõpetada, kuna seoses autoga on ilmnenud püsiva iseloomuga probleemid või kuna auto on oma aja lihtsalt ära elanud. \\
 	\textbf{Eeltingimused}:Juhataja on autenditud ja autoriseeritud. Auto on registreeritud ja on seisundis "Aktiivne" või "Mitteaktiivne".\\
 	\textbf{Järeltingimused}: Auto seisund on muutunud "Lõpetatud", kuid auto andmed on süsteemis endiselt alles. Auto andmeid ei tohi süsteemist füüsiliselt kustutada, sest sellega seoses tuleks kustutada info kõigi tehingute kohta, millega auto on seotud. \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Juhataja} avaldab soovi auto lõpetada.
 		\item\textit \textbf{Süsteem} kuvab aktiivsete või mitteaktiivsete autode nimekirja, kus on kood, nimetus,  hetkeseisundi nimetus, mark, mudel, valjalaske\_aasta, reg\_number, vin\_kood (\textbf{\textcolor{red}{OP9.1}}).
 		\item \underline{Juhataja} valib nimekirjast auto ja annab korralduse see lõpetada.
 		\item \textbf{Süsteem} salvestab andmed (\textbf{\textcolor{blue}{OP5}}).
-	\end{enumerate}
+	\end{myenumerate}
 	\textit{Juhataja võib samme 1-4 läbida nii mitu korda kui soovib. }\\
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 3a. Juhataja saab nimekirja kõigi kuvatud väljade järgi sorteerida ja filtreerida. \\
@@ -257,18 +257,18 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Juhataja \\
 	\textbf{Osapooled ja nende huvid}: 
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur}: Soovib sisendit juhtimisotsuste tegemiseks.
 		\item \underline{Autode haldur}: Soovib, et juhataja teeks häid otsuseid ja äri kestaks.
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Juhataja soovib juhtimisotsuste tegemiseks seada, kui palju on iga auto elutsükli seisundi kohta autosid, mis on parajasti selles seisundis. \\
 	\textbf{Eeltingimused}: Juhataja on autenditud ja autoriseeritud. Auto seisundi liigid on registreeritud. \\
 	\textbf{Järeltingimused}: Auto koondaruanne on moodustatud. \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Juhataja} soovib vaadata auto koondaruannet.
 		\item\textit \textbf{Süsteem} kuvab iga auto elutsükli seisundi kohta selle seisundi koodi, nimetuse (suurtähtedega) ja hetkel selles seisundis olevate autode arvu. Kui selles seisundis pole hetkel ühtegi autot, siis on arv 0. Seisundid on sorteeritud autode arvu järgi kahanevalt. Kui mitmel seisundil on samasugune autode arv, siis need on sorteeritud suurtähtedega nime järgi tähestiku järjekorras (\textbf{\textcolor{red}{OP10}}).
-	\end{enumerate}
+	\end{myenumerate}
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 2a. Kui ükski auto seisundi liik pole registreeritud, siis ei saa olla ka registreeritud mitte ühtegi autot ja sellisel juhul tagastab päring null rida. \\
 \end{shaded}
@@ -278,20 +278,20 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\textbf{Primaarne tegutseja}: Uudistaja, Klient, Klienditeenindaja – (edaspidi Subjekt). \\
 	\textbf{Osapooled ja nende huvid}: 
 	\useDash
-	\begin{itemize}
+	\begin{myitemize}
 		\item \underline{Autode haldur, Juhataja, Klienditeenindaja}:Tahavad, et võimalikel huvilistel oleks täpne ülevaade organisatsiooni pakutavast ja et see kallutaks neid organisatsiooni kliendiks hakkama.õ
 		\item \underline{Klient, Uudistaja}: Soovivad näha organisatsiooni pakutavate autode nimekirja, et langetada tarbimisotsuseid.
-	\end{itemize}
+	\end{myitemize}
 	\textbf{Käivitav sündmus}: Subjekt tunneb huvi organisatsiooni poolt hetkel pakutavate autode kohta, et otsustada, kas ennast tulevikus organisatsiooniga tihedamalt siduda. \\
 	\textbf{Eeltingimused}:Klient on autenditud ja autoriseeritud, uudistaja ei ole autenditud ja autoriseeritud.\\
 	\textbf{Järeltingimused}: Aktiivsete autode nimekiri on leitud. \\
 	\textbf{Stsenaarium (tüüpiline sündmuste järjestus)}:
-	\begin{enumerate}
+	\begin{myenumerate}
 		\item \underline{Subjekt} soovib näha kõiki organisatsiooni pakutavaid aktiivseid autosid.
 		\item\textit \textbf{Süsteem} kuvab nimekirja kategooriatest (\textbf{\textcolor{red}{OP2.1}}).
 		\item \underline{Subjekt} valib konkreetse kategooria.
 		\item \textbf{Süsteem} kuvab sellesse kuuluvate aktiivsete autode nimekirja. Iga auto kohta esitatakse kood, nimetus, kategooriate ja nende tüüpide nimetused, valjalaske\_aasta, mark, mudel, istekohtade arv, mootori maht, kütuse liik  (\textbf{\textcolor{blue}{OP11.2}}).
-	\end{enumerate}
+	\end{myenumerate}
 	\textit{Juhataja võib samme 1-4 läbida nii mitu korda kui soovib. }\\
 	\textbf{Laiendused  (või alternatiivne sündmuste käik)}: \\
 	\indent 4a. Kui pole ühtegi aktiivset autot, siis on nimekiri tühi. \\
