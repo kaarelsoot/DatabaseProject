@@ -297,3 +297,115 @@ Autode funktsionaalse allsüsteemi kasutusjuhtude diagramm (vt joonis 2).  \vspa
 	\indent 4a. Kui pole ühtegi aktiivset autot, siis on nimekiri tühi. \\
 	\indent 4b. Subjekt võib vaadatavate autode hulka koodi ja nimetuse järgi sorteerida ning filtreerida.
 \end{shaded}
+
+\section{Autode funktsionaalse allsüsteemi vajatavate registrite detailanalüüs}
+Järgnevalt kirjeldatakse detailselt ja mittetehniliselt autode funktsionaalse allsüsteemi vajatavate registrite struktuuri ja toimimist.
+
+\subsection{Kontseptuaalne andmemudel}
+Järgnevalt esitatakse kontseptuaalne andmemudel, mis koosneb olemi suhte diagrammidest ja nendel olevate olemitüüpide ja atribuutide sõnalistest kirjeldustest.  \vspace{\pVert} \\ \hfill
+
+Joonis  esitatud olemi suhte diagrammidel on värvidel järgmine tähendus.
+\begin{itemize}
+	\item \textcolor{red}{Punasega} on tähistatud autode registri põhiobjekt.
+	\item \hl{Kollasega} on tähistatud autode registrisse kuuluvad mitte-põhiobjektid.
+	\item \textcolor{green}{Rohelisega} on tähistatud teistesse registritesse kuuluvad objektid, mida on antud juhul vaja autode funktsionaalse allsüsteemi toimimise tagamiseks.
+\end{itemize}
+
+\begin{figure}[H]
+	\includegraphics[scale=1]{joonis5}
+	\caption{\textbf{Joonis 5 Auto registri olemi-suhte diagramm.}}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[scale=1]{joonis6}
+	\caption{\textbf{Joonis 6 Isikute registri olemi-suhte diagramm.}}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[scale=1]{joonis7}
+	\caption{\textbf{Joonis 7 Klientide registri olemi-suhte diagramm.}}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[scale=1]{joonis8}
+	\caption{\textbf{Joonis 8 Töötajate registri olemi-suhte diagramm.}}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[scale=1]{joonis9}
+	\caption{\textbf{Joonis 9 Laiendatud auto registri olemi-suhte diagrammid.}}
+\end{figure}
+
+Tabel 5 esitab olemi-suhte diagrammidel esitatud olemitüüpide sõnalised kirjeldused.
+
+\begin{longtabu} to \textwidth {| X | X | X[2] |} 
+	\caption{\textbf{Tabel 5 Olemitüüpide sõnalised kirjeldused.}} \\
+	% -----------------headings----------------------%
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Olemitüübi nimi (teised nimed)}   &   \textbf{Kuuluvus registrisse} & \textbf{Definitsioon} \\
+	\hline
+	\endfirsthead
+	%headings for next page columns
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Olemitüübi nimi (teised nimed)}   &   \textbf{Kuuluvus registrisse} & \textbf{Definitsioon} \\
+	\hline
+	\endhead
+	% ---------------headings end--------------------%
+	Amet
+	& Klassifikaatorite register
+	& Amet on töölepingus sätestatud ametikohustuste üldnimetus. Ametid on klassifikaatorid. Näited on juhataja ja klienditeenindaja. \\ \hline
+	
+	Auto
+	& Autode register
+	& Auto on sõiduvahend, mis on organisatsioonis varana arvel ning millega sooritatakse tehinguid organisatsiooni klientidega. „Auto on vähemalt kolmerattaline ja kaheteljeline mootorsõiduk reisijate või veoste vedamiseks rööpmeta teedel või maastikul.“ (Vikipeedia) Auto all mõeldakse sõiduautot. „Sõiduautodeks loetakse tavaliselt reisijate vedamiseks mõeldud väiksemaid, 2–9[viide?]-kohalisi autosid.“ (Vikipeedia) \\ \hline
+	
+	Auto\_kategooria
+	& Klassifikaatorite register
+	& Võimaldab auto klassifitseerimist erinevatesse kategooriatesse ja selle alusel autode rühmitamist teatud põhjusel huvipakkuvateks hulkadeks. Tegemist on üksteist mittevälistavate kategooriatega, st üks ja sama auto võib kuuluda korraga mitmesse sama tüüpi kategooriasse. Näited on pereauto ja väikeauto. \\ \hline
+	
+	Auto\_kategooria\_omamine
+	& Autode register
+	& Näitab auto kuulumist kategooriatesse. Iga auto ja iga auto kategooria vahel võib olla maksimaalselt üks seos. \\ \hline
+	
+	Auto\_kategooria\_tüüp
+	& Klassifikaatorite register 
+	& Võimaldab rühmitada auto klassifitseerimiseks kasutatavaid kategooriaid ühise nime alla. Need nimed kirjeldavad, mis liiki klassifikatsiooniga on tegemist. Näide on sihtgrupp. \\ \hline
+	
+	Auto\_kütuse\_liik
+	& Klassifikaatorite register 
+	& Võimaldab auto klassifitseerimist kütuseliigi alusel. Näited on bensiin ja diisel. \\ \hline
+	
+	Isik
+	& Isikute register 
+	& Mistahes organisatsiooniga seotud füüsiline isik (eraisik). Isik võib olla seotud organisatsiooniga näiteks kui klient või kui töötaja. \\  \hline
+		
+	Isiku\_seisundi\_liik
+	& Klassifikaatorite register 
+	& Seisundiklassifikaator, mis võimaldab fikseerida iga isiku puhul tema hetkeseisundi vastavalt üldisele isikute elutsüklile. Näited on elus ja surnud. \\ \hline
+	
+	Klassifikaator
+	& Klassifikaatorite register 
+	& Klassifikaatorid on "mistahes andmed, mida kasutatakse andmebaasis teiste andmete liigitamiseks või andmebaasis olevate andmete seostamiseks väljaspool organisatsiooni vastutusala oleva informatsiooniga." (Chisholm, 2000) \\ \hline
+
+	Kliendi\_seisundi\_liik
+	& Klassifikaatorite register 
+	& Seisundiklassifikaator, mis võimaldab fikseerida iga kliendi puhul tema hetkeseisundi vastavalt üldisele kliendi elutsüklile. Näited on aktiivne ja mustas nimekirjas. \\ \hline
+	
+	Klient
+	& Klientide register 
+	& Organisatsioonis end kliendina registreerinud isik, kellel on võimalik osta organisatsiooni poolt pakutavaid tooteid või teenuseid. \\ \hline
+	
+	Riik
+	& Klassifikaatorite register 
+	& "Riik on kindla territooriumiga sõltumatu (suveräänne) üksus (juriidiline lähenemine).“ (Vikipeedia) Riikidena käsitletakse riike ja territooriumeid, mis on kirjeldatud Eesti Statistika lehel olevas riikide ja territooriumite klassifikaatori dokumendis, mis on omakorda eestindatud versioon rahvusvahelisest standardist "International Standard Codes for the Representation of the Names of Countries (ISO 3166) \\ \hline
+	
+	Töötaja
+	& Töötajate register
+	& Organisatsioonis (kui tööandja juures) töölepingu alusel töötav ja selle organisatsiooni juhtimisele ning kontrollile alluv isik, kes saab oma töö eest töölepingus kokkulepitud tasu. \\ \hline
+	
+	Töötaja\_seisundi\_liik
+	& Klassifikaatorite register
+	& Seisundiklassifikaator, mis võimaldab fikseerida iga töötaja puhul tema hetkeseisundi vastavalt üldisele töötajate elutsüklile. Näited on tööl ja puhkusel. \\ \hline
+	\end{longtabu}
