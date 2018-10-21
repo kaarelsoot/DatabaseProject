@@ -409,3 +409,195 @@ Tabel 5 esitab olemi-suhte diagrammidel esitatud olemitüüpide sõnalised kirje
 	& Klassifikaatorite register
 	& Seisundiklassifikaator, mis võimaldab fikseerida iga töötaja puhul tema hetkeseisundi vastavalt üldisele töötajate elutsüklile. Näited on tööl ja puhkusel. \\ \hline
 	\end{longtabu}
+
+Tabel 6 esitab atribuutide sõnalised kirjeldused.
+
+\begin{longtabu} to \textwidth {| X | X | X[2] | X |} 
+	\caption{\textbf{Tabel 6 Atribuutide sõnalised kirjeldused.}} \\
+	% -----------------headings----------------------%
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Olemitüübi nimi}   &   \textbf{Atribuudi nimi (teised nimed)} & \textbf{Atribuudi definitsioon}  & \textbf{Näiteväärtus} \\
+	\hline
+	\endfirsthead
+	%headings for next page columns
+	\hline
+	\rowcolor[HTML]{C0C0C0}
+	\textbf{Olemitüübi nimi}   &   \textbf{Atribuudi nimi (teised nimed)} & \textbf{Atribuudi definitsioon}  & \textbf{Näiteväärtus} \\
+	\hline
+	\endhead
+	% ---------------headings end--------------------%
+
+	Amet
+	& kirjeldus
+	& Ametist tulenevate õiguste ja kohustuste vabatekstiline kirjeldus.
+	
+	\textbf{Kirjeldus ei tohi olla tühi string või ainult tühikutest koosnev string. Kasutage andmetüüpi, mis võimaldab suurimat võimalikku stringi pikkust.}
+	& Juhib organisatsiooni igapäevast tööd ning langetab strateegilisi otsuseid 
+	 \\ \hline
+	
+	Auto
+	& auto\_kood
+	& Auto arvuline kood, mis sisestatakse inimkasutaja poolt, mitte ei genereerita süsteemi poolt. 
+	
+	\textbf{Auto unikaalne identifikaator. Registreerimine on kohustuslik}
+	& 222
+	\\ \hline
+	
+   	Auto
+	& nimetus (hüüdnimi)
+	& Auto hüüdnimi, millega sellele äratuntavalt viidata.
+	
+	\textbf{Auto unikaalne identifikaator. Võib olla kuni 50 märki. Registreerimine on kohustuslik. Nimetus ei tohi olla tühi string ega ainult tühikutest koosnev string.}
+	& Nimetus\\ \hline
+	
+   	Auto
+	& reg\_aeg
+	& Auto registreerimise aeg kuupäeva ja kellaaja täpsusega. Selle võib süsteem ise automaatselt määrata.
+	
+	\textbf{Registreerimine on kohustuslik. Väärtus peab olema vahemikus 01. jaanuar 2010 00:00:00 ja 31. detsember 2100 kell 23:59:59 (otspunktid kaasa arvatud).}
+	
+	& 22.03.2015 12:33\\ \hline
+	
+   	Auto
+	& valjalaske\_
+	aasta
+	& Auto tootmisaasta.
+	
+	\textbf{Registreerimine on kohustuslik.
+	Väärtus peab olema vahemikus 2000 – 2100 (otspunktid kaasa arvatud).}
+	& 2009\\ \hline
+	
+   	Auto
+	& istekohtade\_arv
+	& Auto istekohtade arv.
+	
+	\textbf{Registreerimine on kohustuslik.}
+	\textbf{Väärtus peab olema vahemikus 2 kuni 11 (otspunktid kaasa arvatud).}
+	& 4\\ \hline
+	
+   	Auto
+	& mudel
+	& Auto mudel. Mudel on autotootja poolt kasutatav nimi, et kirjeldada ja reklaamida ühesuguste omadustega autosid.
+	
+	\textbf{Registreerimine on kohustuslik. Mudel ei tohi olla tühi string ega tühikutest koosnev string.}
+	& A4\\ \hline
+	
+   	Auto
+	& mootori\_maht
+	& Auto mootori maht liitrites. 
+	
+	\textbf{Registreerimine on kohustuslik. Ei tohi olla negatiivne arv. Kümnendmurd täpsusega üks koht peale koma.}
+	& 2.5\\ \hline
+	
+   	Auto
+	& reg\_number (registreerimismärk, registrinumber)
+	& Eesti autoregistri poolt väljastatud registreerimisnumber. Erinevatel autodel võib erinevatel aegadel olla sama number.
+	
+	\textbf{Registreerimine on kohustuslik.}
+		
+	\textbf{Ei tohi leiduda kahte aktiivses seisundis  autot, millel on sama registrinumber, st aktiivsete autode registrinumbrid peavad olema unikaalsed.}
+	
+	\textbf{Registrinumber ei tohi olla tühi string ega tühikutest koosnev string. Registrinumbris on lubatud suurtähed ja numbrid. Märkide hulk peab olema 2-9 (otspunktid kaasa arvatud). Registrinumber peab järgima ühte järgmistest mustritest.}
+	
+	\textbf{1.	Üks või rohkem suurtähte, millele järgneb üks või rohkem numbrit.
+	2.	Kaks või kolm numbrit, millele järgneb kolm suurtähte.}
+	& QWE321\\ \hline
+	
+   	Auto
+	& vin\_kood
+	& Tehase poolt väljastatud unikaalne auto kood.
+	
+	\textbf{Auto unikaalne identifikaator. Registreerimine on kohustuslik. Vin kood peab olema 11-17 märki (otspunktid kaasa arvatud) ning tohib sisaldada ainult numbreid ja suurtähti.}
+	& WAUFFAFM3CA000000\\ \hline
+	
+   	Isik
+	& isikukood
+	& Riigi poolt väljastatud isiku identifikaator, mis on unikaalne selle väljastanud riigi piires.
+	
+	\textbf{Registreerimine on kohustuslik. Koos riigi identifikaatoriga on isiku unikaalne identifikaator.Isikukoodis on lubatud tähed, numbrid, tühikud, sidekriipsud ja / 
+	Isikukood ei tohi olla tühi string või ainult tühikutest koosnev string.}
+	& 39204010231\\ \hline
+	
+   	Isik
+	& eesnimi
+	& "Lapsele pärast sündi (registreerimisel) pandav nimi, osa isikunimest. Eesnimi asetseb harilikult perekonnanime ees, harva järel (nt Ungari pruugis)." (ESTERM)
+	
+	\textbf{Vähemalt üks kahest – eesnimi või perenimi peab olema registreeritud. Eesnimi ei tohi olla tühi string või ainult tühikutest koosnev string.}
+	& Mart\\ \hline
+	
+   	Isik
+	& perenimi (perekonna- nimi)
+	& "Nimi, mis on isikul ühine teiste tema perekonna liikmetega" (ESTERM)
+	
+	\textbf{Vähemalt üks kahest – eesnimi või perenimi peab olema registreeritud. Perenimi ei tohi olla tühi string või ainult tühikutest koosnev string.}
+	& Mets\\ \hline
+	
+   	Isik
+	& sünni\_kp
+	& Isiku sünni kuupäev sünnikoha kohaliku aja järgi.
+	
+	\textbf{Registreerimine on kohustuslik. Sünni kuupäeva võimalikud väärtused on vahemikus 01. jaanuar 1900 ja 31. detsember 2100 (otspunktid kaasa arvatud). Sünni kuupäev ei tohi olla suurem isiku registreerimise ajast.}
+	& 12.08.1993\\ \hline
+	
+   	Isik
+	& elukoht
+	& Isiku alalise elukoha aadress. 
+	
+	"Koha-aadress on territooriumi haldusjaotuse hierarhiast ja ametlikest kohanimedest lähtuv aadressobjekti tekstilis-numbriline kirje või tunnus. Ühele objektile võib määrata mitu koha-aadressi. Ühele objektile määratud koha-aadressid on paralleelaadressid." ("Aadressandmete süsteemi kehtestamine")	
+	
+	\textbf{Elukoht ei tohi olla tühi string, ainult tühikutest koosnev string või ainult numbritest koosnev string.}
+	& Tallinn, 34124, Ehitajate tee 62-12. Harjumaa, Viimsi vald, Kaku küla, Laane talu.\\ \hline
+	
+   	Isik
+	& e\_meil (e\_mail, meil, meiliaadress, e-posti aadress)
+	& Aadress, millele saab  üle võrgu (ühest arvutist või tööjaamast teise) saata isikule mõeldud kirjalikke sõnumeid. Kasutatakse kasutaja tuvastamisel kasutajanimena. 
+	
+	\textbf{Registreerimine on kohustuslik. Isiku tõstutundetud unikaalne identifikaator. Teiste sõnadega, kui süsteemis on näiteks meiliaadress Mati@mets.ee, siis meiliaadressi mati@mets.ee lisada ei saa.}
+		
+	\textbf{e\_meil peab sisaldama täpselt ühte "@" märki. Võib olla kuni 254 märki pikk.}
+	& kalamees@hot.ee\\ \hline
+	
+   	Isik
+	& parool
+	& Isiku identsust tõendav teadmuslik (miski, mida isik teab) volitustõend. Andmebaasis salvestatakse parooli ja soola põhjal leitud räsiväärtus.
+	
+	\textbf{Registreerimine on kohustuslik.}
+	& \$2a\$11\$FsKdoFDJePwuYtyg2hBxz.e8AwSODaO/nFGGacEm05vIgOBNG9dHC\\ \hline
+	
+	Isik
+	& reg\_aeg
+	& Isiku registreerimise aeg kuupäeva ja kellaaja täpsusega. Selle võib süsteem ise automaatselt määrata.
+	
+	\textbf{Registreerimine on kohustuslik. Väärtus peab olema vahemikus 01. jaanuar 2010 00:00:00 ja 31. detsember 2100 kell 23:59:59 (otspunktid kaasa arvatud).}
+	& 12.08.2014 17:01\\ \hline
+	
+	Klassifikaator
+	& kood
+	& Klassifikaatori väärtust esitav kood, mida saab kasutada selle väärtuse lühidalt esitamiseks. Kood võib olla tekstiline või numbriline väärtus. Kood peaks olema võimalikult hästi meeldejääv. See tähendab, et kui kasutaja näeb koodi, siis seostub see tema jaoks võimalikult lihtsalt koodiga iseloomustatava klassifikaatori väärtusega.
+	
+	\textbf{Klassifikaatori unikaalne identifikaator, mis on unikaalne klassifikaatori tüübi piires. Registreerimine on kohustuslik.}
+		
+	\textbf{Riikide koodid koosnevad vastavalt ISO 3166 standardile täpselt kolmest suurtähest.}
+	
+	\textbf{Kui kood on tekstiline väärtus, siis ei tohi see olla tühi string või ainult tühikutest koosnev string.}
+	& EST\\ \hline
+	
+	Klassifikaator
+	& nimetus
+	& Klassifikaatori väärtuse ametlik nimetus. Riikide nimetused leitakse Eesti Statistika kodulehelt alajaotusest Riikide ja territooriumide klassifikaator 2013v1.
+	
+	\textbf{Klassifikaatori unikaalne identifikaator, mis on unikaalne klassifikaatori tüübi piires.  Erandiks on Auto\_kategooria nimetus, mis peab olema unikaalne kombinatsioonis Auto\_kategooria\_tüübiga, st erinevat tüüpi kategooriates võib olla sama nimetusega kategooriaid.}
+		
+	\textbf{Registreerimine on kohustuslik. Nimetus ei tohi olla tühi string või
+	ainult tühikutest koosnev string.}
+	
+	& Aktiivne\\ \hline
+	
+	Klassifikaator
+	& on\_nous\_tylitamisega
+	& Kirjeldab ära kas klient on nõus saama organisatsiooni poolt saadetavaid reklaamkirju 
+	
+	\textbf{Registreerimine on kohustuslik. Vaikeväärtus on 'False'.}
+	& True\\ \hline
+	\end{longtabu}
