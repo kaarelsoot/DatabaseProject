@@ -601,3 +601,202 @@ Tabel 6 esitab atribuutide sõnalised kirjeldused.
 	\textbf{Registreerimine on kohustuslik. Vaikeväärtus on 'False'.}
 	& True\\ \hline
 	\end{longtabu}
+
+\subsection{Andmebaasioperatsioonide lepingud}
+\textbf{\textcolor{blue}{OP1} Registreeri auto (p\_auto\_kood, p\_nimetus, p\_valjalaske\_aasta, p\_istekohtade\_arv, p\_mudel, p\_mootori\_maht, p\_reg\_number, töötaja identifikaator, kütuse liik identifikaator, mark identifikaator)} \\
+\textbf{Eeltingimused:}
+\begin{itemize}
+	\item Auto\_seisundi\_liik eksemplar asl (millel on nimetus="Ootel") on registreeritud
+	\item Auto\_kütuse\_liik eksemplar akl (millel on kütuse liik identifikaator) on registreeritud
+	\item Auto\_mark eksemplar am (millel on mark identifikaator) on registreeritud
+	\item Töötaja eksemplar t (millel on töötaja identifikaator) on registreeritud
+\end{itemize}
+\textbf{Järeltingimused:} \\
+\textcolor{green}{--Loo eksemplare}
+\begin{itemize}
+	\item Auto eksemplar a on registreeritud
+\end{itemize}
+\textcolor{green}{--Väärtusta atribuute}
+\begin{itemize}
+	\item a.auto\_kood:= p\_auto\_kood
+	\item a.nimetus:= p\_nimetus
+	\item a.reg\_aeg:= hetke kuupäev + kellaaeg
+	\item a. valjalaske\_aasta:= p\_ valjalaske\_aasta
+	\item a.istekohtade\_arv:= p\_istekohtade\_arv
+	\item a.mudel:= p\_mudel
+	\item a.mootori\_maht:= p\_mootori\_maht
+	\item a.reg\_number:= p\_reg\_number
+	\item a.vin\_kood:= p\_vin\_kood
+\end{itemize}
+\textcolor{green}{--Loo seoseid}
+\begin{itemize}
+	\item a ja asl seos on registreeritud
+	\item a ja t seos on registreeritud
+	\item a ja akl seos on registreeritud
+	\item a ja am seos on registreeritud
+\end{itemize}
+\textbf{Kasutus kasutusjuhtude poolt:} Registreeri auto \\ \hfill
+
+\textbf{\textcolor{blue}{OP2} Unusta auto(p\_auto\_kood)}
+\textbf{Eeltingimused:}
+\begin{itemize}
+	\item Auto eksemplar a (millel on auto\_kood=p\_auto\_kood) on registreeritud
+	\item a on seotud auto\_seisundi\_liik eksemplariga asl (millel on nimetus="Ootel")
+\end{itemize}
+\textbf{Järeltingimused:} \\
+\textcolor{green}{--Kustuta eksemplare ja seoseid}
+\begin{itemize}
+	\item a ja kõik selle seosed on andmebaasist kustutatud 
+\end{itemize}
+\textbf{Kasutus kasutusjuhtude poolt:} Unusta auto \\ \hfill
+
+\textbf{\textcolor{blue}{OP3} Aktiveeri Auto (p\_auto\_kood)}
+\textbf{Eeltingimused:}
+\begin{itemize}
+	\item Auto eksemplar a (millel on auto\_kood=p\_auto\_kood) on registreeritud
+	\item a on seotud auto\_seisundi\_liik eksemplariga asl\_vana (millel on nimetus="Ootel") või (nimetus="Mitteaktiivne")
+	\item auto\_seisundi\_liik eksemplar asl\_uus (millel on nimetus="Aktiivne") on registreeritud
+	\item Leidub vähemalt üks auto\_kategooria\_omamine eksemplar ako, mis on seotud a-ga
+\end{itemize}
+\textbf{Järeltingimused:} \\
+\textcolor{green}{--Kustuta seoseid}
+\begin{itemize}
+	\item a ja asl\_vana seos on kustutatud
+\end{itemize}
+\textcolor{green}{--Loo seoseid}
+\begin{itemize}
+	\item a ja asl\_uus seos on registreeritud
+\end{itemize}
+\textbf{Kasutus kasutusjuhtude poolt:} Aktiveeri auto \\ \hfill
+
+\textbf{\textcolor{blue}{OP4} Muuda auto mitteaktiivseks autoks(p\_auto\_kood)}
+\textbf{Eeltingimused:}
+\begin{itemize}
+	\item Auto eksemplar a (millel on auto\_kood=p\_auto\_kood) on registreeritud
+	\item a on seotud auto\_seisundi\_liik eksemplariga asl\_vana (millel on nimetus="Aktiivne")
+	\item auto\_seisundi\_liik eksemplar asl\_uus (millel on nimetus="Mitteaktiivne") on 
+\end{itemize}
+\textbf{Järeltingimused:} \\
+\textcolor{green}{--Kustuta seoseid}
+\begin{itemize}
+	\item a ja asl\_vana seos on kustutatud
+\end{itemize}
+\textcolor{green}{--Loo seoseid}
+\begin{itemize}
+	\item a ja asl\_uus seos on registreeritud
+\end{itemize}
+\textbf{Kasutus kasutusjuhtude poolt:} Muuda auto mitteaktiivseks \\ \hfill
+
+\textbf{\textcolor{blue}{OP5} Lõpeta auto(p\_auto\_kood)}
+\textbf{Eeltingimused:}
+\begin{itemize}
+	\item Auto eksemplar a (millel on auto\_kood=p\_auto\_kood) on registreeritud
+	\item a on seotud auto\_seisundi\_liik eksemplariga asl\_vana (millel on nimetus="Aktiivne") või (nimetus="Mitteaktiivne")
+	\item auto\_seisundi\_liik eksemplar asl\_uus (millel on nimetus="Lõpetatud") on registreeritud
+\end{itemize}
+\textbf{Järeltingimused:} \\
+\textcolor{green}{--Kustuta seoseid}
+\begin{itemize}
+	\item a ja asl\_vana seos on kustutatud
+\end{itemize}
+\textcolor{green}{--Loo seoseid}
+\begin{itemize}
+	\item a ja asl\_uus seos on registreeritud
+\end{itemize}
+\textbf{Kasutus kasutusjuhtude poolt:} Lõpeta auto \\ \hfill
+
+\textbf{\textcolor{blue}{OP6} Muuda auto andmeid (p\_auto\_kood\_vana, p\_auto\_kood\_uus, p\_nimetus, p\_valjalaske\_aasta, p\_istekohtade\_arv, p\_mudel, p\_mootori\_maht, p\_reg\_number, kütuse liik identifikaator, mark identifikaator)}
+\textbf{Eeltingimused:}
+\begin{itemize}
+	\item Auto eksemplar a (millel on auto\_kood=p\_auto\_kood\_vana) on registreeritud
+	\item a on seotud auto\_seisundi\_liik eksemplariga asl (millel on nimetus="Ootel") või (nimetus="Mitteaktiivne")
+	\item Auto\_kütuse\_liik eksemplar akl (millel on kütuse liik identifikaator) on registreeritud
+	\item Auto\_mark eksemplar am (millel on mark identifikaator) on registreeritud
+\end{itemize}
+\textbf{Järeltingimused:} \\
+\textcolor{green}{--Väärtusta atribuute}
+\begin{itemize}
+	\item a.auto\_kood:= p\_auto\_kood\_uus
+	\item a.nimetus:= p\_nimetus
+	\item a. valjalaske\_aasta:= p\_ valjalaske\_aasta
+	\item a.istekohtade\_arv:= p\_istekohtade\_arv
+	\item a.mudel:= p\_mudel
+	\item a.mootori\_maht:= p\_mootori\_maht
+	\item a.reg\_number:= p\_reg\_number
+	\item a.vin\_kood:= p\_vin\_kood
+\end{itemize}
+\textcolor{green}{--Kustuta seoseid}
+\begin{itemize}
+	\item a olemasolev seos kütuse liigiga on kustutatud.
+	\item a olemasolev seos auto margiga on kustutatud
+\end{itemize}
+\textcolor{green}{--Loo seoseid}
+\begin{itemize}
+	\item a ja akl seos on registreeritud.
+	\item a ja am seos on registreeritud
+\end{itemize}
+\textbf{Kasutus kasutusjuhtude poolt:} Muuda auto andmeid \\ \hfill
+
+\textbf{\textcolor{blue}{OP7} Lisa auto kategooriasse (p\_auto\_kood, auto kategooria identifikaator)}
+\textbf{Eeltingimused:}
+\begin{itemize}
+	\item Auto eksemplar a (millel on auto\_kood=p\_auto\_kood) on registreeritud
+	\item auto\_kategooria eksemplar ak (millel on auto kategooria identifikaator) on registreeritud
+	\item a on seotud auto\_seisundi\_liik eksemplariga asl (millel on nimetus="Ootel") või (millel on nimetus="Mitteaktiivne")
+\end{itemize}
+\textbf{Järeltingimused:} \\
+\textcolor{green}{--Loo eksemplare}
+\begin{itemize}
+	\item auto\_kategooria\_omamine eksemplar ako on registreeritud
+\end{itemize}
+\textcolor{green}{--Loo seoseid}
+\begin{itemize}
+	\item a ja ako seos on registreeritud
+	\item ak ja ako seos on registreeritud
+\end{itemize}
+\textbf{Kasutus kasutusjuhtude poolt:} Registreeri Auto, Muuda auto andmeid \\ \hfill
+
+\textbf{\textcolor{blue}{OP8} Eemalda auto kategooriast (p\_auto\_kood, auto kategooria identifikaator)}
+\textbf{Eeltingimused:}
+\begin{itemize}
+	\item Auto eksemplar a (millel on auto\_kood=p\_auto\_kood) on registreeritud 
+	\item Auto\_kategooria eksemplar ak (millel on auto kategooria identifikaator) on registreeritud
+	\item a on seotud auto\_seisundi\_liik eksemplariga asl (millel on nimetus="Ootel") või (millel on nimetus="Mitteaktiivne")
+\end{itemize}
+\textbf{Järeltingimused:} \\
+\textcolor{green}{--Kustuta eksemplare ja seoseid}
+\begin{itemize}
+	\item auto\_kategooria\_omamine eksemplar ako, mis on seotud a-ga ja mis on seotud ak-ga, on koos oma seostega kustutatud
+\end{itemize}
+\textbf{Kasutus kasutusjuhtude poolt:} Registreeri Auto, Muuda auto andmeid \\ \hfill
+
+\subsection{Registri põhiobjekti seisundidiagramm}
+Esitab seisundidiagrammi, mis kirjeldab registri põhiobjekti auto kõikvõimalikke elutsükleid.
+\begin{figure}[H]
+	\includegraphics[scale=0.5]{joonis4}
+	\caption{\textbf{Joonis 4 Auto seisundidiagramm}}
+\end{figure}
+
+\section(CRUD maatriks)
+Tabel 7 olev CRUD maatriks esitatakse olemitüüpide ja kasutusjuhtude täpsusega. Maatriksi veergudele vastavad kasutusjuhud ja ridadele olemitüübid. \\ \hfill
+
+\sethlcolor{orange}\hl{Oranzil} taustal on esitatud olemitüübid, mis kuuluvad vaadeldava allsüsteemi teenindatavasse registrisse. 
+
+\begin{figure}[H]
+	\caption{\textbf{Tabel 7 CRUD maatriks}}
+	\includegraphics[scale=1]{tabel7}
+\end{figure}
+
+\begin{enumerate}
+\item Tuvasta kasutaja
+\item  Registreeri auto
+\item  Unusta auto
+\item  Muuda auto andmeid
+\item  Aktiveeri auto
+\item  Muuda auto mitteaktiivseks
+\item  Vaata kõiki ootel või mitteaktiivseid autosid
+\item  Vaata kõiki autosid
+\item  Lõpeta auto
+\item  Vaata auto koondaruannet
+\item  Vaata aktiivseid autosid
+\end{enumerate}
