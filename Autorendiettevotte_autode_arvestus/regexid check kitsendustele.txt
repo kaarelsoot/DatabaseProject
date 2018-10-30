@@ -10,3 +10,6 @@ Märkide hulk peab olema 2-9 (otspunktid kaasa arvatud). Registrinumber peab järg
 ^([A-Z][0-9]{1,8}|[0-9]{2,3}[A-Z]{3})$
 
 
+isikukood
+Isikukoodis on lubatud tähed, numbrid, tühikud, sidekriipsud ja / 
+^[a-zA-Z0-9 -\/]*$
