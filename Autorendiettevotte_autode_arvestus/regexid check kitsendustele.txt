@@ -1,0 +1,12 @@
+vin_kood
+Auto unikaalne identifikaator. Registreerimine on kohustuslik. Vin kood peab olema 11-17 märki (otspunktid kaasa arvatud) ning tohib sisaldada ainult numbreid ja suurtähti.}
+^[A-Z1-9]{11,17}$
+
+
+reg_number
+Märkide hulk peab olema 2-9 (otspunktid kaasa arvatud). Registrinumber peab järgima ühte järgmistest mustritest.
+1.	Üks või rohkem suurtähte, millele järgneb üks või rohkem numbrit.
+2.	Kaks või kolm numbrit, millele järgneb kolm suurtähte.}
+^([A-Z][0-9]{1,8}|[0-9]{2,3}[A-Z]{3})$
+
+
