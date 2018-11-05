@@ -1,0 +1,27 @@
+Mäluruumid
+
+Andmepuhver - hoitakse muutmälu plokke. 
+
+Räpane plokk - plokk, mille andmeid on muudetud, kuid pole veel kettale kirjutatud.
+
+Logipuhver - andmemuudatuste logi
+
+Jagatud puhver - SQL lausete täitmisplaanid, päringute tulemused
+
+Süsteemile saab vihjata, et kui muutmälus on ruumi, siis seda võimalikult palju ära kasutada.
+
+Jagatud server ja pühendunud server arhitektuurid??
+
+Taustprotsesse on palju xd
+
+Salevstamiskihid: loogiline, füüsiline
+
+Mis mõjutab süsteemi jõudlust? Muutmälu kasutus, korduvlausete optimiseerimine, plokkide suurus
+
+Polyglot persistence - andmemudelit saab rikastada teistest andmemudelite võimalustega.
+
+DBsys loojad võivad koostöös riistvara arendajatega luua optimiseeritud rauda
+
+
+Töökiiruse parendamine
+
