@@ -13,9 +13,6 @@ VALUES ('T', 'Tööl'), ('P', 'Puhkusel');
 INSERT INTO "Riik" (riik_kood, nimetus)
 VALUES ('EST', 'Eesti'), ('DEU', 'Saksamaa'), ('FIN', 'Soome');
 
-INSERT INTO "Auto_seisundi_liik" (auto_seisundi_liik_kood, nimetus)
-VALUES ('V', 'Vaba'), ('K', 'Kinni');
-
 INSERT INTO "Auto_kytuse_liik" (auto_kytuse_liik_kood, nimetus)
 VALUES (1, 'Bensiin'), (2, 'Diisel');
 
@@ -40,7 +37,5 @@ VALUES (2, 'A', False);
 INSERT INTO "Tootaja" (isik_id, amet_kood, tootaja_seisundi_liik_kood)
 VALUES (1, 2, 'T')
 
--- INSERT INTO "Auto" (auto_kood, nimetus, vin_kood, auto_kytuse_liik_kood, auto_mark_kood, auto_seisundi_liik_kood, isik_id, mudel, valjalaseke_aasta, reg_number, istekohtade_arv, reg_aeg, mootori_maht)
--- VALUES (1234, 'Audi A6 2018', 'ABC123123123123', 1, 1, 1, )
-
--- TODO: Pane default väärtused Kliendile ja Töötajale
+INSERT INTO "Auto" (auto_kood, nimetus, vin_kood, auto_kytuse_liik_kood, auto_mark_kood, auto_seisundi_liik_kood, isik_id, mudel, valjalaseke_aasta, reg_number, istekohtade_arv, reg_aeg, mootori_maht)
+VALUES ()
