@@ -1,0 +1,5 @@
+Lühenda Checki nimetusi, mis on liiga pikad (Muidu postgre ls lõikab nad väiksemaks)
+
+Kas kõik struktuuride nimed peaksid olema väikeste tähtedega? (db test)
+
+Standardiseerida checkide nimetus (db test)

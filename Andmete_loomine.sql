@@ -40,5 +40,3 @@ VALUES (1, 2, 'T');
 
 INSERT INTO "Auto" (auto_kood, nimetus, vin_kood, auto_kytuse_liik_kood, auto_mark_kood, auto_seisundi_liik_kood, isik_id, mudel, valjalaske_aasta, reg_number, istekohtade_arv, mootori_maht)
 VALUES (1234, 'Audi A6 2018', 'ABC123123123123', 1, 1, 1, 1, 'A6', 2018, '123ABC', 5, 2.8)
-
--- TODO: Lühenda Checki nimetusi, mis on liiga pikad (Muidu postgre ls lõikab nad väiksemaks)
