@@ -3,4 +3,4 @@ Kas kõik struktuuride nimed peaksid olema väikeste tähtedega? (db test)
 
 Standardiseerida checkide nimetus (db test)
 
-Muuta dokumentatsioonis auto juures isik_id -> lisaja_id
+INSERT vaja teha Auto_Omamise tabeli jaoks ka? 
