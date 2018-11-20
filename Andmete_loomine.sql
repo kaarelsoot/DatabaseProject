@@ -23,10 +23,10 @@ INSERT INTO auto_mark (auto_mark_kood, nimetus)
 VALUES (1, 'Audi'), (2, 'Peugeot');
 
 INSERT INTO auto_kategooria_tyyp (auto_kategooria_tyyp_kood, nimetus)
-VALUES (1, 'Sihtgrupp');
+VALUES (1, 'Sihtgrupp'), (2, 'Keretüüp');
 
 INSERT INTO auto_kategooria (auto_kategooria_kood, nimetus, auto_kategooria_tyyp_kood)
-VALUES (1, 'Pereauto', 1), (2, 'Väikeauto', 1);
+VALUES (1, 'Pereauto', 1), (2, 'Väikeauto', 1), (3, 'Väikeklass', 2), (4, 'Keskklass', 2), (5, 'Luksusauto', 2), (6, 'Maastur', 2), (7, 'Tarbesõiduk', 2);
 
 INSERT INTO isik (e_meil, isikukood, riik_kood, isiku_seisundi_liik_kood, synni_kp, parool, eesnimi, perenimi, elukoht)
 VALUES ('juhanmartens@cool.ee', '38711542746', 'EST', 'E', '12.01.1971', 'ajeeMaOlenParoolSuperKrypto8)', 'Juhan', 'Martens', 'Rapla'),
@@ -39,4 +39,7 @@ INSERT INTO tootaja (tootaja_id, amet_kood, tootaja_seisundi_liik_kood)
 VALUES (1, 2, 'T');
 
 INSERT INTO auto (auto_kood, nimetus, vin_kood, auto_kytuse_liik_kood, auto_mark_kood, auto_seisundi_liik_kood, lisaja_id, mudel, valjalaske_aasta, reg_number, istekohtade_arv, mootori_maht)
-VALUES (1234, 'Audi A6 2018', 'ABC123123123123', 1, 1, 'V', 1, 'A6', 2018, '123ABC', 5, 2.8)
+VALUES (1234, 'Audi A6 2018', 'ABC123123123123', 1, 1, 'V', 1, 'A6', 2018, '123ABC', 5, 2.8), (1235, 'Peugeot Boxer 2018 kaubik', 'ABC123123123555', 2, 2, 'V', 1, 'Boxer', 2018, 3, 2.0);
+
+INSERT INTO auto_kategooria_omamine (auto_kood, auto_kategooria_kood) 
+VALUES (1234, 1), (1235, 2);
