@@ -1,6 +1,3 @@
-DROP SEQUENCE IF EXISTS isik_isik_id_seq
-;
-
 DROP TABLE IF EXISTS tootaja CASCADE
 ;
 
