@@ -13,3 +13,5 @@ Osaline unikaalne indeks?
 Vahepeal täiendada dokumenti.
 
 Korrektsed pikkused sõnaväljadele.
+
+Mingid checkid on jälle liiga pikad.

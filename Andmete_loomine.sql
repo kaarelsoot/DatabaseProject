@@ -13,9 +13,6 @@ VALUES ('A', 'Aktiivne'), ('M', 'Mustas nimekirjas'), ('O', 'Ootel'), ('K', 'Kus
 INSERT INTO tootaja_seisundi_liik (tootaja_seisundi_liik_kood, nimetus)
 VALUES ('T', 'Tööl'), ('P', 'Puhkusel'), ('M', 'Mitteaktiivne');
 
-INSERT INTO riik (riik_kood, nimetus)
-VALUES ('EST', 'Eesti'), ('DEU', 'Saksamaa'), ('FIN', 'Soome');
-
 INSERT INTO auto_seisundi_liik (auto_seisundi_liik_kood, nimetus)
 VALUES ('O', 'Ootel'), ('A', 'Aktiivne'), ('M', 'Mitteaktiivne'), ('U', 'Unustatud'), ('L', 'Lõpetatud');
 
