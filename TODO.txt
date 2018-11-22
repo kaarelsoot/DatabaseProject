@@ -15,3 +15,9 @@ Vahepeal täiendada dokumenti.
 Korrektsed pikkused sõnaväljadele.
 
 Mingid checkid on jälle liiga pikad.
+
+Lisa domeenid timestampile  ja klassifikaatorite nimedele.õ
+
+Kuna EAs ei saa kirjeldada domeene, siis loo eraldi domeenide sql, mida käivitada pärast tabelite loomist ja enne andmete lisamist.
+
+Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega.

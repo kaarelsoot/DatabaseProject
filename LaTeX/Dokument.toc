@@ -1,0 +1,48 @@
+\contentsline {chapter}{\numberline {1}Strateegiline anal\IeC {\"u}\IeC {\"u}s}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Terviks\IeC {\"u}steemi \IeC {\"u}ldvaade}{2}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Organisatsiooni eesm\IeC {\"a}rgid}{2}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Infos\IeC {\"u}steemi eesm\IeC {\"a}rgid}{2}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Lausendid}{3}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.4}P\IeC {\~o}hiobjektid}{4}{subsection.1.1.4}
+\contentsline {subsection}{\numberline {1.1.5}P\IeC {\~o}hiprotsessid}{5}{subsection.1.1.5}
+\contentsline {subsection}{\numberline {1.1.6}P\IeC {\~o}hilised s\IeC {\"u}ndmused}{5}{subsection.1.1.6}
+\contentsline {subsection}{\numberline {1.1.7}Tegutsejad}{6}{subsection.1.1.7}
+\contentsline {subsection}{\numberline {1.1.8}Asukohad}{6}{subsection.1.1.8}
+\contentsline {subsection}{\numberline {1.1.9}Terviks\IeC {\"u}steemi t\IeC {\"u}keldus alls\IeC {\"u}steemideks}{7}{subsection.1.1.9}
+\contentsline {section}{\numberline {1.2}Autode funktsionaalse alls\IeC {\"u}steemi eskiismudelid}{8}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Eesm\IeC {\"a}rgid}{8}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Alls\IeC {\"u}steemi kasutavad p\IeC {\"a}devusalad}{8}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Alls\IeC {\"u}steemi poolt vajatavad registrid}{8}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Alls\IeC {\"u}steemi \IeC {\"u}he p\IeC {\~o}hiprotsessi tegevusdiag}{8}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Alls\IeC {\"u}steemi kasutusjuhtude eskiismudel}{9}{subsection.1.2.5}
+\contentsline {subsection}{\numberline {1.2.6}Mittefunktsionaalsed n\IeC {\~o}uded}{11}{subsection.1.2.6}
+\contentsline {section}{\numberline {1.3}Autode registri eskiismudelid }{13}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Eesm\IeC {\"a}rgid}{13}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Registrit kasutavad p\IeC {\"a}devusalad}{13}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Registrit teenindavad funktsionaalsed alls\IeC {\"u}steemid}{14}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Infovajadused, mida register aitab rahuldada}{14}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}Seosed teiste registritega}{14}{subsection.1.3.5}
+\contentsline {subsection}{\numberline {1.3.6}\IeC {\"A}rireeglid}{14}{subsection.1.3.6}
+\contentsline {subsection}{\numberline {1.3.7}Registri kontseptuaalne eskiismudel}{15}{subsection.1.3.7}
+\contentsline {chapter}{\numberline {2}Detailanal\IeC {\"u}\IeC {\"u}s}{16}{chapter.2}
+\contentsline {section}{\numberline {2.1}Autode funktsionaalse alls\IeC {\"u}steemi detailanal\IeC {\"u}\IeC {\"u}s}{16}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Kasutusjuhtude mudel}{16}{subsection.2.1.1}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Tuvasta kasutaja}}\mathsurround \z@ $\relax }{16}{section*.7}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Registreeri auto}}\mathsurround \z@ $\relax }{17}{section*.8}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Unusta auto}}\mathsurround \z@ $\relax }{17}{section*.9}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Muuda auto andmeid}}\mathsurround \z@ $\relax }{18}{section*.10}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Aktiveeri auto}}\mathsurround \z@ $\relax }{19}{section*.11}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Muuda auto mitteaktiivseks}}\mathsurround \z@ $\relax }{19}{section*.12}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Vaata k\IeC {\~o}iki ootel v\IeC {\~o}i mitteaktiivseid autosid}}\mathsurround \z@ $\relax }{20}{section*.13}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Vaata k\IeC {\~o}iki Autosid}}\mathsurround \z@ $\relax }{20}{section*.14}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: L\IeC {\~o}peta auto}}\mathsurround \z@ $\relax }{21}{section*.15}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Vaata auto koondaruannet}}\mathsurround \z@ $\relax }{21}{section*.16}
+\contentsline {subsubsection}{\relax $\@@underline {\hbox {Kasutusjuht: Vaata aktiivseid autosid}}\mathsurround \z@ $\relax }{22}{section*.17}
+\contentsline {section}{\numberline {2.2}Autode funktsionaalse alls\IeC {\"u}steemi vajatavate registrite detailanal\IeC {\"u}\IeC {\"u}s}{22}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Kontseptuaalne andmemudel}{22}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Andmebaasioperatsioonide lepingud}{31}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Registri p\IeC {\~o}hiobjekti seisundidiagramm}{34}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}(}{34}{section.2.3}
+\contentsline {chapter}{\numberline {3}F\IeC {\"u}\IeC {\"u}siline disain}{36}{chapter.3}
+\contentsline {section}{\numberline {3.1}Autode funktsionaalse alls\IeC {\"u}steemi vajatavate registrite f\IeC {\"u}\IeC {\"u}siline disain}{37}{section.3.1}
+\contentsline {chapter}{\numberline {4}Kasutatud materjalid}{42}{chapter.4}
