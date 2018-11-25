@@ -14,7 +14,7 @@ Vahepeal täiendada dokumenti.
 
 Korrektsed pikkused sõnaväljadele.
 
-Mingid checkid on jälle liiga pikad.
+Mingid checkid on jälle liiga pikad. (Variant muuta _ei_ole_tyhi -> _pole_tyhi)
 
 Lisa domeenid timestampile  ja klassifikaatorite nimedele.õ
 
