@@ -21,3 +21,7 @@ Lisa domeenid timestampile  ja klassifikaatorite nimedele.õ
 Kuna EAs ei saa kirjeldada domeene, siis loo eraldi domeenide sql, mida käivitada pärast tabelite loomist ja enne andmete lisamist.
 
 Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega.
+
+Vaated järgnevatele operatsioonidele: 
+	-OP2.1: Nimekiri kategooriatest (Seal on muuhulgas võimalik määrata, millistesse kategooriatesse auto kuulub, sest süsteem pakub kategooriate valiku)
+	-OP2.2: 
