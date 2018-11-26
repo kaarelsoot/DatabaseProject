@@ -22,6 +22,4 @@ Kuna EAs ei saa kirjeldada domeene, siis loo eraldi domeenide sql, mida käivita
 
 Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega.
 
-Vaated järgnevatele operatsioonidele: 
-	-OP2.1: Nimekiri kategooriatest (Seal on muuhulgas võimalik määrata, millistesse kategooriatesse auto kuulub, sest süsteem pakub kategooriate valiku)
-	-OP2.2: 
+Vaated Accessi päringutele.
