@@ -111,3 +111,47 @@ Eeltingimuseks on, et auto on seisundis Ootel';
 
 -- Näide funktsiooni kasutamisest
 SELECT f_unusta_auto(p_auto_kood:=3);
+
+
+--!--
+-- Auto aktiveerimine (peab olema seisundis 'A')
+CREATE OR REPLACE FUNCTION f_aktiveeri_auto (
+  p_auto_kood auto.auto_kood%TYPE) 
+RETURNS VOID AS $$
+UPDATE auto SET auto_seisundi_liik_kood='A'
+WHERE p_auto_kood = auto.auto_kood
+AND auto_seisundi_liik_kood IN ('O', 'M')
+RETURNING auto_seisundi_liik_kood
+;
+$$ LANGUAGE sql SECURITY DEFINER
+SET search_path = public, pg_temp;
+
+COMMENT ON FUNCTION f_muuda_auto_mitteaktiivseks (
+  p_auto_kood auto.auto_kood%TYPE)
+IS 'Selle funktsiooni abil saab auto aktiveerida. 
+Eeltingimuseks on, et auto on seisundis Ootel või Mitteaktiivne';
+
+-- Näide funktsiooni kasutamisest
+SELECT f_aktiveeri_auto(p_auto_kood:=1234);
+
+
+--!--
+-- Auto mitteaktiivseks muutmine (peab olema seisundis 'A')
+CREATE OR REPLACE FUNCTION f_muuda_auto_mitteaktiivseks (
+  p_auto_kood auto.auto_kood%TYPE) 
+RETURNS VOID AS $$
+UPDATE auto SET auto_seisundi_liik_kood='M'
+WHERE p_auto_kood = auto.auto_kood
+AND auto_seisundi_liik_kood='A'
+RETURNING auto_seisundi_liik_kood
+;
+$$ LANGUAGE sql SECURITY DEFINER
+SET search_path = public, pg_temp;
+
+COMMENT ON FUNCTION f_muuda_auto_mitteaktiivseks (
+  p_auto_kood auto.auto_kood%TYPE)
+IS 'Selle funktsiooni abil saab muuta mitteaktiivseks. 
+Eeltingimuseks on, et auto on seisundis Aktiivne';
+
+-- Näide funktsiooni kasutamisest
+SELECT f_muuda_auto_mitteaktiivseks(p_auto_kood:=1234);
