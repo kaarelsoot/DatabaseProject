@@ -62,6 +62,20 @@ RETURNING auto_kood;
 $$ LANGUAGE SQL SECURITY DEFINER
 SET search_path=public, pg_temp;
 
+COMMENT ON FUNCTION f_lisa_auto (
+  p_auto_kood auto.auto_kood%TYPE,
+  p_nimetus auto.nimetus%TYPE,
+  p_vin_kood auto.vin_kood%TYPE,
+  p_auto_kytuse_liik_kood auto.auto_kytuse_liik_kood%TYPE,
+  p_auto_mark_kood auto.auto_mark_kood%TYPE,
+  p_lisaja_id auto.lisaja_id%TYPE,
+  p_mudel auto.mudel%TYPE,
+  p_valjalaske_aasta auto.valjalaske_aasta%TYPE,
+  p_reg_number auto.reg_number%TYPE,
+  p_istekohtade_arv auto.istekohtade_arv%TYPE,
+  p_mootori_maht auto.mootori_maht%TYPE)
+IS 'Selle funktsiooni abil saab sisestada uue auto';
+
 -- Näide funktsiooni kasutamisest
 SELECT f_lisa_auto(
   p_auto_kood:=3,
@@ -76,20 +90,6 @@ SELECT f_lisa_auto(
   p_istekohtade_arv:=5::SMALLINT,
   p_mootori_maht:=2.500
 );
-
-COMMENT ON FUNCTION f_lisa_auto (
-  p_auto_kood auto.auto_kood%TYPE,
-  p_nimetus auto.nimetus%TYPE,
-  p_vin_kood auto.vin_kood%TYPE,
-  p_auto_kytuse_liik_kood auto.auto_kytuse_liik_kood%TYPE,
-  p_auto_mark_kood auto.auto_mark_kood%TYPE,
-  p_lisaja_id auto.lisaja_id%TYPE,
-  p_mudel auto.mudel%TYPE,
-  p_valjalaske_aasta auto.valjalaske_aasta%TYPE,
-  p_reg_number auto.reg_number%TYPE,
-  p_istekohtade_arv auto.istekohtade_arv%TYPE,
-  p_mootori_maht auto.mootori_maht%TYPE)
-IS 'Selle funktsiooni abil saab sisestada uue auto';
 
 --!--
 -- Auto unustamine (peab olema seisundis 'O')
@@ -126,7 +126,7 @@ RETURNING auto_seisundi_liik_kood
 $$ LANGUAGE sql SECURITY DEFINER
 SET search_path = public, pg_temp;
 
-COMMENT ON FUNCTION f_muuda_auto_mitteaktiivseks (
+COMMENT ON FUNCTION f_aktiveeri_auto (
   p_auto_kood auto.auto_kood%TYPE)
 IS 'Selle funktsiooni abil saab auto aktiveerida. 
 Eeltingimuseks on, et auto on seisundis Ootel või Mitteaktiivne';
@@ -155,3 +155,66 @@ Eeltingimuseks on, et auto on seisundis Aktiivne';
 
 -- Näide funktsiooni kasutamisest
 SELECT f_muuda_auto_mitteaktiivseks(p_auto_kood:=1234);
+
+
+--!--
+-- Auto andmete muutmine 
+CREATE OR REPLACE FUNCTION f_muuda_auto_andmeid (
+  p_auto_kood_vana auto.auto_kood%TYPE,
+  p_auto_kood_uus auto.auto_kood%TYPE,
+  p_nimetus auto.nimetus%TYPE,
+  p_vin_kood auto.vin_kood%TYPE,
+  p_auto_kytuse_liik_kood auto.auto_kytuse_liik_kood%TYPE,
+  p_auto_mark_kood auto.auto_mark_kood%TYPE,
+  p_mudel auto.mudel%TYPE,
+  p_valjalaske_aasta auto.valjalaske_aasta%TYPE,
+  p_reg_number auto.reg_number%TYPE,
+  p_istekohtade_arv auto.istekohtade_arv%TYPE,
+  p_mootori_maht auto.mootori_maht%TYPE) 
+RETURNS auto.auto_kood%TYPE AS $$
+UPDATE auto SET
+  auto_kood = p_auto_kood_uus,
+  nimetus = p_nimetus,
+  vin_kood = p_vin_kood,
+  auto_kytuse_liik_kood = p_auto_kytuse_liik_kood,
+  auto_mark_kood = p_auto_mark_kood,
+  mudel = p_mudel,
+  valjalaske_aasta = p_valjalaske_aasta,
+  reg_number = p_reg_number,
+  istekohtade_arv = p_istekohtade_arv,
+  mootori_maht = p_mootori_maht
+WHERE auto_kood = p_auto_kood_vana 
+AND auto_seisundi_liik_kood IN ('O', 'M')
+RETURNING auto_kood;
+$$ LANGUAGE SQL SECURITY DEFINER
+SET search_path=public, pg_temp;
+
+COMMENT ON FUNCTION f_muuda_auto_andmeid (
+  p_auto_kood_vana auto.auto_kood%TYPE,
+  p_auto_kood_uus auto.auto_kood%TYPE,
+  p_nimetus auto.nimetus%TYPE,
+  p_vin_kood auto.vin_kood%TYPE,
+  p_auto_kytuse_liik_kood auto.auto_kytuse_liik_kood%TYPE,
+  p_auto_mark_kood auto.auto_mark_kood%TYPE,
+  p_mudel auto.mudel%TYPE,
+  p_valjalaske_aasta auto.valjalaske_aasta%TYPE,
+  p_reg_number auto.reg_number%TYPE,
+  p_istekohtade_arv auto.istekohtade_arv%TYPE,
+  p_mootori_maht auto.mootori_maht%TYPE)
+IS 'Selle funktsiooni abil saab muuta auto andmeid. 
+Eeltingimuseks, et auto on olekus Ootel või Mitteaktiivne';
+
+-- Näide funktsiooni kasutamisest
+SELECT f_muuda_auto_andmeid(
+  p_auto_kood_vana:=1234,
+  p_auto_kood_uus:=1234,
+  p_nimetus:='Audi A6 2018 Bensiin',
+  p_vin_kood:='ABC123123123123',
+  p_auto_kytuse_liik_kood:=1::SMALLINT,
+  p_auto_mark_kood:=1::SMALLINT,
+  p_mudel:='A6 Quattro',
+  p_valjalaske_aasta:=2018::SMALLINT,
+  p_reg_number:='123ABC',
+  p_istekohtade_arv:=5::SMALLINT,
+  p_mootori_maht:=2.800
+);
