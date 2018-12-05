@@ -220,7 +220,40 @@ SELECT f_muuda_auto_andmeid(
 );
 
 --!
--- Kliendi autentimise funktsioon
+-- Autode halduri autentimise funktsioon
+CREATE OR REPLACE FUNCTION f_tuvasta_autode_haldur(
+  p_e_meil text, 
+  p_parool text)
+RETURNS boolean AS $$
+DECLARE rslt boolean;
+BEGIN
+SELECT INTO rslt (parool = public.crypt(p_parool, parool))
+FROM isik 
+JOIN tootaja ON isik.isik_id = tootaja.tootaja_id
+WHERE Upper(e_meil) = Upper(p_e_meil)
+AND amet_kood = 3
+AND tootaja_seisundi_liik_kood IN ('T', 'P');;
+RETURN coalesce(rslt, FALSE);
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE
+SET search_path = public, pg_temp;
+
+COMMENT ON FUNCTION f_tuvasta_autode_haldur(
+  p_e_meil text, 
+  p_parool text)
+IS 'Selle funktsiooni abil toimub autode halduri autentimine. 
+Funktsiooni esimene argument on kasutajanimi (e-meil).
+Funktsiooni teine argument on parool.
+Funktsioon tagastab TRUE, kui kasutajanime ja parooliga töötaja eksisteerib
+ja tema ametikohaks on Autode haldur ning on seisundis Tööl või Puhkusel,
+vastasel juhul tagastatakse FALSE.';
+
+-- Funktsiooni kasutamine
+SELECT f_tuvasta_autode_haldur(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt');
+
+
+--!
+-- Kliendi autentimise funktsioon (ei lähe meil vaja)
 CREATE OR REPLACE FUNCTION f_on_klient(
   p_e_meil text, 
   p_parool text)
@@ -249,8 +282,9 @@ vastasel juhul tagastatakse FALSE.';
 
 SELECT f_on_klient(p_e_meil:='lucile.burgess@frolix.net', p_parool:='laborum');
 
+
 --!
--- Töötaja autentimise funktsioon
+-- Töötaja autentimise funktsioon (ei lähe meil vaja)
 CREATE OR REPLACE FUNCTION f_on_tootaja(
   p_e_meil text, 
   p_parool text)
@@ -282,7 +316,7 @@ SELECT f_on_tootaja(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt
 
 
 -- !
--- Kasutaja tuvastamise funktsioon
+-- Kasutaja tuvastamise funktsioon (ei lähe meil vaja)
 CREATE OR REPLACE FUNCTION f_on_kasutaja(
   p_e_meil text, 
   p_parool text)
