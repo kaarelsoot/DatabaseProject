@@ -1,4 +1,4 @@
-Kas kõik struktuuride nimed peaksid olema väikeste tähtedega? (db test)
+﻿Kas kõik struktuuride nimed peaksid olema väikeste tähtedega? (db test)
 
 Standardiseerida checkide nimetus (db test)
 
@@ -23,5 +23,3 @@ Kuna EAs ei saa kirjeldada domeene, siis loo eraldi domeenide sql, mida käivita
 Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega.
 
 Vaated Accessi päringutele.
-
-Auto tabelis auto_seisundi_liik_kood default väärtus peab olema 'O', mitte 'A'
