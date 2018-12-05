@@ -218,3 +218,93 @@ SELECT f_muuda_auto_andmeid(
   p_istekohtade_arv:=5::SMALLINT,
   p_mootori_maht:=2.800
 );
+
+--!
+-- Kliendi autentimise funktsioon
+CREATE OR REPLACE FUNCTION f_on_klient(
+  p_e_meil text, 
+  p_parool text)
+RETURNS boolean AS $$
+DECLARE rslt boolean;
+BEGIN
+SELECT INTO rslt (parool = public.crypt(p_parool, parool))
+FROM isik 
+JOIN klient ON isik.isik_id = klient.klient_id
+WHERE Upper(e_meil) = Upper(p_e_meil)
+AND kliendi_seisundi_liik_kood = 'A';
+RETURN coalesce(rslt, FALSE);
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE
+SET search_path = public, pg_temp;
+
+COMMENT ON FUNCTION f_on_klient(
+  p_e_meil text, 
+  p_parool text)
+IS 'Selle funktsiooni abil toimub kliendi kasutaja autentimine. 
+Funktsiooni esimene argument on kasutajanimi (e-meil).
+Funktsiooni teine argument on parool.
+Funktsioon tagastab TRUE, kui kasutajanime ja parooliga isik eksisteerib
+ja on seisundis Aktiivne,
+vastasel juhul tagastatakse FALSE.';
+
+SELECT f_on_klient(p_e_meil:='lucile.burgess@frolix.net', p_parool:='laborum');
+
+--!
+-- Töötaja autentimise funktsioon
+CREATE OR REPLACE FUNCTION f_on_tootaja(
+  p_e_meil text, 
+  p_parool text)
+RETURNS boolean AS $$
+DECLARE rslt boolean;
+BEGIN
+SELECT INTO rslt (parool = public.crypt(p_parool, parool))
+FROM isik 
+JOIN tootaja ON isik.isik_id = tootaja.tootaja_id
+WHERE Upper(e_meil) = Upper(p_e_meil)
+AND tootaja_seisundi_liik_kood IN ('T', 'P');
+RETURN coalesce(rslt, FALSE);
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE
+SET search_path = public, pg_temp;
+
+COMMENT ON FUNCTION f_on_tootaja(
+  p_e_meil text, 
+  p_parool text)
+IS 'Selle funktsiooni abil toimub töötaja kasutaja autentimine. 
+Funktsiooni esimene argument on kasutajanimi (e-meil).
+Funktsiooni teine argument on parool.
+Funktsioon tagastab TRUE, kui kasutajanime ja parooliga töötaja eksisteerib
+ja on seisundis Tööl või Puhkusel,
+vastasel juhul tagastatakse FALSE.';
+
+-- Funktsiooni kasutamine
+SELECT f_on_tootaja(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt');
+
+
+-- !
+-- Kasutaja tuvastamise funktsioon
+CREATE OR REPLACE FUNCTION f_on_kasutaja(
+  p_e_meil text, 
+  p_parool text)
+RETURNS boolean AS $$
+DECLARE rslt boolean;
+BEGIN
+SELECT INTO rslt (parool = public.crypt(p_parool, parool))
+FROM isik WHERE Upper(e_meil) = Upper(p_e_meil);
+
+RETURN coalesce(rslt, FALSE);
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE
+SET search_path = public, pg_temp;
+
+COMMENT ON FUNCTION f_on_kasutaja(
+  p_e_meil text, 
+  p_parool text)
+IS 'Selle funktsiooni abil toimub kasutaja autentimine. 
+Funktsiooni esimene argument on kasutajanimi (e-meil).
+Funktsiooni teine argument on parool.
+Funktsioon tagastab TRUE, kui kasutajanime ja parooliga isik eksisteerib,
+vastasel juhul tagastatakse FALSE.';
+
+-- funktsiooni kasutamine
+SELECT f_on_kasutaja(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt'); -- returns true
