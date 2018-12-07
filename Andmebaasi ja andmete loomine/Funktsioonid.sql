@@ -232,7 +232,7 @@ FROM isik
 JOIN tootaja ON isik.isik_id = tootaja.tootaja_id
 WHERE Upper(e_meil) = Upper(p_e_meil)
 AND amet_kood = 3
-AND tootaja_seisundi_liik_kood IN ('T', 'P');;
+AND tootaja_seisundi_liik_kood IN ('T', 'P');
 RETURN coalesce(rslt, FALSE);
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER STABLE

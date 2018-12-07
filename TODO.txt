@@ -1,24 +1,12 @@
 ﻿Kas kõik struktuuride nimed peaksid olema väikeste tähtedega? (db test)
 
-Standardiseerida checkide nimetus (db test)
-
 Kas kitsendused jms peavad olema defineeritud CREATE TABLE lauses?
-
-Fill factor tabelisse, kus palju updateisid.
 
 Kõige pealt Create Table, seejärel Alter Table Foreign key constraints.
 
 Osaline unikaalne indeks?
 
 Vahepeal täiendada dokumenti.
-
-Korrektsed pikkused sõnaväljadele.
-
-Mingid checkid on jälle liiga pikad. (Variant muuta _ei_ole_tyhi -> _pole_tyhi)
-
-Lisa domeenid timestampile  ja klassifikaatorite nimedele.õ
-
-Kuna EAs ei saa kirjeldada domeene, siis loo eraldi domeenide sql, mida käivitada pärast tabelite loomist ja enne andmete lisamist.
 
 Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega.
 
