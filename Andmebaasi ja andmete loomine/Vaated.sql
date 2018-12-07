@@ -112,7 +112,7 @@ CREATE OR REPLACE VIEW autode_kategooriatesse_kuulumine AS
     INNER JOIN auto_kategooria_omamine ON auto.auto_kood=auto_kategooria_omamine.auto_kood
     INNER JOIN auto_kategooria ON auto_kategooria_omamine.auto_kategooria_kood=auto_kategooria.auto_kategooria_kood
     INNER JOIN auto_kategooria_tyyp ON auto_kategooria_tyyp.auto_kategooria_tyyp_kood=auto_kategooria.auto_kategooria_tyyp_kood;
-COMMENT ON VIEW autode_kategooriasse_kuulumine 
+COMMENT ON VIEW autode_kategooriatesse_kuulumine 
 IS 'Vaade leiab andmed autode kategooriatesse kuulumise kohta. Iga kategooria juures on ka sellele vastava tüübi nimetus.
 Vaatele vastab operatsioon OP2.2';
 
