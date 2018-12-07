@@ -88,7 +88,8 @@ SET search_path = public, pg_temp;
 COMMENT ON FUNCTION f_unusta_auto (
   p_auto_kood auto.auto_kood%TYPE)
 IS 'Selle funktsiooni abil saab auto unustada. 
-Eeltingimuseks on, et auto on seisundis Ootel';
+Eeltingimuseks on, et auto on seisundis Ootel.
+Funktsioonile vastab operatsioon OP2';
 
 -- Näide funktsiooni kasutamisest
 SELECT f_unusta_auto(p_auto_kood:=3);
@@ -110,7 +111,8 @@ SET search_path = public, pg_temp;
 COMMENT ON FUNCTION f_aktiveeri_auto (
   p_auto_kood auto.auto_kood%TYPE)
 IS 'Selle funktsiooni abil saab auto aktiveerida. 
-Eeltingimuseks on, et auto on seisundis Ootel või Mitteaktiivne';
+Eeltingimuseks on, et auto on seisundis Ootel või Mitteaktiivne.
+Funktsioonile vastab operatsioon OP3';
 
 -- Näide funktsiooni kasutamisest
 SELECT f_aktiveeri_auto(p_auto_kood:=1234);
@@ -131,16 +133,39 @@ SET search_path = public, pg_temp;
 
 COMMENT ON FUNCTION f_muuda_auto_mitteaktiivseks (
   p_auto_kood auto.auto_kood%TYPE)
-IS 'Selle funktsiooni abil saab muuta mitteaktiivseks. 
-Eeltingimuseks on, et auto on seisundis Aktiivne';
+IS 'Selle funktsiooni abil saab muuta auto mitteaktiivseks. 
+Eeltingimuseks on, et auto on seisundis Aktiivne.
+Funktsioonile vastab operatsioon OP4';
 
 -- Näide funktsiooni kasutamisest
 SELECT f_muuda_auto_mitteaktiivseks(p_auto_kood:=1234);
 
 
 --!--
+-- Auto lõpetamine
+CREATE OR REPLACE FUNCTION f_lopeta_auto (
+  p_auto_kood auto.auto_kood%TYPE) 
+RETURNS VOID AS $$
+UPDATE auto SET auto_seisundi_liik_kood='L'
+WHERE p_auto_kood = auto.auto_kood
+AND auto_seisundi_liik_kood IN ('A', 'M')
+RETURNING auto_seisundi_liik_kood
+;
+$$ LANGUAGE sql SECURITY DEFINER
+SET search_path = public, pg_temp;
+
+COMMENT ON FUNCTION f_lopeta_auto (
+  p_auto_kood auto.auto_kood%TYPE)
+IS 'Selle funktsiooni abil saab auto lõpetada. 
+Eeltingimuseks on, et auto on seisundis Aktiivne või Mitteaktiivne.
+Funktsioonile vastab operatsioon OP5';
+
+-- Näide funktsiooni kasutamisest
+SELECT f_lopeta_auto(p_auto_kood:=1234);
+
+--!--
 -- Auto andmete muutmine 
-CREATE OR REPLACE FUNCTION f_muuda_auto_andmeid (
+CREATE OR REPLACE FUNCTION f_muuda_auto (
   p_auto_kood_vana auto.auto_kood%TYPE,
   p_auto_kood_uus auto.auto_kood%TYPE,
   p_nimetus auto.nimetus%TYPE,
@@ -170,7 +195,7 @@ RETURNING auto_kood;
 $$ LANGUAGE SQL SECURITY DEFINER
 SET search_path=public, pg_temp;
 
-COMMENT ON FUNCTION f_muuda_auto_andmeid (
+COMMENT ON FUNCTION f_muuda_auto (
   p_auto_kood_vana auto.auto_kood%TYPE,
   p_auto_kood_uus auto.auto_kood%TYPE,
   p_nimetus auto.nimetus%TYPE,
@@ -183,10 +208,11 @@ COMMENT ON FUNCTION f_muuda_auto_andmeid (
   p_istekohtade_arv auto.istekohtade_arv%TYPE,
   p_mootori_maht auto.mootori_maht%TYPE)
 IS 'Selle funktsiooni abil saab muuta auto andmeid. 
-Eeltingimuseks, et auto on olekus Ootel või Mitteaktiivne';
+Eeltingimuseks, et auto on olekus Ootel või Mitteaktiivne.
+Funktsioonile vastab operatsioon OP6';
 
 -- Näide funktsiooni kasutamisest
-SELECT f_muuda_auto_andmeid(
+SELECT f_muuda_auto(
   p_auto_kood_vana:=1234,
   p_auto_kood_uus:=1234,
   p_nimetus:='Audi A6 2018 Bensiin',
@@ -326,4 +352,4 @@ vastasel juhul tagastatakse FALSE.';
 SELECT f_on_kasutaja(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt'); -- returns true
 
 
--- TODO: OP7 ( Süsteem salvestab auto andmed (OP1) ning ükshaaval kõikide kategooriasse kuulumiste andmed (OP7). )
+-- TODO: op7 ( Süsteem salvestab auto andmed (op1) ning ükshaaval kõikide kategooriasse kuulumiste andmed (op7). )
