@@ -1,26 +1,6 @@
 --!--
--- Auto margi sisetamine (seda probably vaja ei lähe - tegin, et harjutada funktsiooni kirjutamist)
-CREATE OR REPLACE FUNCTION f_lisa_auto_mark (
-  p_auto_mark_kood auto_mark.auto_mark_kood%TYPE, 
-  p_nimetus auto_mark.nimetus%TYPE) 
-  RETURNS auto_mark.auto_mark_kood%TYPE AS $$
-INSERT INTO auto_mark(auto_mark_kood, nimetus) VALUES
-(p_auto_mark_kood, p_nimetus) ON CONFLICT DO NOTHING
-RETURNING auto_mark_kood;
-$$ LANGUAGE SQL SECURITY DEFINER
-SET search_path=public, pg_temp;
-
-COMMENT ON FUNCTION f_lisa_auto_mark (
-  p_auto_mark_kood auto_mark.auto_mark_kood%TYPE, 
-  p_nimetus auto_mark.nimetus%TYPE) 
-  IS 'Selle funktsiooni abil saab sisestada uue auto margi';
--- Näide kasutamisest
-SELECT f_lisa_auto_mark(p_auto_mark_kood:=7::SMALLINT, p_nimetus:='Toyota');
-
-
---!--
 -- Auto registreerimine
-CREATE OR REPLACE FUNCTION f_lisa_auto (
+CREATE OR REPLACE FUNCTION f_registreeri_auto (
   p_auto_kood auto.auto_kood%TYPE,
   p_nimetus auto.nimetus%TYPE,
   p_vin_kood auto.vin_kood%TYPE,
@@ -62,7 +42,7 @@ RETURNING auto_kood;
 $$ LANGUAGE SQL SECURITY DEFINER
 SET search_path=public, pg_temp;
 
-COMMENT ON FUNCTION f_lisa_auto (
+COMMENT ON FUNCTION f_registreeri_auto (
   p_auto_kood auto.auto_kood%TYPE,
   p_nimetus auto.nimetus%TYPE,
   p_vin_kood auto.vin_kood%TYPE,
@@ -74,7 +54,8 @@ COMMENT ON FUNCTION f_lisa_auto (
   p_reg_number auto.reg_number%TYPE,
   p_istekohtade_arv auto.istekohtade_arv%TYPE,
   p_mootori_maht auto.mootori_maht%TYPE)
-IS 'Selle funktsiooni abil saab sisestada uue auto';
+IS 'Selle funktsiooni abil saab sisestada uue auto.
+Funktsioonile vastab operatsioon OP1';
 
 -- Näide funktsiooni kasutamisest
 SELECT f_lisa_auto(
@@ -232,7 +213,7 @@ FROM isik
 JOIN tootaja ON isik.isik_id = tootaja.tootaja_id
 WHERE Upper(e_meil) = Upper(p_e_meil)
 AND amet_kood = 3
-AND tootaja_seisundi_liik_kood IN ('T', 'P');;
+AND tootaja_seisundi_liik_kood IN ('T', 'P');
 RETURN coalesce(rslt, FALSE);
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER STABLE
@@ -246,7 +227,8 @@ Funktsiooni esimene argument on kasutajanimi (e-meil).
 Funktsiooni teine argument on parool.
 Funktsioon tagastab TRUE, kui kasutajanime ja parooliga töötaja eksisteerib
 ja tema ametikohaks on Autode haldur ning on seisundis Tööl või Puhkusel,
-vastasel juhul tagastatakse FALSE.';
+vastasel juhul tagastatakse FALSE.
+Funktsioonile vastab operatsioon OP1.1';
 
 -- Funktsiooni kasutamine
 SELECT f_tuvasta_autode_haldur(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt');
@@ -342,3 +324,6 @@ vastasel juhul tagastatakse FALSE.';
 
 -- funktsiooni kasutamine
 SELECT f_on_kasutaja(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt'); -- returns true
+
+
+-- TODO: OP7 ( Süsteem salvestab auto andmed (OP1) ning ükshaaval kõikide kategooriasse kuulumiste andmed (OP7). )
