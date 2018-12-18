@@ -44,7 +44,7 @@ CREATE OR REPLACE VIEW ootel_autod AS
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
     WHERE auto_seisundi_liik.auto_seisundi_liik_kood = 'O';
-COMMENT ON VIEW ootel_ja_mitteaktiivsed_autod 
+COMMENT ON VIEW ootel_autod 
 IS 'Vaade leiab andmed kõikide ootel autode kohta. Vaates näidatakse ka auto hetkeseisundit.
 Vaatele vastab funktsioon OP3.1';
 
@@ -103,18 +103,7 @@ COMMENT ON VIEW autode_kategooriad
 IS 'Vaade leiab andmed võimalike autode kategooriate kohta. 
 Vaatele vastab operatsioon OP2.1';
 
--- Küsida õppejõult selle kohta... Kasutusjuht: Muuda auto andmeid - kas peab tagastama eraldi ridadena või string_aggiga kokku panduna.
--- CREATE OR REPLACE VIEW autode_kategooriatesse_kuulumine AS
---     SELECT auto.auto_kood, 
---     auto_kategooria.nimetus as kategooria,
---     auto_kategooria_tyyp.nimetus as kategooria_tyyp
---     FROM auto
---     INNER JOIN auto_kategooria_omamine ON auto.auto_kood=auto_kategooria_omamine.auto_kood
---     INNER JOIN auto_kategooria ON auto_kategooria_omamine.auto_kategooria_kood=auto_kategooria.auto_kategooria_kood
---     INNER JOIN auto_kategooria_tyyp ON auto_kategooria_tyyp.auto_kategooria_tyyp_kood=auto_kategooria.auto_kategooria_tyyp_kood;
--- COMMENT ON VIEW autode_kategooriatesse_kuulumine 
--- IS 'Vaade leiab andmed autode kategooriatesse kuulumise kohta. Iga kategooria juures on ka sellele vastava tüübi nimetus.
--- Vaatele vastab operatsioon OP2.2';
+
 
 CREATE OR REPLACE VIEW autode_detailid AS
     SELECT auto.auto_kood, 
@@ -139,18 +128,7 @@ COMMENT ON VIEW autode_detailid
 IS 'Vaade leiab autode detailandmed ja selle registreerinud töötaja andmed. 
 Vaatele vastab operatsioon OP8.2';
 
-CREATE OR REPLACE VIEW autode_kategooriatesse_kuulumine AS
-    SELECT auto.auto_kood,
-    STRING_AGG(auto_kategooria.nimetus || '(' || auto_kategooria_tyyp.nimetus || ')', ', ') AS kategooriad
-    FROM auto
-    LEFT JOIN auto_kategooria_omamine ON auto.auto_kood=auto_kategooria_omamine.auto_kood
-    LEFT JOIN auto_kategooria ON auto_kategooria_omamine.auto_kategooria_kood=auto_kategooria.auto_kategooria_kood
-    LEFT JOIN auto_kategooria_tyyp ON auto_kategooria_tyyp.auto_kategooria_tyyp_kood=auto_kategooria.auto_kategooria_tyyp_kood
-    GROUP BY auto.auto_kood;
-COMMENT ON VIEW autode_kategooriatesse_kuulumine 
-IS 'Vaade leiab andmed autode kategooriatesse kuulumise kohta. Iga kategooria juures on ka sellele vastava tüübi nimetus.
-Vaatele vastab operatsioon OP2.2
-Vaade vastab Hindamismudeli lisapunktile 1';
+
 
 
 CREATE OR REPLACE VIEW auto_kategooriate_pingerida AS
@@ -184,6 +162,51 @@ COMMENT ON VIEW auto_kategooriate_pingerida
 
   Vaade vastab Hindamismudeli lisapunktile 2.';
 
+CREATE OR REPLACE VIEW auto_detailandmed AS
+    SELECT auto.auto_kood, 
+    auto.nimetus, 
+    auto_mark.nimetus AS mark, 
+    auto.mudel,
+    auto.valjalaske_aasta, 
+    auto.mootori_maht, 
+    auto_kytuse_liik.nimetus AS kytuse_liik,
+    auto.istekohtade_arv, 
+    auto.reg_number, 
+    auto.vin_kood
+    FROM auto
+    INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
+    INNER JOIN auto_kytuse_liik ON auto.auto_kytuse_liik_kood=auto_kytuse_liik.auto_kytuse_liik_kood
+    INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
+    INNER JOIN isik ON auto.lisaja_id=isik.isik_id;
+COMMENT ON VIEW auto_detailandmed 
+IS 'Vaade leiab autode detailandmed ja selle registreerinud töötaja andmed. 
+Vaatele vastab operatsioon OP4.1';
 
+select * 
+from auto_detailandmed 
+inner join autode_kategooriatesse_kuulumine ON auto_detailandmed.auto_kood = autode_kategooriatesse_kuulumine.auto_kood
+where auto_detailandmed.auto_kood = 1234;
 
+--Küsida õppejõult selle kohta... Kasutusjuht: Muuda auto andmeid - kas peab tagastama eraldi ridadena või string_aggiga kokku panduna.
+CREATE OR REPLACE VIEW autode_kategooriatesse_kuulumine_alam AS
+    SELECT auto.auto_kood,
+    auto_kategooria.nimetus || '(' || auto_kategooria_tyyp.nimetus || ')' AS kategooria
+    FROM auto
+    INNER JOIN auto_kategooria_omamine ON auto.auto_kood=auto_kategooria_omamine.auto_kood
+    INNER JOIN auto_kategooria ON auto_kategooria_omamine.auto_kategooria_kood=auto_kategooria.auto_kategooria_kood
+    INNER JOIN auto_kategooria_tyyp ON auto_kategooria_tyyp.auto_kategooria_tyyp_kood=auto_kategooria.auto_kategooria_tyyp_kood;
+COMMENT ON VIEW autode_kategooriatesse_kuulumine_alam
+IS 'Vaade leiab andmed autode kategooriatesse kuulumise kohta. Iga kategooria juures on ka sellele vastava tüübi nimetus.
+Vaatele vastab operatsioon OP2.2';
 
+CREATE OR REPLACE VIEW autode_kategooriatesse_kuulumine AS
+    SELECT auto.auto_kood,
+    STRING_AGG(auto_kategooria.nimetus || '(' || auto_kategooria_tyyp.nimetus || ')', ', ') AS kategooriad
+    FROM auto
+    LEFT JOIN auto_kategooria_omamine ON auto.auto_kood=auto_kategooria_omamine.auto_kood
+    LEFT JOIN auto_kategooria ON auto_kategooria_omamine.auto_kategooria_kood=auto_kategooria.auto_kategooria_kood
+    LEFT JOIN auto_kategooria_tyyp ON auto_kategooria_tyyp.auto_kategooria_tyyp_kood=auto_kategooria.auto_kategooria_tyyp_kood
+    GROUP BY auto.auto_kood;
+COMMENT ON VIEW autode_kategooriatesse_kuulumine 
+IS 'Vaade leiab andmed autode kategooriatesse kuulumise kohta. Iga kategooria juures on ka sellele vastava tüübi nimetus.
+Vaade vastab Hindamismudeli lisapunktile 1';

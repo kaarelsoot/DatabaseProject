@@ -1,0 +1,1 @@
+-- Triger selle kohta, et kui AKTIVEERI_AUTO, siis tehakse kontroll, et kas auto ikka kuulub vähemalt ühte kategooriasse.
