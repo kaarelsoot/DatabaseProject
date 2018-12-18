@@ -109,4 +109,4 @@ INSERT INTO auto (auto_kood, nimetus, vin_kood, auto_kytuse_liik_kood, auto_mark
 VALUES (1234, 'Audi A6 2018', 'ABC123123123123', 1, 1, 'A', 1, 'A6', 2018, '123ABC', 5, 2.8), (1235, 'Peugeot Boxer 2018 kaubik', 'ABC123123123555', 2, 2, 'A', 1, 'Boxer', 2018, '456DEF', 3, 2.0);
 
 INSERT INTO auto_kategooria_omamine (auto_kood, auto_kategooria_kood) 
-VALUES (1234, 1), (1235, 2);
+VALUES (1234, 1), (1235, 2), (1234, 4), (1235, 7);
