@@ -197,3 +197,47 @@ ehk kui kaks autot jagavad esikohta, siis järgmine kuvatav pingerea koht on num
 Tiheda pingerea puhul ei jäeta kohanumbreid vahele - pärast kahte esikohta jagavat autot
 on järgmine kohanumber 2.
 Vaade vastab Hindamismudeli lisapunktile 2';
+
+CREATE OR REPLACE VIEW autod_json WITH (security_barrier) AS
+    SELECT row_to_json(row) as autod_json_objektidena
+    FROM (
+    SELECT 
+    auto.auto_kood,
+    auto.nimetus, 
+    auto_mark.nimetus AS mark, 
+    auto.mudel,
+    auto.valjalaske_aasta, 
+    auto.mootori_maht, 
+    auto_kytuse_liik.nimetus AS kytuse_liik,
+    auto.istekohtade_arv, 
+    auto.reg_number, 
+    auto.vin_kood,
+    kategooriad.kategooriad
+    FROM (
+        SELECT 
+            auto.auto_kood,
+            json_agg(
+                row_to_json( 
+                    (
+                    SELECT rida FROM (
+                        SELECT 
+                        auto_kategooria.nimetus AS kategooria, 
+                        auto_kategooria_tyyp.nimetus AS kategooria_tyyp) 
+                    rida ) 
+                )
+            ) AS kategooriad
+        FROM auto
+        LEFT JOIN auto_kategooria_omamine ON auto.auto_kood=auto_kategooria_omamine.auto_kood
+        LEFT JOIN auto_kategooria ON auto_kategooria_omamine.auto_kategooria_kood=auto_kategooria.auto_kategooria_kood
+        LEFT JOIN auto_kategooria_tyyp ON auto_kategooria_tyyp.auto_kategooria_tyyp_kood=auto_kategooria.auto_kategooria_tyyp_kood
+        GROUP BY auto.auto_kood
+    ) AS kategooriad 
+    INNER JOIN auto ON kategooriad.auto_kood=auto.auto_kood
+    INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
+    INNER JOIN auto_kytuse_liik ON auto.auto_kytuse_liik_kood=auto_kytuse_liik.auto_kytuse_liik_kood
+    INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
+) AS row;
+COMMENT ON VIEW autod_json 
+IS 'Vaade leiab andmed autode ja nende kategooriatesse kuuluvuse kohta.
+Andmed on esitatud JSON formaadis, kus iga tagastatav rida vastab ühele autole.
+Vaade vastab Hindamismudeli lisapunktile 3';
