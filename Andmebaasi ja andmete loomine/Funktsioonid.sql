@@ -58,7 +58,7 @@ IS 'Selle funktsiooni abil saab sisestada uue auto.
 Funktsioonile vastab operatsioon OP1';
 
 -- Näide funktsiooni kasutamisest
-SELECT f_lisa_auto(
+SELECT f_registreeri_auto(
   p_auto_kood:=3,
   p_nimetus:='Volvo V70 2018',
   p_vin_kood:='V123123123123',
@@ -141,8 +141,6 @@ Funktsioonile vastab operatsioon OP4';
 SELECT f_muuda_auto_mitteaktiivseks(p_auto_kood:=1234);
 
 
-
-
 --!--
 -- Auto andmete muutmine 
 CREATE OR REPLACE FUNCTION f_muuda_auto (
@@ -218,14 +216,14 @@ SELECT INTO rslt (parool = public.crypt(p_parool, parool))
 FROM isik 
 JOIN tootaja ON isik.isik_id = tootaja.tootaja_id
 WHERE Upper(e_meil) = Upper(p_e_meil)
-AND amet_kood = 3
+AND amet_kood = 1
 AND tootaja_seisundi_liik_kood IN ('T', 'P');
 RETURN coalesce(rslt, FALSE);
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER STABLE
 SET search_path = public, pg_temp;
 
-COMMENT ON FUNCTION f_tuvasta_juhataja(
+COMMENT ON FUNCTION f_tuvasta_autode_haldur(
   p_e_meil text, 
   p_parool text)
 IS 'Selle funktsiooni abil toimub juhataja autentimine. 
@@ -237,7 +235,7 @@ vastasel juhul tagastatakse FALSE.
 Funktsioonile vastab operatsioon OP1.1';
 
 -- Funktsiooni kasutamine
-SELECT f_tuvasta_juhataja(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt');
+SELECT f_tuvasta_autode_haldur(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt');
 
 
 --!
