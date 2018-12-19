@@ -103,7 +103,7 @@ INSERT INTO klient (klient_id, kliendi_seisundi_liik_kood, on_nous_tylitamisega)
 VALUES (2, 'A', False);
 
 INSERT INTO tootaja (tootaja_id, amet_kood, tootaja_seisundi_liik_kood)
-VALUES (1, 3, 'T');
+VALUES (1, 1, 'T');
 
 INSERT INTO auto (auto_kood, nimetus, vin_kood, auto_kytuse_liik_kood, auto_mark_kood, auto_seisundi_liik_kood, lisaja_id, mudel, valjalaske_aasta, reg_number, istekohtade_arv, mootori_maht)
 VALUES (1234, 'Audi A6 2018', 'ABC123123123123', 1, 1, 'A', 1, 'A6', 2018, '123ABC', 5, 2.8), (1235, 'Peugeot Boxer 2018 kaubik', 'ABC123123123555', 2, 2, 'A', 1, 'Boxer', 2018, '456DEF', 3, 2.0);

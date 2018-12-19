@@ -1,4 +1,4 @@
-﻿Kas kõik struktuuride nimed peaksid olema väikeste tähtedega? (db test)
+Kas kõik struktuuride nimed peaksid olema väikeste tähtedega? (db test)
 
 Kas kitsendused jms peavad olema defineeritud CREATE TABLE lauses?
 
@@ -6,8 +6,14 @@ Kõige pealt Create Table, seejärel Alter Table Foreign key constraints.
 
 Osaline unikaalne indeks?
 
-Vahepeal täiendada dokumenti.
+
 
 Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega.
 
-Vaated Accessi päringutele.
+
+Täiendada dokumenti:
+Lisada Kasutatud Materjalidesse:
+    18. Andmebaasid II õppematerjalid. [WWW] http://maurus.ttu.ee (18.12.2018)
+    19. Andmebaaside lisamaterjalid [WWW] http://maurus.ttu.ee (18.12.2018)
+
+

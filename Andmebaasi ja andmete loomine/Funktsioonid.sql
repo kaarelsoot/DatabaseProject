@@ -141,27 +141,7 @@ Funktsioonile vastab operatsioon OP4';
 SELECT f_muuda_auto_mitteaktiivseks(p_auto_kood:=1234);
 
 
---!--
--- Auto lõpetamine
-CREATE OR REPLACE FUNCTION f_lopeta_auto (
-  p_auto_kood auto.auto_kood%TYPE) 
-RETURNS VOID AS $$
-UPDATE auto SET auto_seisundi_liik_kood='L'
-WHERE p_auto_kood = auto.auto_kood
-AND auto_seisundi_liik_kood IN ('A', 'M')
-RETURNING auto_seisundi_liik_kood
-;
-$$ LANGUAGE sql SECURITY DEFINER
-SET search_path = public, pg_temp;
 
-COMMENT ON FUNCTION f_lopeta_auto (
-  p_auto_kood auto.auto_kood%TYPE)
-IS 'Selle funktsiooni abil saab auto lõpetada. 
-Eeltingimuseks on, et auto on seisundis Aktiivne või Mitteaktiivne.
-Funktsioonile vastab operatsioon OP5';
-
--- Näide funktsiooni kasutamisest
-SELECT f_lopeta_auto(p_auto_kood:=1234);
 
 --!--
 -- Auto andmete muutmine 
@@ -227,8 +207,8 @@ SELECT f_muuda_auto(
 );
 
 --!
--- Autode halduri autentimise funktsioon
-CREATE OR REPLACE FUNCTION f_tuvasta_autode_haldur(
+-- Juhataja autentimise funktsioon
+CREATE OR REPLACE FUNCTION f_tuvasta_juhataja(
   p_e_meil text, 
   p_parool text)
 RETURNS boolean AS $$
@@ -245,10 +225,10 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER STABLE
 SET search_path = public, pg_temp;
 
-COMMENT ON FUNCTION f_tuvasta_autode_haldur(
+COMMENT ON FUNCTION f_tuvasta_juhataja(
   p_e_meil text, 
   p_parool text)
-IS 'Selle funktsiooni abil toimub autode halduri autentimine. 
+IS 'Selle funktsiooni abil toimub juhataja autentimine. 
 Funktsiooni esimene argument on kasutajanimi (e-meil).
 Funktsiooni teine argument on parool.
 Funktsioon tagastab TRUE, kui kasutajanime ja parooliga töötaja eksisteerib
@@ -257,7 +237,7 @@ vastasel juhul tagastatakse FALSE.
 Funktsioonile vastab operatsioon OP1.1';
 
 -- Funktsiooni kasutamine
-SELECT f_tuvasta_autode_haldur(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt');
+SELECT f_tuvasta_juhataja(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididunt');
 
 
 --!
@@ -353,3 +333,27 @@ SELECT f_on_kasutaja(p_e_meil:='ward.richard@comvoy.co.uk', p_parool:='incididun
 
 
 -- TODO: op7 ( Süsteem salvestab auto andmed (op1) ning ükshaaval kõikide kategooriasse kuulumiste andmed (op7). )
+
+
+-- Juhataja töökohaga seotud funktsioonid:
+--!--
+-- Auto lõpetamine
+CREATE OR REPLACE FUNCTION f_lopeta_auto (
+  p_auto_kood auto.auto_kood%TYPE) 
+RETURNS VOID AS $$
+UPDATE auto SET auto_seisundi_liik_kood='L'
+WHERE p_auto_kood = auto.auto_kood
+AND auto_seisundi_liik_kood IN ('A', 'M')
+RETURNING auto_seisundi_liik_kood
+;
+$$ LANGUAGE sql SECURITY DEFINER
+SET search_path = public, pg_temp;
+
+COMMENT ON FUNCTION f_lopeta_auto (
+  p_auto_kood auto.auto_kood%TYPE)
+IS 'Selle funktsiooni abil saab auto lõpetada. 
+Eeltingimuseks on, et auto on seisundis Aktiivne või Mitteaktiivne.
+Funktsioonile vastab operatsioon OP5';
+
+-- Näide funktsiooni kasutamisest
+SELECT f_lopeta_auto(p_auto_kood:=1234);
