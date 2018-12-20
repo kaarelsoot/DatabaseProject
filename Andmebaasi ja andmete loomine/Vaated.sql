@@ -115,7 +115,7 @@ CREATE OR REPLACE VIEW autode_andmed_koos_registreerijaga WITH (security_barrier
     auto.reg_number, 
     auto.vin_kood, 
     auto.reg_aeg,
-    isik.eesnimi ||' '|| isik.perenimi ||' '|| isik.e_meil AS registreerija,
+    COALESCE(isik.eesnimi, '') ||' '|| COALESCE(isik.perenimi, '') ||' '|| isik.e_meil AS registreerija,
     auto_seisundi_liik.nimetus AS seisund
     FROM auto
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood

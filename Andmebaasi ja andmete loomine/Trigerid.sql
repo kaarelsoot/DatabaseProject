@@ -1,16 +1,8 @@
 CREATE OR REPLACE FUNCTION f_auto_seisundimuutuse_kontroll() RETURNS
 TRIGGER AS $$
 BEGIN
-IF 
-    NOT(OLD.auto_seisundi_liik_kood=NEW.auto_seisundi_liik_kood
-    OR (OLD.auto_seisundi_liik_kood='A' OR OLD.auto_seisundi_liik_kood='M') 
-    AND NEW.auto_seisundi_liik_kood='L'
-    OR OLD.auto_seisundi_liik_kood='M'AND NEW.auto_seisundi_liik_kood='A'
-    OR OLD.auto_seisundi_liik_kood='A'AND NEW.auto_seisundi_liik_kood='M')
-THEN
-    RAISE EXCEPTION 'Soovitud seisundimuudatust ei või teostada';
-END IF;
-RETURN NEW;
+RAISE EXCEPTION 'Soovitud seisundimuudatust ei või teostada';
+RETURN NULL;
 END; $$ LANGUAGE plpgsql SECURITY DEFINER
 SET search_path = public, pg_temp;
 COMMENT ON FUNCTION f_auto_seisundimuutuse_kontroll ()
@@ -21,18 +13,21 @@ DROP TRIGGER IF EXISTS t_auto_seisundimuutuse_kontroll ON auto;
 CREATE TRIGGER t_auto_seisundimuutuse_kontroll
 BEFORE UPDATE OF auto_seisundi_liik_kood ON auto
 FOR EACH ROW
+    WHEN (
+        NOT(OLD.auto_seisundi_liik_kood=NEW.auto_seisundi_liik_kood
+        OR (OLD.auto_seisundi_liik_kood='A' OR OLD.auto_seisundi_liik_kood='M') 
+        AND NEW.auto_seisundi_liik_kood='L'
+        OR OLD.auto_seisundi_liik_kood='M'AND NEW.auto_seisundi_liik_kood='A'
+        OR OLD.auto_seisundi_liik_kood='A'AND NEW.auto_seisundi_liik_kood='M')
+    )
     EXECUTE FUNCTION f_auto_seisundimuutuse_kontroll();
 
 
 CREATE OR REPLACE FUNCTION f_auto_unustamise_kontroll() RETURNS
 TRIGGER AS $$
 BEGIN
-IF 
-    NOT(OLD.auto_seisundi_liik_kood='O')
-THEN
-    RAISE EXCEPTION 'Autot võib unustada vaid "ootel" seisundist';
-END IF;
-RETURN NEW;
+RAISE EXCEPTION 'Autot võib unustada vaid "ootel" seisundist';
+RETURN NULL;
 END; $$ LANGUAGE plpgsql SECURITY DEFINER
 SET search_path = public, pg_temp;
 COMMENT ON FUNCTION f_auto_unustamise_kontroll ()
@@ -43,4 +38,5 @@ DROP TRIGGER IF EXISTS t_auto_unustamise_kontroll ON auto;
 CREATE TRIGGER t_auto_unustamise_kontroll
 BEFORE DELETE ON auto
 FOR EACH ROW
+    WHEN ( NOT(OLD.auto_seisundi_liik_kood='O') )
     EXECUTE FUNCTION f_auto_unustamise_kontroll();

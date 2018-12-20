@@ -1,5 +1,3 @@
-Kas kõik struktuuride nimed peaksid olema väikeste tähtedega? (db test)
-
 Kas kitsendused jms peavad olema defineeritud CREATE TABLE lauses?
 
 Kõige pealt Create Table, seejärel Alter Table Foreign key constraints.
@@ -8,7 +6,8 @@ Osaline unikaalne indeks?
 
 
 
-Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega.
+Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega. 
+( Eemalda ka default NOT NULL, mis on tabexil (nimetused jne))
 
 
 Täiendada dokumenti:
@@ -16,4 +15,15 @@ Lisada Kasutatud Materjalidesse:
     18. Andmebaasid II õppematerjalid. [WWW] http://maurus.ttu.ee (18.12.2018)
     19. Andmebaaside lisamaterjalid [WWW] http://maurus.ttu.ee (18.12.2018)
 
+
+
+
+autode_andmed_koos_registreerijaga -> ..
+autode_detailandmed -> autode_detailid
+
+Vaadetel nimetus -> auto_nimetus
+
+Are u sure u don't want to use jsonb datatype?
+
+Triggeritel ei taha IFi :(
 
