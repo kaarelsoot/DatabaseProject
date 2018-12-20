@@ -69,8 +69,8 @@ WHERE isiku_seisundi_liik_kood::smallint=1;
 INSERT INTO klient (klient_id, kliendi_seisundi_liik_kood, on_nous_tylitamisega)
 VALUES (2, 'A', False), (6, 'A', True), (7, 'O', False), (8, 'M', False), (9, 'A', True);
 
-INSERT INTO tootaja (tootaja_id, amet_kood, tootaja_seisundi_liik_kood)
-VALUES (1, 1, 'T'), (3, 3, 'T'), (4, 2, 'T'), (5, 3, 'P');
+INSERT INTO tootaja (tootaja_id, amet_kood, tootaja_seisundi_liik_kood, mentor)
+VALUES (1, 1, 'T', NULL), (3, 3, 'T', NULL), (4, 2, 'T', 1), (5, 3, 'P', 1);
 
 INSERT INTO auto (auto_kood, nimetus, vin_kood, auto_kytuse_liik_kood, auto_mark_kood, auto_seisundi_liik_kood, lisaja_id, mudel, valjalaske_aasta, reg_number, istekohtade_arv, mootori_maht)
 VALUES 
