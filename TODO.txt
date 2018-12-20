@@ -9,11 +9,3 @@ Osaline unikaalne indeks?
 
 
 Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega.
-
-
-Täiendada dokumenti:
-Lisada Kasutatud Materjalidesse:
-    18. Andmebaasid II õppematerjalid. [WWW] http://maurus.ttu.ee (18.12.2018)
-    19. Andmebaaside lisamaterjalid [WWW] http://maurus.ttu.ee (18.12.2018)
-
-
