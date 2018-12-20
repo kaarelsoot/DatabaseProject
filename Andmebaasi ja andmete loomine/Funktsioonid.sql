@@ -58,7 +58,7 @@ Funktsioonile vastab operatsioon OP1';
 CREATE OR REPLACE FUNCTION f_unusta_auto (
     p_auto_kood auto.auto_kood%TYPE) 
 RETURNS VOID AS $$
-UPDATE auto SET auto_seisundi_liik_kood='U'
+DELETE FROM auto
 WHERE p_auto_kood = auto.auto_kood
 AND auto_seisundi_liik_kood='O'
 RETURNING auto_seisundi_liik_kood;
@@ -68,6 +68,7 @@ COMMENT ON FUNCTION f_unusta_auto (
     p_auto_kood auto.auto_kood%TYPE)
 IS 'Selle funktsiooni abil saab auto unustada. 
 Eeltingimuseks on, et auto on seisundis Ootel.
+Järeltingimusena on auto andmebaasist eemaldatud.
 Funktsioonile vastab operatsioon OP2';
 
 CREATE OR REPLACE FUNCTION f_aktiveeri_auto (
