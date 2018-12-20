@@ -47,11 +47,8 @@ REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public FROM PUBLIC;
 GRANT CONNECT ON DATABASE t154838 TO juhataja_t154838;
 GRANT USAGE ON SCHEMA public TO juhataja_t154838;
 
-GRANT SELECT, UPDATE ON TABLE
-aktiivsed_ja_mitteaktiivsed_autod
-TO juhataja_t154838;
-
 GRANT SELECT ON
+aktiivsed_ja_mitteaktiivsed_autod,
 koik_autod,
 autode_detailandmed,
 autode_koondaruanne

@@ -1,6 +1,3 @@
-DROP SEQUENCE IF EXISTS "isik_isik_id_seq"
-;
-
 DROP TABLE IF EXISTS "tootaja" CASCADE
 ;
 
@@ -333,7 +330,7 @@ ALTER TABLE "isik" ADD CONSTRAINT "ak_isik_e_meil" UNIQUE ("e_meil")
 ALTER TABLE "isik" ADD CONSTRAINT "ak_isik_isikukood_riik" UNIQUE ("isikukood","riik_kood")
 ;
 
-ALTER TABLE "isik" ADD CONSTRAINT "chk_isik_Isikukood_vastab_mustrile" CHECK (isikukood ~ '^[a-zA-Z0-9 -\/]*$')
+ALTER TABLE "isik" ADD CONSTRAINT "chk_isik_isikukood_vastab_mustrile" CHECK (isikukood ~ '^[a-zA-Z0-9 -\/]*$')
 ;
 
 ALTER TABLE "isik" ADD CONSTRAINT "chk_isik_isikukood_pole_tyhi" CHECK (trim(isikukood) <> '')
@@ -390,7 +387,7 @@ ALTER TABLE "auto" ADD CONSTRAINT "chk_auto_nimetus_pole_tyhi" CHECK (trim(nimet
 ALTER TABLE "auto" ADD CONSTRAINT "chk_auto_reg_number_vastab_mustrile" CHECK (reg_number ~ '^([A-Z][0-9]{1,8}|[0-9]{2,3}[A-Z]{3})$')
 ;
 
-ALTER TABLE "auto" ADD CONSTRAINT "chk_auto_vin_kood_koosneb_suurtahtedest_numbritest" CHECK (vin_kood ~ '^[A-Z1-9]*$')
+ALTER TABLE "auto" ADD CONSTRAINT "chk_auto_vin_kood_koosneb_suurtahtedest_numbritest" CHECK (vin_kood ~ '^[A-Z0-9]*$')
 ;
 
 ALTER TABLE "auto" ADD CONSTRAINT "chk_auto_istekohtade_arv_vahemikus_2_11" CHECK (istekohtade_arv BETWEEN 2 AND 11)
@@ -409,10 +406,10 @@ reg_aeg<'2101-01-01')
 ALTER TABLE "auto" ADD CONSTRAINT "chk_auto_vin_kood_vahemikus_11_17" CHECK (LENGTH(vin_kood) BETWEEN 11 AND 17)
 ;
 
-CREATE INDEX "IXFK_Auto_kategooria_omamine_Auto_kategooria" ON "auto_kategooria_omamine" ("auto_kategooria_kood" ASC)
+CREATE INDEX "ixfk_auto_kategooria_omamine_auto_kategooria" ON "auto_kategooria_omamine" ("auto_kategooria_kood" ASC)
 ;
 
-ALTER TABLE "auto_kategooria_omamine" ADD CONSTRAINT "PK_Auto_kategooria_omamine"
+ALTER TABLE "auto_kategooria_omamine" ADD CONSTRAINT "pk_auto_kategooria_omamine"
 	PRIMARY KEY ("auto_kood","auto_kategooria_kood")
 ;
 
@@ -468,10 +465,10 @@ ALTER TABLE "auto" ADD CONSTRAINT "fk_auto_auto_seisundi_liik"
 	FOREIGN KEY ("auto_seisundi_liik_kood") REFERENCES "auto_seisundi_liik" ("auto_seisundi_liik_kood") ON DELETE No Action ON UPDATE Cascade
 ;
 
-ALTER TABLE "auto_kategooria_omamine" ADD CONSTRAINT "FK_Auto_kategooria_omamine_Auto"
+ALTER TABLE "auto_kategooria_omamine" ADD CONSTRAINT "fk_auto_kategooria_omamine_auto"
 	FOREIGN KEY ("auto_kood") REFERENCES "auto" ("auto_kood") ON DELETE Cascade ON UPDATE Cascade
 ;
 
-ALTER TABLE "auto_kategooria_omamine" ADD CONSTRAINT "FK_Auto_kategooria_omamine_Auto_kategooria"
+ALTER TABLE "auto_kategooria_omamine" ADD CONSTRAINT "fk_auto_kategooria_omamine_auto_kategooria"
 	FOREIGN KEY ("auto_kategooria_kood") REFERENCES "auto_kategooria" ("auto_kategooria_kood") ON DELETE No Action ON UPDATE Cascade
 ;
