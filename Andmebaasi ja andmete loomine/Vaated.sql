@@ -150,7 +150,7 @@ CREATE OR REPLACE VIEW autode_koondaruanne WITH (security_barrier) AS
     FROM auto
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
     GROUP BY auto.auto_seisundi_liik_kood, auto_seisundi_liik.nimetus
-    ORDER BY autode_arv DESC, seisundi_nimetus ASC;
+    ORDER BY autode_arv_seisundis DESC, seisundi_nimetus ASC;
 COMMENT ON VIEW autode_koondaruanne 
 IS 'Vaade leiab andmed autode seisunditesse kuuluvuse kohta. Seisundid on sorteeritud autode arvu järgi kahanevalt.
 Kui seisunditel on samaväärne arv, siis sorteeritakse suurtähtedega nime järgi tähestiku järjekorras.

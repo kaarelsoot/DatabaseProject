@@ -53,7 +53,7 @@ TO juhataja_t154838;
 
 GRANT SELECT ON
 koik_autod,
-autode_detailid,
+autode_detailandmed,
 autode_koondaruanne
 TO juhataja_t154838;
 
