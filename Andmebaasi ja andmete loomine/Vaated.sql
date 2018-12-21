@@ -1,5 +1,6 @@
 CREATE OR REPLACE VIEW autode_kategooriad WITH (security_barrier) AS
-    SELECT auto_kategooria_kood, nimetus
+    SELECT auto_kategooria_kood, 
+    nimetus AS kategooria
     FROM auto_kategooria
     ORDER BY nimetus ASC;
 COMMENT ON VIEW autode_kategooriad 
@@ -19,7 +20,7 @@ Vaatele vastab operatsioon OP2.2';
 
 CREATE OR REPLACE VIEW ootel_autod WITH (security_barrier) AS
     SELECT auto.auto_kood, 
-    auto.nimetus AS nimetus, 
+    auto.nimetus AS auto_nimetus, 
     auto_seisundi_liik.nimetus AS seisund, 
     auto_mark.nimetus AS mark, 
     auto.mudel, 
@@ -36,7 +37,7 @@ Vaatele vastab funktsioon OP3.1';
 
 CREATE OR REPLACE VIEW autode_detailandmed WITH (security_barrier) AS
     SELECT auto.auto_kood, 
-    auto.nimetus, 
+    auto.nimetus AS auto_nimetus, 
     auto_mark.nimetus AS mark, 
     auto.mudel,
     auto.valjalaske_aasta, 
@@ -55,7 +56,7 @@ Vaatele vastab operatsioon OP4.1';
 
 CREATE OR REPLACE VIEW aktiivsed_autod WITH (security_barrier) AS
     SELECT auto.auto_kood, 
-    auto.nimetus AS nimetus, 
+    auto.nimetus AS auto_nimetus, 
     auto_seisundi_liik.nimetus AS seisund, 
     auto_mark.nimetus AS mark, 
     auto.mudel, 
@@ -72,7 +73,7 @@ Vaatele vastab operatsioon OP6.1';
 
 CREATE OR REPLACE VIEW ootel_ja_mitteaktiivsed_autod WITH (security_barrier) AS
     SELECT auto.auto_kood, 
-    auto.nimetus AS nimetus, 
+    auto.nimetus AS auto_nimetus, 
     auto_seisundi_liik.nimetus AS seisund, 
     auto_mark.nimetus AS mark, 
     auto.mudel, 
@@ -89,7 +90,7 @@ Vaatele vastab operatsioon OP7.1';
 
 CREATE OR REPLACE VIEW koik_autod WITH (security_barrier) AS
     SELECT auto.auto_kood, 
-    auto.nimetus AS nimetus, 
+    auto.nimetus AS auto_nimetus, 
     auto_seisundi_liik.nimetus AS seisund, 
     auto_mark.nimetus AS mark, 
     auto.mudel, 
@@ -105,7 +106,7 @@ Vaade vastab operatsioonile OP8.1';
 
 CREATE OR REPLACE VIEW autode_andmed_koos_registreerijaga WITH (security_barrier) AS
     SELECT auto.auto_kood, 
-    auto.nimetus, 
+    auto.nimetus AS auto_nimetus, 
     auto_mark.nimetus AS mark, 
     auto.mudel,
     auto.valjalaske_aasta, 
@@ -128,7 +129,7 @@ Vaatele vastab operatsioon OP8.2';
 
 CREATE OR REPLACE VIEW aktiivsed_ja_mitteaktiivsed_autod WITH (security_barrier) AS
     SELECT auto.auto_kood, 
-    auto.nimetus AS nimetus, 
+    auto.nimetus AS auto_nimetus, 
     auto_seisundi_liik.nimetus AS seisund, 
     auto_mark.nimetus AS mark, 
     auto.mudel, 
@@ -199,11 +200,11 @@ on järgmine kohanumber 2.
 Vaade vastab Hindamismudeli lisapunktile 2';
 
 CREATE OR REPLACE VIEW autod_json WITH (security_barrier) AS
-    SELECT row_to_json(row) as autod_json_objektidena
+    SELECT to_jsonb(row) as autod_json_objektidena
     FROM (
     SELECT 
     auto.auto_kood,
-    auto.nimetus, 
+    auto.nimetus AS auto_nimetus, 
     auto_mark.nimetus AS mark, 
     auto.mudel,
     auto.valjalaske_aasta, 
@@ -216,8 +217,8 @@ CREATE OR REPLACE VIEW autod_json WITH (security_barrier) AS
     FROM (
         SELECT 
             auto.auto_kood,
-            json_agg(
-                row_to_json( 
+            jsonb_agg(
+                to_jsonb( 
                     (
                     SELECT rida FROM (
                         SELECT 
