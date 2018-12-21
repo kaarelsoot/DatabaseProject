@@ -35,7 +35,7 @@ COMMENT ON VIEW ootel_autod
 IS 'Vaade leiab andmed kõikide ootel autode kohta. Vaates näidatakse ka auto hetkeseisundit.
 Vaatele vastab funktsioon OP3.1';
 
-CREATE OR REPLACE VIEW autode_detailandmed WITH (security_barrier) AS
+CREATE OR REPLACE VIEW autode_detailid WITH (security_barrier) AS
     SELECT auto.auto_kood, 
     auto.nimetus AS auto_nimetus, 
     auto_mark.nimetus AS mark, 
@@ -50,7 +50,7 @@ CREATE OR REPLACE VIEW autode_detailandmed WITH (security_barrier) AS
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
     INNER JOIN auto_kytuse_liik ON auto.auto_kytuse_liik_kood=auto_kytuse_liik.auto_kytuse_liik_kood
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood;
-COMMENT ON VIEW autode_detailandmed 
+COMMENT ON VIEW autode_detailid 
 IS 'Vaade leiab autode detailandmed. 
 Vaatele vastab operatsioon OP4.1';
 
@@ -104,7 +104,7 @@ COMMENT ON VIEW koik_autod
 IS 'Vaade leiab andmed kõikide autode kohta. Vaates näidatakse ka auto hetkeseisundit.
 Vaade vastab operatsioonile OP8.1';
 
-CREATE OR REPLACE VIEW autode_andmed_koos_registreerijaga WITH (security_barrier) AS
+CREATE OR REPLACE VIEW autod_koos_registreerijaga WITH (security_barrier) AS
     SELECT auto.auto_kood, 
     auto.nimetus AS auto_nimetus, 
     auto_mark.nimetus AS mark, 
@@ -123,7 +123,7 @@ CREATE OR REPLACE VIEW autode_andmed_koos_registreerijaga WITH (security_barrier
     INNER JOIN auto_kytuse_liik ON auto.auto_kytuse_liik_kood=auto_kytuse_liik.auto_kytuse_liik_kood
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
     INNER JOIN isik ON auto.lisaja_id=isik.isik_id;
-COMMENT ON VIEW autode_andmed_koos_registreerijaga 
+COMMENT ON VIEW autod_koos_registreerijaga 
 IS 'Vaade leiab autode detailandmed ja selle registreerinud töötaja andmed. 
 Vaatele vastab operatsioon OP8.2';
 
@@ -146,7 +146,7 @@ Vaatele vastab operatsioon OP9.1';
 
 CREATE OR REPLACE VIEW autode_koondaruanne WITH (security_barrier) AS
     SELECT auto.auto_seisundi_liik_kood AS seisundi_kood, 
-    Upper(auto_seisundi_liik.nimetus) AS seisundi_nimetus, 
+    UPPER(auto_seisundi_liik.nimetus) AS seisundi_nimetus, 
     COUNT(auto_seisundi_liik.nimetus) AS autode_arv_seisundis
     FROM auto
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood

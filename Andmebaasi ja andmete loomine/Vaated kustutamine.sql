@@ -6,9 +6,9 @@ DROP VIEW IF EXISTS auto_kategooriate_pingerida;
 
 DROP VIEW IF EXISTS autod_json;
 
-DROP VIEW IF EXISTS autode_andmed_koos_registreerijaga;
+DROP VIEW IF EXISTS autod_koos_registreerijaga;
 
-DROP VIEW IF EXISTS autode_detailandmed;
+DROP VIEW IF EXISTS autode_detailid;
 
 DROP VIEW IF EXISTS autode_kategooriad;
 

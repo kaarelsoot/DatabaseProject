@@ -1,17 +1,4 @@
-Kas kitsendused jms peavad olema defineeritud CREATE TABLE lauses?
+
 
 Kõige pealt Create Table, seejärel Alter Table Foreign key constraints.
 
-Osaline unikaalne indeks?
-
-Dokumentatsiooni CREATE TABLE lausetes asenda vajalikud väljatüübid domeenidega. 
-( Eemalda ka default NOT NULL, mis on tabexil (nimetused jne))
-
-autode_andmed_koos_registreerijaga -> ..
-autode_detailandmed -> autode_detailid
-
-Vaadetel nimetus -> auto_nimetus
-
-Are u sure u don't want to use jsonb datatype?
-
-Triggeritel ei taha IFi :(
