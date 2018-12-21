@@ -50,7 +50,7 @@ GRANT USAGE ON SCHEMA public TO juhataja_t154838;
 GRANT SELECT ON
 aktiivsed_ja_mitteaktiivsed_autod,
 koik_autod,
-autode_detailandmed,
+autode_detailid,
 autode_koondaruanne
 TO juhataja_t154838;
 
