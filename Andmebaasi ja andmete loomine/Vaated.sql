@@ -2,7 +2,8 @@ CREATE OR REPLACE VIEW autode_kategooriad WITH (security_barrier) AS
     SELECT auto_kategooria_kood, 
     nimetus AS kategooria
     FROM auto_kategooria
-    ORDER BY nimetus ASC;
+    ORDER BY nimetus ASC
+WITH CHECK OPTION;
 COMMENT ON VIEW autode_kategooriad 
 IS 'Vaade leiab andmed võimalike autode kategooriate kohta. 
 Vaatele vastab operatsioon OP2.1';
@@ -13,7 +14,8 @@ CREATE OR REPLACE VIEW autode_kategooriatesse_kuulumine_alam WITH (security_barr
     FROM auto
     INNER JOIN auto_kategooria_omamine ON auto.auto_kood=auto_kategooria_omamine.auto_kood
     INNER JOIN auto_kategooria ON auto_kategooria_omamine.auto_kategooria_kood=auto_kategooria.auto_kategooria_kood
-    INNER JOIN auto_kategooria_tyyp ON auto_kategooria_tyyp.auto_kategooria_tyyp_kood=auto_kategooria.auto_kategooria_tyyp_kood;
+    INNER JOIN auto_kategooria_tyyp ON auto_kategooria_tyyp.auto_kategooria_tyyp_kood=auto_kategooria.auto_kategooria_tyyp_kood
+    ORDER BY auto.auto_kood ASC;
 COMMENT ON VIEW autode_kategooriatesse_kuulumine_alam
 IS 'Vaade leiab andmed autode kategooriatesse kuulumise kohta. Iga kategooria juures on ka sellele vastava tüübi nimetus.
 Vaatele vastab operatsioon OP2.2';
@@ -30,7 +32,8 @@ CREATE OR REPLACE VIEW ootel_autod WITH (security_barrier) AS
     FROM auto
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
-    WHERE auto_seisundi_liik.auto_seisundi_liik_kood = 'O';
+    WHERE auto_seisundi_liik.auto_seisundi_liik_kood = 'O'
+    ORDER BY auto.nimetus ASC;
 COMMENT ON VIEW ootel_autod 
 IS 'Vaade leiab andmed kõikide ootel autode kohta. Vaates näidatakse ka auto hetkeseisundit.
 Vaatele vastab funktsioon OP3.1';
@@ -49,7 +52,8 @@ CREATE OR REPLACE VIEW autode_detailid WITH (security_barrier) AS
     FROM auto
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
     INNER JOIN auto_kytuse_liik ON auto.auto_kytuse_liik_kood=auto_kytuse_liik.auto_kytuse_liik_kood
-    INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood;
+    INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
+    ORDER BY auto.nimetus ASC;
 COMMENT ON VIEW autode_detailid 
 IS 'Vaade leiab autode detailandmed. 
 Vaatele vastab operatsioon OP4.1';
@@ -66,7 +70,8 @@ CREATE OR REPLACE VIEW aktiivsed_autod WITH (security_barrier) AS
     FROM auto
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
-    WHERE auto_seisundi_liik.auto_seisundi_liik_kood = 'A';
+    WHERE auto_seisundi_liik.auto_seisundi_liik_kood = 'A'
+    ORDER BY auto.nimetus ASC;
 COMMENT ON VIEW aktiivsed_autod 
 IS 'Vaade leiab andmed kõikide aktiivsete autode kohta. Vaates näidatakse ka auto hetkeseisundit.
 Vaatele vastab operatsioon OP6.1';
@@ -83,7 +88,8 @@ CREATE OR REPLACE VIEW ootel_ja_mitteaktiivsed_autod WITH (security_barrier) AS
     FROM auto
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
-    WHERE auto_seisundi_liik.auto_seisundi_liik_kood IN ('O', 'M');
+    WHERE auto_seisundi_liik.auto_seisundi_liik_kood IN ('O', 'M')
+    ORDER BY auto.nimetus ASC;
 COMMENT ON VIEW ootel_ja_mitteaktiivsed_autod 
 IS 'Vaade leiab andmed kõikide ootel ja mitteaktiivsete autode kohta. Vaates näidatakse ka auto hetkeseisundit.
 Vaatele vastab operatsioon OP7.1';
@@ -99,7 +105,8 @@ CREATE OR REPLACE VIEW koik_autod WITH (security_barrier) AS
     auto.vin_kood
     FROM auto
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
-    INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood;
+    INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
+    ORDER BY auto.nimetus ASC;
 COMMENT ON VIEW koik_autod 
 IS 'Vaade leiab andmed kõikide autode kohta. Vaates näidatakse ka auto hetkeseisundit.
 Vaade vastab operatsioonile OP8.1';
@@ -122,7 +129,8 @@ CREATE OR REPLACE VIEW autod_koos_registreerijaga WITH (security_barrier) AS
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
     INNER JOIN auto_kytuse_liik ON auto.auto_kytuse_liik_kood=auto_kytuse_liik.auto_kytuse_liik_kood
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
-    INNER JOIN isik ON auto.lisaja_id=isik.isik_id;
+    INNER JOIN isik ON auto.lisaja_id=isik.isik_id
+    ORDER BY auto.nimetus ASC;
 COMMENT ON VIEW autod_koos_registreerijaga 
 IS 'Vaade leiab autode detailandmed ja selle registreerinud töötaja andmed. 
 Vaatele vastab operatsioon OP8.2';
@@ -139,7 +147,8 @@ CREATE OR REPLACE VIEW aktiivsed_ja_mitteaktiivsed_autod WITH (security_barrier)
     FROM auto
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
-    WHERE auto_seisundi_liik.auto_seisundi_liik_kood IN ('A', 'M');
+    WHERE auto_seisundi_liik.auto_seisundi_liik_kood IN ('A', 'M')
+    ORDER BY auto.nimetus ASC;
 COMMENT ON VIEW aktiivsed_ja_mitteaktiivsed_autod 
 IS 'Vaade leiab andmed kõikide aktiivsete ja mitteaktiivsete autode kohta. Vaates näidatakse ka auto hetkeseisundit.
 Vaatele vastab operatsioon OP9.1';
@@ -164,7 +173,8 @@ CREATE OR REPLACE VIEW autode_kategooriatesse_kuulumine WITH (security_barrier) 
     LEFT JOIN auto_kategooria_omamine ON auto.auto_kood=auto_kategooria_omamine.auto_kood
     LEFT JOIN auto_kategooria ON auto_kategooria_omamine.auto_kategooria_kood=auto_kategooria.auto_kategooria_kood
     LEFT JOIN auto_kategooria_tyyp ON auto_kategooria_tyyp.auto_kategooria_tyyp_kood=auto_kategooria.auto_kategooria_tyyp_kood
-    GROUP BY auto.auto_kood;
+    GROUP BY auto.auto_kood
+    ORDER BY auto.auto_kood ASC;
 COMMENT ON VIEW autode_kategooriatesse_kuulumine 
 IS 'Vaade leiab andmed autode kategooriatesse kuulumise kohta. Iga kategooria juures on ka sellele vastava tüübi nimetus.
 Vaade vastab Hindamismudeli lisapunktile 1';
@@ -237,6 +247,7 @@ CREATE OR REPLACE VIEW autod_json WITH (security_barrier) AS
     INNER JOIN auto_mark ON auto.auto_mark_kood=auto_mark.auto_mark_kood
     INNER JOIN auto_kytuse_liik ON auto.auto_kytuse_liik_kood=auto_kytuse_liik.auto_kytuse_liik_kood
     INNER JOIN auto_seisundi_liik ON auto.auto_seisundi_liik_kood=auto_seisundi_liik.auto_seisundi_liik_kood
+    ORDER BY auto.nimetus ASC
 ) AS row;
 COMMENT ON VIEW autod_json 
 IS 'Vaade leiab andmed autode ja nende kategooriatesse kuuluvuse kohta.
